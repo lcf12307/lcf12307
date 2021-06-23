@@ -224,86 +224,184 @@
 <h2 id="1-策略模式-Strategy"><a href="#1-策略模式-Strategy" class="headerlink" title="1. 策略模式( Strategy )"></a>1. 策略模式( Strategy )</h2><p>定义个策略接口，不同的实现类提供不同的具体策略算法, 同时它们之间可以互相替换.</p>
 <blockquote>
 <p>IStrategy 接口定义了策略方法，Strategy1 和 Strategy2 通过实现 IStrategy 提供不同的策略，而 User 组合了 IStrategy ，可以通过给 User 对象设置不同具体实现类来让其获得不同的策略</p>
-<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/aa41f6375b2ddd59c91432e0a2145c25.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2016/11/29/aa41f6375b2ddd59c91432e0a2145c25.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
 <p>策略模式.PNG</p>
 </blockquote>
 <h2 id="2-简单工厂模式-Simple-Factory"><a href="#2-简单工厂模式-Simple-Factory" class="headerlink" title="2. 简单工厂模式( Simple Factory )"></a>2. 简单工厂模式( Simple Factory )</h2><p>定义一个用以创建对象的工厂, 根据不同的条件生成不同的对象</p>
 <blockquote>
 <p>注意简单工厂模式与策略模式是不同的，工厂模式是根据给定的条件返回相应的对象，而策略模式是将不同的策略对象传递给使用者以实现不同策略,<em>（好吧，我差点分不清了）</em>详细不同点分析可转<a href="http://blog.csdn.net/fwj380891124/article/details/7552305" target="_blank" rel="noopener">这里</a></p>
-<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/01dabedb62594e22287c10c8b6061a21.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2016/11/29/01dabedb62594e22287c10c8b6061a21.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
 <p>简单工厂模式.PNG</p>
 </blockquote>
 <h2 id="3-工厂模式-Factory"><a href="#3-工厂模式-Factory" class="headerlink" title="3. 工厂模式( Factory )"></a>3. 工厂模式( Factory )</h2><p>针对每一种产品提供一个工厂类，通过不同的工厂实例来创建不同的产品实例</p>
 <blockquote>
 <p>与简单工厂模式不同点是它要为每一种产品提供一个工厂类，不同工厂类实现同一个工厂接口，返回不同产品，详细分析可转<a href="http://blog.csdn.net/superbeck/article/details/4446177" target="_blank" rel="noopener">这里</a></p>
-<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/08ca128f9c8a495acf5efafce66fa23e.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2016/11/29/08ca128f9c8a495acf5efafce66fa23e.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
 <p>工厂模式.PNG</p>
 </blockquote>
 <h2 id="4-抽象工厂模式-Abstract-Factory"><a href="#4-抽象工厂模式-Abstract-Factory" class="headerlink" title="4. 抽象工厂模式( Abstract Factory )"></a>4. 抽象工厂模式( Abstract Factory )</h2><p>应对产品族概念而生</p>
 <blockquote>
 <p>与工厂模式相比，抽象工厂模式是为了应对产品族</p>
-<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/946f97ce52089c1b3301deea2ced3aad.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2016/11/29/946f97ce52089c1b3301deea2ced3aad.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
 <p>抽象工厂模式.PNG</p>
 </blockquote>
 <h2 id="5-装饰者模式-Decorator"><a href="#5-装饰者模式-Decorator" class="headerlink" title="5. 装饰者模式( Decorator )"></a>5. 装饰者模式( Decorator )</h2><p>动态的给一个对象添加一些额外的功能</p>
 <blockquote>
 <p>ComponentImpl 和 Decorator 类都实现了 IComponent 接口，不同的是 ComponentImpl 提供了具体实现，而 Decorator 是先聚合 ComponentImpl 接着在自己的实现方法即 <code>operation()</code> 方法中做些处理<em>（即装饰）</em>后再调用 ComponentImpl 对象的具体实现</p>
-<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/843c9c69723d1f4a9343239efaca216a.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2016/11/29/843c9c69723d1f4a9343239efaca216a.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
 <p>装饰者模式.PNG</p>
 </blockquote>
 <h2 id="6-代理模式-Proxy"><a href="#6-代理模式-Proxy" class="headerlink" title="6. 代理模式( Proxy )"></a>6. 代理模式( Proxy )</h2><p>封装被代理对象并限制外界对被代理对象的访问</p>
 <blockquote>
 <p>注意区分装饰者模式和代理模式的区别。在代理模式中，ComponentImpl 和 Proxy 类都实现了 IComponent 接口，Proxy 对象中虽然也维护着一个 ComponentImpl 对象，但一般情况下它是代理类自己初始化的，不像装饰者模式是通过 <code>set</code> 进去的，同时在接口方法即 <code>operation()</code> 中代理对象会限制外界对被代理对象的访问，而装饰者模式是装饰者给被装饰者添加额外的行为，详细不同点分析可转<a href="http://www.cnblogs.com/jaredlam/archive/2011/11/08/2241089.html" target="_blank" rel="noopener">这里</a></p>
-<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/4fcd2e4ee7cfed2d079fb4b95ed27dab.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2016/11/29/4fcd2e4ee7cfed2d079fb4b95ed27dab.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
 <p>代理模式.PNG</p>
 </blockquote>
 <h2 id="7-模板方法模式-Template"><a href="#7-模板方法模式-Template" class="headerlink" title="7. 模板方法模式( Template )"></a>7. 模板方法模式( Template )</h2><p>定义一个操作的算法骨架, 并将一些步骤延迟到子类中</p>
 <blockquote>
 <p>AbsTemplate 抽象类中定义了一系列的方法，其中外界唯一能调用的 <code>operation()</code> 方法是 final 的<em>（即不可重写）</em>，在该方法中分别调用了 <code>first()</code> 、<code>second()</code> 、<code>third()</code> 方法<em>（即搭好算法框架）</em>，子类通过继承抽象类重写不同的方法来添加各自的行为</p>
-<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/704e0cbaff34c187fec9afb55b0e60f9.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2016/11/29/704e0cbaff34c187fec9afb55b0e60f9.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
 <p>模板方法模式.PNG</p>
 </blockquote>
 <h2 id="8-外观模式-Facade"><a href="#8-外观模式-Facade" class="headerlink" title="8. 外观模式( Facade )"></a>8. 外观模式( Facade )</h2><p>为系统向外界提供一个统一的接口</p>
 <blockquote>
 <p>Fracade 为 ComponentA 、ComponentB 、ComponentC 向外即 ClientA 、ClientB 提供统一的接口</p>
-<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/33ca2f6aa4335c6fea29ce104dc6d75c.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2016/11/29/33ca2f6aa4335c6fea29ce104dc6d75c.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
 <p>外观模式.PNG</p>
 </blockquote>
 <h2 id="9-适配器模式-Adapter"><a href="#9-适配器模式-Adapter" class="headerlink" title="9. 适配器模式( Adapter )"></a>9. 适配器模式( Adapter )</h2><p>将一个类的接口转换成客户希望的另一个接口</p>
 <blockquote>
 <p>比如项目引入第三方类库后应该先封装起来转换成自己需要的接口再使用，防止以后类库出现变更。AdapterA 先将 LibraryClass 封装起来，其对外提供的 <code>operation()</code> 方法中调用 LibraryClass 对象的方法，若以后换类库，只需改 AdapterA 类或者创建新的 Adapter 实现类即可</p>
-<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/1db7eb2746546ba047d0628898b3d2ce.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2016/11/29/1db7eb2746546ba047d0628898b3d2ce.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
 <p>适配器模式.PNG</p>
 </blockquote>
 <h2 id="10-桥接模式-Bridge"><a href="#10-桥接模式-Bridge" class="headerlink" title="10. 桥接模式( Bridge )"></a>10. 桥接模式( Bridge )</h2><p>将抽象部分与实现部分分离，使它们都可以独立的变化</p>
 <blockquote>
 <p>将原本要耦合的上下层抽象出来，上层和下层以组合的方式连接，然后上下层抽象可派生出许多不同方向的子类。AbsShape 封装了 IDrawProgram 接口，这样它的子类想从 DPA 切换到 DPB 或者别的，只需 <code>set</code> 进去就行啦<em>（你看，这 UML 图多像座桥）</em></p>
-<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/0d76883319ee8cd0839e2d6f2c3f916d.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2016/11/29/0d76883319ee8cd0839e2d6f2c3f916d.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
 <p>桥接模式.PNG</p>
 <p>注： <a href="http://blog.itpub.net/7243794/viewspace-837018/" target="_blank" rel="noopener">适配器、桥接与外观三模式之间关系</a></p>
 </blockquote>
 <h2 id="11-建造者模式-Builder"><a href="#11-建造者模式-Builder" class="headerlink" title="11. 建造者模式( Builder )"></a>11. 建造者模式( Builder )</h2><p>将一个复杂对象的构建与它的表示分离.</p>
 <blockquote>
 <p>作为 Product 的内部类，Builder 统一了 Product 的整个构建过程，同时在 <code>build</code> 过程中，可以由于 <code>set</code> 值顺序不同等原因产生不同的效果</p>
-<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/cf070a5fb8111b1314aced631631197c.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2016/11/29/cf070a5fb8111b1314aced631631197c.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
 <p>建造者模式.PNG</p>
 </blockquote>
 <h2 id="12-观察者模式-Observer"><a href="#12-观察者模式-Observer" class="headerlink" title="12. 观察者模式( Observer )"></a>12. 观察者模式( Observer )</h2><p>定义了一种一对多的依赖关系,让多个观察者对象同时监听某一主题对象,在它的状态发生变化时,会通知所有的观察者.</p>
 <blockquote>
 <p>先将 Observer 注册到 Observable ，那么当 Observable 状态改变时会通知它持有的所有 Observer ,对了，最好 Observable 中的 mList 的泛型是 <code>WeakReference</code> ,防止内存泄漏</p>
-<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/b1fe5f63e817d328c1f7e750cd5d93b4.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2016/11/29/b1fe5f63e817d328c1f7e750cd5d93b4.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
 <p>观察者模式.PNG</p>
 </blockquote>
 <h2 id="13-单例模式-Singleton"><a href="#13-单例模式-Singleton" class="headerlink" title="13. 单例模式( Singleton )"></a>13. 单例模式( Singleton )</h2><p>保证一个类仅有一个实例,并提供一个访问它的全局控制点.</p>
 <blockquote>
 <p>下图是利用 Java 的语言特性实现的线程安全且能延迟初始化的单例模式，Singleton 中维护着静态私有的 SingleHolder 类， SingleHolder 类中持有个静态常量 sHolder ，Client 若通过 getSingleInstance 方法获取 Singleton 对象则直接返回 SingleHolder 类的 sHolder ，详细分析可转<a href="http://www.race604.com/java-double-checked-singleton/" target="_blank" rel="noopener">这里</a></p>
-<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/e30d9327210aceecf9bf5cb04269bf85.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2016/11/29/e30d9327210aceecf9bf5cb04269bf85.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
 <p>单例模式.PNG</p>
 </blockquote>
 <h2 id="14-命令模式-Command"><a href="#14-命令模式-Command" class="headerlink" title="14. 命令模式( Command )"></a>14. 命令模式( Command )</h2><p>将一个请求封装成为一个对象, 使可以用不同的请求对客户进行参数化</p>
 <blockquote>
 <p>Action 封装了具体行为，Command 封装了 Action 并提供空方法 <code>execute()</code> ，它的子类通过重写该方法可在方法里调用 mAction 不同行为达到封装命令的目的，最后 Client 封装了一系列的 Command 对象，并可以通过 <code>notify()</code> 方法一个接着一个调用所持有 Command 对象们的 <code>execute()</code> 方法达到给 Action 传达命令的目的</p>
-<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/98452fb637f4ad49b822cd6dcf01e364.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://user-gold-cdn.xitu.io/2016/11/29/98452fb637f4ad49b822cd6dcf01e364.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
 <p>命令模式.PNG</p>
 </blockquote>
 

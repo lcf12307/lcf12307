@@ -321,7 +321,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-面试/复盘/2.25来也面试"
+            <article id="post-面试/复盘/2.26滴滴面试"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -339,7 +339,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E6%9D%A5%E4%B9%9F%E9%9D%A2%E8%AF%95/">【面试复盘】来也面试</a>
+      <a class="post-title-link" href="/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.26%E6%BB%B4%E6%BB%B4%E9%9D%A2%E8%AF%95/">【面试复盘】滴滴面试</a>
     </h3>
   
 
@@ -349,27 +349,28 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>该部门只是对一个微信公众号的网站进行维护 因此兴趣不大</p>
-<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="并列排行榜的实现"><a href="#并列排行榜的实现" class="headerlink" title="并列排行榜的实现"></a>并列排行榜的实现</h3><p>使用浮点数 如果分数是整数的时候，直接大于x.1即可</p>
-<h3 id="hash的底层实现"><a href="#hash的底层实现" class="headerlink" title="hash的底层实现"></a>hash的底层实现</h3><ul>
-<li><p>数组加链表的数据结构</p>
-</li>
-<li><p>通过算法计算hash_code （可能会有hash冲突）</p>
-</li>
-<li><p>hash冲突的时候使用链表</p>
-</li>
+        <p>滴滴一面老哥人比较好，会帮忙思考一些问题</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="发现cpu异常，应该如何处理"><a href="#发现cpu异常，应该如何处理" class="headerlink" title="发现cpu异常，应该如何处理"></a>发现cpu异常，应该如何处理</h3><h3 id="go程序有没有办法使用工具检测"><a href="#go程序有没有办法使用工具检测" class="headerlink" title="go程序有没有办法使用工具检测"></a>go程序有没有办法使用工具检测</h3><p>还有一个go自己的工具 <code>go tool trace</code>, 它有一个UI, 允许你查看你的程序和运行时的状况</p>
+<h3 id="linux-干掉占用内存过高的程序"><a href="#linux-干掉占用内存过高的程序" class="headerlink" title="linux 干掉占用内存过高的程序"></a>linux 干掉占用内存过高的程序</h3><p> Top &amp;&amp; sudo kill -9 pid</p>
+<p>Pid 的ppid有可能还没被杀死</p>
+<p>-9 表示强制的参数</p>
+<h3 id="mysql有什么分库分表的中间件"><a href="#mysql有什么分库分表的中间件" class="headerlink" title="mysql有什么分库分表的中间件"></a>mysql有什么分库分表的中间件</h3><h3 id="go的context"><a href="#go的context" class="headerlink" title="go的context"></a>go的context</h3><p>上下文 主要是对协程进行统一管理</p>
+<p>context包中还包含了四个用于繁衍Context值的函数，即：WithCancel、WithDeadline、WithTimeout和WithValue。</p>
+<h3 id="go的协程与线程的区别"><a href="#go的协程与线程的区别" class="headerlink" title="go的协程与线程的区别"></a>go的协程与线程的区别</h3><h4 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h4><ul>
+<li>协程由一个或者多个线程管理， 且协程调度发生在线程中</li>
+<li>可以被调度，调度策略由应用层代码实现</li>
+<li>高效， 节省了线程切换的成本</li>
+<li>占用内存少 线程的内存供多个goroutine使用</li>
 </ul>
-<h3 id="评论的时候怎么保证幂等性"><a href="#评论的时候怎么保证幂等性" class="headerlink" title="评论的时候怎么保证幂等性"></a>评论的时候怎么保证幂等性</h3><h3 id="mysql-线上有1000万个数据，怎么加索引"><a href="#mysql-线上有1000万个数据，怎么加索引" class="headerlink" title="mysql 线上有1000万个数据，怎么加索引"></a>mysql 线上有1000万个数据，怎么加索引</h3><p>新建另外的数据库来加</p>
-<h3 id="mysql-1000万个数据，怎么分页"><a href="#mysql-1000万个数据，怎么分页" class="headerlink" title="mysql 1000万个数据，怎么分页"></a>mysql 1000万个数据，怎么分页</h3><p>加一个子查询 id&gt;= limit</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> <span class="keyword">id</span> &gt;= (<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">limit</span> <span class="number">9000000</span>,<span class="number">1</span>)<span class="keyword">limit</span> <span class="number">0</span>,<span class="number">100</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="grpc的底层协议"><a href="#grpc的底层协议" class="headerlink" title="grpc的底层协议"></a>grpc的底层协议</h3><p>grpc底层使用的是http2.0  传输的数据结构是protocolbuf 是二进制的格式</p>
-
+<h3 id="锁和channel的区别"><a href="#锁和channel的区别" class="headerlink" title="锁和channel的区别"></a>锁和channel的区别</h3><h3 id="go的mutex是否是可重入锁"><a href="#go的mutex是否是可重入锁" class="headerlink" title="go的mutex是否是可重入锁"></a>go的mutex是否是可重入锁</h3><h3 id="go的mutex是不是公平锁"><a href="#go的mutex是不是公平锁" class="headerlink" title="go的mutex是不是公平锁"></a>go的mutex是不是公平锁</h3><h3 id="测试包的使用"><a href="#测试包的使用" class="headerlink" title="测试包的使用"></a>测试包的使用</h3><p>对于功能测试函数来说，其名称必须以Test为前缀，并且参数列表中只应有一个<em>testing.T类型的参数声明。</em></p>
+<p>对于性能测试函数来说，其名称必须以Benchmark为前缀，并且唯一参数的类型必须是*testing.B类型的。</p>
+<p>对于示例测试函数来说，其名称必须以Example为前缀，但对函数的参数列表没有强制规定。</p>
+<h3 id="MPG"><a href="#MPG" class="headerlink" title="MPG"></a>MPG</h3><h3 id="快排的稳定性为什么差"><a href="#快排的稳定性为什么差" class="headerlink" title="快排的稳定性为什么差"></a>快排的稳定性为什么差</h3><p>因为每次都随机选择快排子</p>
+<h3 id="优化快排"><a href="#优化快排" class="headerlink" title="优化快排"></a>优化快排</h3><h3 id="多列索引的实现"><a href="#多列索引的实现" class="headerlink" title="多列索引的实现"></a>多列索引的实现</h3><p>q</p>
+<h3 id="rabbitMQ底层怎么做存储"><a href="#rabbitMQ底层怎么做存储" class="headerlink" title="rabbitMQ底层怎么做存储"></a>rabbitMQ底层怎么做存储</h3><h3 id="waitGroup的缺点"><a href="#waitGroup的缺点" class="headerlink" title="waitGroup的缺点"></a>waitGroup的缺点</h3>
     
 
-        <a href="/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E6%9D%A5%E4%B9%9F%E9%9D%A2%E8%AF%95/" class="post-more waves-effect waves-button">
+        <a href="/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.26%E6%BB%B4%E6%BB%B4%E9%9D%A2%E8%AF%95/" class="post-more waves-effect waves-button">
             Continue reading...
         </a>
     </div>
@@ -443,7 +444,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-面试/复盘/2.26滴滴面试"
+            <article id="post-面试/复盘/2.25来也面试"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -461,7 +462,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.26%E6%BB%B4%E6%BB%B4%E9%9D%A2%E8%AF%95/">【面试复盘】滴滴面试</a>
+      <a class="post-title-link" href="/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E6%9D%A5%E4%B9%9F%E9%9D%A2%E8%AF%95/">【面试复盘】来也面试</a>
     </h3>
   
 
@@ -471,28 +472,27 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>滴滴一面老哥人比较好，会帮忙思考一些问题</p>
-<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="发现cpu异常，应该如何处理"><a href="#发现cpu异常，应该如何处理" class="headerlink" title="发现cpu异常，应该如何处理"></a>发现cpu异常，应该如何处理</h3><h3 id="go程序有没有办法使用工具检测"><a href="#go程序有没有办法使用工具检测" class="headerlink" title="go程序有没有办法使用工具检测"></a>go程序有没有办法使用工具检测</h3><p>还有一个go自己的工具 <code>go tool trace</code>, 它有一个UI, 允许你查看你的程序和运行时的状况</p>
-<h3 id="linux-干掉占用内存过高的程序"><a href="#linux-干掉占用内存过高的程序" class="headerlink" title="linux 干掉占用内存过高的程序"></a>linux 干掉占用内存过高的程序</h3><p> Top &amp;&amp; sudo kill -9 pid</p>
-<p>Pid 的ppid有可能还没被杀死</p>
-<p>-9 表示强制的参数</p>
-<h3 id="mysql有什么分库分表的中间件"><a href="#mysql有什么分库分表的中间件" class="headerlink" title="mysql有什么分库分表的中间件"></a>mysql有什么分库分表的中间件</h3><h3 id="go的context"><a href="#go的context" class="headerlink" title="go的context"></a>go的context</h3><p>上下文 主要是对协程进行统一管理</p>
-<p>context包中还包含了四个用于繁衍Context值的函数，即：WithCancel、WithDeadline、WithTimeout和WithValue。</p>
-<h3 id="go的协程与线程的区别"><a href="#go的协程与线程的区别" class="headerlink" title="go的协程与线程的区别"></a>go的协程与线程的区别</h3><h4 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h4><ul>
-<li>协程由一个或者多个线程管理， 且协程调度发生在线程中</li>
-<li>可以被调度，调度策略由应用层代码实现</li>
-<li>高效， 节省了线程切换的成本</li>
-<li>占用内存少 线程的内存供多个goroutine使用</li>
+        <p>该部门只是对一个微信公众号的网站进行维护 因此兴趣不大</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="并列排行榜的实现"><a href="#并列排行榜的实现" class="headerlink" title="并列排行榜的实现"></a>并列排行榜的实现</h3><p>使用浮点数 如果分数是整数的时候，直接大于x.1即可</p>
+<h3 id="hash的底层实现"><a href="#hash的底层实现" class="headerlink" title="hash的底层实现"></a>hash的底层实现</h3><ul>
+<li><p>数组加链表的数据结构</p>
+</li>
+<li><p>通过算法计算hash_code （可能会有hash冲突）</p>
+</li>
+<li><p>hash冲突的时候使用链表</p>
+</li>
 </ul>
-<h3 id="锁和channel的区别"><a href="#锁和channel的区别" class="headerlink" title="锁和channel的区别"></a>锁和channel的区别</h3><h3 id="go的mutex是否是可重入锁"><a href="#go的mutex是否是可重入锁" class="headerlink" title="go的mutex是否是可重入锁"></a>go的mutex是否是可重入锁</h3><h3 id="go的mutex是不是公平锁"><a href="#go的mutex是不是公平锁" class="headerlink" title="go的mutex是不是公平锁"></a>go的mutex是不是公平锁</h3><h3 id="测试包的使用"><a href="#测试包的使用" class="headerlink" title="测试包的使用"></a>测试包的使用</h3><p>对于功能测试函数来说，其名称必须以Test为前缀，并且参数列表中只应有一个<em>testing.T类型的参数声明。</em></p>
-<p>对于性能测试函数来说，其名称必须以Benchmark为前缀，并且唯一参数的类型必须是*testing.B类型的。</p>
-<p>对于示例测试函数来说，其名称必须以Example为前缀，但对函数的参数列表没有强制规定。</p>
-<h3 id="MPG"><a href="#MPG" class="headerlink" title="MPG"></a>MPG</h3><h3 id="快排的稳定性为什么差"><a href="#快排的稳定性为什么差" class="headerlink" title="快排的稳定性为什么差"></a>快排的稳定性为什么差</h3><p>因为每次都随机选择快排子</p>
-<h3 id="优化快排"><a href="#优化快排" class="headerlink" title="优化快排"></a>优化快排</h3><h3 id="多列索引的实现"><a href="#多列索引的实现" class="headerlink" title="多列索引的实现"></a>多列索引的实现</h3><p>q</p>
-<h3 id="rabbitMQ底层怎么做存储"><a href="#rabbitMQ底层怎么做存储" class="headerlink" title="rabbitMQ底层怎么做存储"></a>rabbitMQ底层怎么做存储</h3><h3 id="waitGroup的缺点"><a href="#waitGroup的缺点" class="headerlink" title="waitGroup的缺点"></a>waitGroup的缺点</h3>
+<h3 id="评论的时候怎么保证幂等性"><a href="#评论的时候怎么保证幂等性" class="headerlink" title="评论的时候怎么保证幂等性"></a>评论的时候怎么保证幂等性</h3><h3 id="mysql-线上有1000万个数据，怎么加索引"><a href="#mysql-线上有1000万个数据，怎么加索引" class="headerlink" title="mysql 线上有1000万个数据，怎么加索引"></a>mysql 线上有1000万个数据，怎么加索引</h3><p>新建另外的数据库来加</p>
+<h3 id="mysql-1000万个数据，怎么分页"><a href="#mysql-1000万个数据，怎么分页" class="headerlink" title="mysql 1000万个数据，怎么分页"></a>mysql 1000万个数据，怎么分页</h3><p>加一个子查询 id&gt;= limit</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> <span class="keyword">id</span> &gt;= (<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">limit</span> <span class="number">9000000</span>,<span class="number">1</span>)<span class="keyword">limit</span> <span class="number">0</span>,<span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="grpc的底层协议"><a href="#grpc的底层协议" class="headerlink" title="grpc的底层协议"></a>grpc的底层协议</h3><p>grpc底层使用的是http2.0  传输的数据结构是protocolbuf 是二进制的格式</p>
+
     
 
-        <a href="/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.26%E6%BB%B4%E6%BB%B4%E9%9D%A2%E8%AF%95/" class="post-more waves-effect waves-button">
+        <a href="/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E6%9D%A5%E4%B9%9F%E9%9D%A2%E8%AF%95/" class="post-more waves-effect waves-button">
             Continue reading...
         </a>
     </div>
@@ -799,7 +799,7 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-刷题心得/位运算/比特位计数"
+            <article id="post-刷题心得/位运算/2的幂"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -817,7 +817,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2020/02/11/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E4%BD%8D%E8%BF%90%E7%AE%97/%E6%AF%94%E7%89%B9%E4%BD%8D%E8%AE%A1%E6%95%B0/">【位运算】比特位计数</a>
+      <a class="post-title-link" href="/2020/02/11/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E4%BD%8D%E8%BF%90%E7%AE%97/2%E7%9A%84%E5%B9%82/">【位运算】2的幂</a>
     </h3>
   
 
@@ -827,20 +827,23 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个非负整数 num。对于 0 ≤ i ≤ num 范围中的每个数字 i ，计算其二进制数中的 1 的数目并将它们作为数组返回。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: 2</span><br><span class="line">输出: [0,1,1]</span><br><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入: 5</span><br><span class="line">输出: [0,1,1,2,1,2]</span><br><span class="line">进阶:</span><br></pre></td></tr></table></figure>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个整数，编写一个函数来判断它是否是 2 的幂次方。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: 1</span><br><span class="line">输出: true</span><br><span class="line">解释: 20 &#x3D; 1</span><br><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入: 16</span><br><span class="line">输出: true</span><br><span class="line">解释: 24 &#x3D; 16</span><br><span class="line">示例 3:</span><br><span class="line"></span><br><span class="line">输入: 218</span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure>
 
 
 
-<p>给出时间复杂度为O(n*sizeof(integer))的解答非常容易。但你可以在线性时间O(n)内用一趟扫描做到吗？<br>要求算法的空间复杂度为O(n)。<br>你能进一步完善解法吗？要求在C++或任何其他语言中不使用任何内置函数（如 C++ 中的 __builtin_popcount）来执行此操作。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">countBits</span><span class="params">(num <span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">  res := <span class="built_in">make</span>([]<span class="keyword">int</span>, num + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">for</span> i := <span class="number">1</span>; i&lt;num+<span class="number">1</span>; i ++ &#123;</span><br><span class="line">    res[i] += res[i&amp;(i<span class="number">-1</span>)] + <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isPowerOfTwo</span><span class="params">(n <span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">  <span class="keyword">if</span> n == <span class="number">0</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> n &amp; (n<span class="number">-1</span>) == <span class="number">0</span>   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><h4 id="mod"><a href="#mod" class="headerlink" title="mod"></a>mod</h4><h4 id="log2-int"><a href="#log2-int" class="headerlink" title="log2 = int"></a>log2 = int</h4><p>####位运算</p>
+<p>n&amp;(n-1)</p>
+
     
 
-        <a href="/2020/02/11/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E4%BD%8D%E8%BF%90%E7%AE%97/%E6%AF%94%E7%89%B9%E4%BD%8D%E8%AE%A1%E6%95%B0/" class="post-more waves-effect waves-button">
+        <a href="/2020/02/11/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E4%BD%8D%E8%BF%90%E7%AE%97/2%E7%9A%84%E5%B9%82/" class="post-more waves-effect waves-button">
             Continue reading...
         </a>
     </div>
