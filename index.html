@@ -150,6 +150,46 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-hexon的在线编辑"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2021-06-24 00:44:56" datetime="2021-06-23T16:44:56.000Z"  itemprop="datePublished">2021-06-24 </time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2021/06/24/hexon%E7%9A%84%E5%9C%A8%E7%BA%BF%E7%BC%96%E8%BE%91/">hexon的在线编辑</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>hexon的在线编辑。 测试测试</p>
+
+    
+
+        <a href="/2021/06/24/hexon%E7%9A%84%E5%9C%A8%E7%BA%BF%E7%BC%96%E8%BE%91/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-面试/复盘/4.27其他面试"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -670,63 +710,6 @@
     
 
         <a href="/2020/03/12/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.12%E5%A4%B4%E6%9D%A1%E9%9D%A2%E8%AF%95/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%8D%E7%9B%98/" rel="tag">复盘</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-面试/复盘/3.10腾讯面试"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2020-03-10 00:00:00" datetime="2020-03-09T16:00:00.000Z"  itemprop="datePublished">2020-03-10 </time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2020/03/10/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.10%E8%85%BE%E8%AE%AF%E9%9D%A2%E8%AF%95/">【面试复盘】腾讯面试</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h3 id="哪种索引的性能最好"><a href="#哪种索引的性能最好" class="headerlink" title="哪种索引的性能最好"></a>哪种索引的性能最好</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">索引的选择性是指，不重复的索引值（也称为基数）和数据表的记录总数（rows）的比值，范围从1&#x2F;rows到1之间。索引的选择性越高则查询效率越高，因为选择性高的索引可以让Mysql在查找时过滤掉更多的行。唯一索引的选择性是1，这是最好的索引选择性，性能也是最好的。而假如我们是按某个表的性别字段作为索引列，这样选择性就很低，索引效果就不是很明显。</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="什么时候用不到索引"><a href="#什么时候用不到索引" class="headerlink" title="什么时候用不到索引"></a>什么时候用不到索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">以%开头的 like 查询不能利用 B-Tree 索引，执行计划中 key 的值为 null 表示没有使用索引</span><br><span class="line">数据类型出现隐式转换的时候也不会使用索引，例如，where &#39;age&#39; 10&#x3D;30</span><br><span class="line">对索引列进行函数运算，原因同上</span><br><span class="line">正则表达式不会使用索引</span><br><span class="line">字符串和数据比较不会使用索引</span><br><span class="line">复合索引的情况下，假如查询条件不包含索引列最左边部分，即不满足最左原则 leftmost，是不会使用复合索引的</span><br><span class="line">如果 MySQL 估计使用索引比全表扫描更慢，则不使用索引</span><br><span class="line">用 or 分割开的条件，如果 or 前的条件中的列有索引，而后面的列中没有索引，那么涉及的索引都不会被用到</span><br><span class="line">使用负向查询（not ，not in， not like ，&lt;&gt; ,!&#x3D; ,!&gt; ,!&lt; ） 不会使用索引</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="redis-压缩列表-跳表"><a href="#redis-压缩列表-跳表" class="headerlink" title="redis 压缩列表 跳表"></a>redis 压缩列表 跳表</h3><h3 id="aof日志量过大的时候重写，瘦身"><a href="#aof日志量过大的时候重写，瘦身" class="headerlink" title="aof日志量过大的时候重写，瘦身"></a>aof日志量过大的时候重写，瘦身</h3>
-    
-
-        <a href="/2020/03/10/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.10%E8%85%BE%E8%AE%AF%E9%9D%A2%E8%AF%95/" class="post-more waves-effect waves-button">
             Continue reading...
         </a>
     </div>
