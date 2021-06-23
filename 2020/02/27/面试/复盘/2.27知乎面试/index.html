@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【面试复盘】映客面试 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="复盘">
+    <meta name="description" content="raft的应用场景 同类的算法Etched hash的时候一个节点链表过长怎么处理 更换算法 更换数据结构  redis持久化AOF RDB b+树在保存唯一索引的时候的生成mysql 读到从库未更新数据 如何解决 主从使用一个数据库 （pass） 写完库后更新缓存 设置过期时间 使用数据库中间件  golang里 make 和 a :&#x3D; []int{} 的区别归并排序的时间复杂度和空间复杂度（空">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【面试复盘】映客面试">
+<meta property="og:url" content="http://lcf12307.github.io/2020/02/27/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.27%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="raft的应用场景 同类的算法Etched hash的时候一个节点链表过长怎么处理 更换算法 更换数据结构  redis持久化AOF RDB b+树在保存唯一索引的时候的生成mysql 读到从库未更新数据 如何解决 主从使用一个数据库 （pass） 写完库后更新缓存 设置过期时间 使用数据库中间件  golang里 make 和 a :&#x3D; []int{} 的区别归并排序的时间复杂度和空间复杂度（空">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.010Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="复盘">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【面试复盘】映客面试</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【面试复盘】映客面试</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-02-26T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2020-02-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#raft的应用场景-同类的算法"><span class="post-toc-number">1.</span> <span class="post-toc-text">raft的应用场景 同类的算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#hash的时候一个节点链表过长怎么处理"><span class="post-toc-number">2.</span> <span class="post-toc-text">hash的时候一个节点链表过长怎么处理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis持久化"><span class="post-toc-number">3.</span> <span class="post-toc-text">redis持久化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#b-树在保存唯一索引的时候的生成"><span class="post-toc-number">4.</span> <span class="post-toc-text">b+树在保存唯一索引的时候的生成</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mysql-读到从库未更新数据-如何解决"><span class="post-toc-number">5.</span> <span class="post-toc-text">mysql 读到从库未更新数据 如何解决</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#golang里-make-和-a-int-的区别"><span class="post-toc-number">6.</span> <span class="post-toc-text">golang里 make 和 a :&#x3D; []int{} 的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#归并排序的时间复杂度和空间复杂度（空间复杂度的计算）"><span class="post-toc-number">7.</span> <span class="post-toc-text">归并排序的时间复杂度和空间复杂度（空间复杂度的计算）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#n个有序数组-合并"><span class="post-toc-number">8.</span> <span class="post-toc-text">n个有序数组 合并</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#dns使用的协议"><span class="post-toc-number">9.</span> <span class="post-toc-text">dns使用的协议</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内网ip访问到公网ip的路径"><span class="post-toc-number">10.</span> <span class="post-toc-text">内网ip访问到公网ip的路径</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-面试/复盘/2.27知乎面试"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【面试复盘】映客面试</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-02-27 00:00:00" datetime="2020-02-26T16:00:00.000Z"  itemprop="datePublished">2020-02-27 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="raft的应用场景-同类的算法"><a href="#raft的应用场景-同类的算法" class="headerlink" title="raft的应用场景 同类的算法"></a>raft的应用场景 同类的算法</h3><p>Etched</p>
+<h3 id="hash的时候一个节点链表过长怎么处理"><a href="#hash的时候一个节点链表过长怎么处理" class="headerlink" title="hash的时候一个节点链表过长怎么处理"></a>hash的时候一个节点链表过长怎么处理</h3><ul>
+<li>更换算法</li>
+<li>更换数据结构</li>
+</ul>
+<h3 id="redis持久化"><a href="#redis持久化" class="headerlink" title="redis持久化"></a>redis持久化</h3><p>AOF</p>
+<p>RDB</p>
+<h3 id="b-树在保存唯一索引的时候的生成"><a href="#b-树在保存唯一索引的时候的生成" class="headerlink" title="b+树在保存唯一索引的时候的生成"></a>b+树在保存唯一索引的时候的生成</h3><h3 id="mysql-读到从库未更新数据-如何解决"><a href="#mysql-读到从库未更新数据-如何解决" class="headerlink" title="mysql 读到从库未更新数据 如何解决"></a>mysql 读到从库未更新数据 如何解决</h3><ul>
+<li>主从使用一个数据库 （pass）</li>
+<li>写完库后更新缓存 设置过期时间</li>
+<li>使用数据库中间件</li>
+</ul>
+<h3 id="golang里-make-和-a-int-的区别"><a href="#golang里-make-和-a-int-的区别" class="headerlink" title="golang里 make 和 a := []int{} 的区别"></a>golang里 make 和 a := []int{} 的区别</h3><h3 id="归并排序的时间复杂度和空间复杂度（空间复杂度的计算）"><a href="#归并排序的时间复杂度和空间复杂度（空间复杂度的计算）" class="headerlink" title="归并排序的时间复杂度和空间复杂度（空间复杂度的计算）"></a>归并排序的时间复杂度和空间复杂度（空间复杂度的计算）</h3><p>排序算法比较表格</p>
+<table>
+<thead>
+<tr>
+<th>排序算法</th>
+<th>平均时间复杂度</th>
+<th>最坏时间复杂度</th>
+<th>空间复杂度</th>
+<th>是否稳定</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>冒泡排序</td>
+<td>o(n2)</td>
+<td>o(n2)</td>
+<td>o(1)</td>
+<td>是</td>
+</tr>
+</tbody></table>
+<p>|选择排序    |O（n2）|O（n2）|    O（n2）|O（n2）|    O（1）|O（1）    |不是|<br>|直接插入排序|    O（n2）|O（n2）|    O（n2）|O（n2）|    O（1）|O（1）    |是|<br>|归并排序|    O(nlogn)|O(nlogn)    |O(nlogn)|O(nlogn)    |O（n）|O（n）|    是|<br>|快速排序    |O(nlogn)|O(nlogn)|    O（n2）|O（n2）|    O（logn）|O（logn）|    不是|<br>|堆排序    |O(nlogn)|O(nlogn)|    O(nlogn)|O(nlogn)    |O（1）|O（1）    |不是|<br>|希尔排序|    O(nlogn|)O(nlogn)|    O（ns）|O（ns）|    O（1）|O（1）|    不是|<br>|计数排序|    O(n+k)|O(n+k)|    O(n+k)|O(n+k)|    O(n+k)|O(n+k)    是|<br>|基数排序|    O(N∗M|)O(N∗M)|    O(N∗M)|O(N∗M)    |O(M)|O(M)    |是|</p>
+<h3 id="n个有序数组-合并"><a href="#n个有序数组-合并" class="headerlink" title="n个有序数组 合并"></a>n个有序数组 合并</h3><h3 id="dns使用的协议"><a href="#dns使用的协议" class="headerlink" title="dns使用的协议"></a>dns使用的协议</h3><p>Udp协议</p>
+<h3 id="内网ip访问到公网ip的路径"><a href="#内网ip访问到公网ip的路径" class="headerlink" title="内网ip访问到公网ip的路径"></a>内网ip访问到公网ip的路径</h3><p>内网ip在局域网内是唯一的， 但是可以通过该局域网对应的公网ip来实现对其他公网IP的访问</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%8D%E7%9B%98/" rel="tag">复盘</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/02/27/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.27%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95/&title=《【面试复盘】映客面试》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/02/27/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.27%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95/&title=《【面试复盘】映客面试》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/02/27/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.27%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【面试复盘】映客面试》 — fannnnnn&url=http://lcf12307.github.io/2020/02/27/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.27%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/02/27/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.27%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/02/27/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.27%E6%BB%B4%E6%BB%B4%E9%9D%A2%E8%AF%95/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【面试复盘】滴滴面试</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E4%BD%9C%E4%B8%9A%E5%B8%AE%E9%9D%A2%E8%AF%95/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【面试复盘】作业帮面试</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/02/27/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.27%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95/&title=《【面试复盘】映客面试》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/02/27/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.27%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95/&title=《【面试复盘】映客面试》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/02/27/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.27%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【面试复盘】映客面试》 — fannnnnn&url=http://lcf12307.github.io/2020/02/27/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.27%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/02/27/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.27%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD4klEQVR42u3a0U7jUAwE0P7/T4O0bwgaZuybVmhPnypgk5vTlVzb83jEr49/r+/vr//+jtf361//5HHHCwcOHDhwLI7+7NLPjpIc9Pru19dvz5M/Iw4cOHDgOMuRFNf2NjnZhnVTdHHgwIEDx3s5kiJ3zZf3TTOCtu3EgQMHDhzv5bjvWAluC40DBw4cON7Lcap92qym9suwWauJAwcOHDjOcmwCDX/l/YvyHThw4MDx33PsY2p56d2sstriOgzh4cCBAweONUe+RtrEF/alfTY0nEUccODAgQPHhiN/7P3Arh3S5bjHBpc4cODAgePkDqgut7Ml037smMQpWm4cOHDgwHGKYz8czA+3iTvcEWL4gRsHDhw4cNzAMetrrv9t8kj5UippNdul17BzxYEDBw4clxxt4CBptIrdV5lh2xT4qNDiwIEDB44Rx37h1K6O8hHegZasXI/hwIEDB45THJvlzQy0jbKdXWtFgTkcOHDgwLHgSFY4+XKojazljeIGCwcOHDhwvIZjUxTb0NtmRdSO9vLfHvuOgAMHDhw4ypjC7H0edJiNEfNHzVdWOHDgwIFjw5Ecty2Ts9hB/njDYV8ChAMHDhw41hz7QduMdba4arHykz/9P4IDBw4cOEqOvGS2S6A2DJeH5HLo9mPAgQMHDhx7jtngb7ZMmi2HZgG41fVx4MCBA8fi+rPWqyU7W8hn7RkOHDhw4HgNR3uzPPSQxxpmS6/NlX95ahw4cODAcZQjb8zyOEIba2sbttkH8/RsOHDgwIFjwXE9emtjcHlJS0Z7banOx5dRoAEHDhw4cBziaEeBM7LkIduxY1tcceDAgQPHHRz5qqld7cwOl7dbebHfDBBx4MCBA0fL0TY5s2PN2rNN4RwGL3DgwIEDx5rjjkLbAhXDu3gFNSvtOHDgwIHjPo7NoDAPQ8yGgO1v868IOHDgwIFjz7EPsW1WRPkD5K3X5sPDgQMHDhynONotTNLybQINbRvZQhdpOxw4cODAMeLIHym/8SyacGBRVN73y3Vw4MCBA8chjs1FN5GFvPDnTLMUXN3C4cCBAweOuNzOBm3tMG4/cGzbwuLrAg4cOHDgWHB8lK+2TOZRtjaakA8oizYSBw4cOHCsOWaRhbw0Ji1iW1bzDyz5GGYBDhw4cODAcc2R3GDWks2CC8nj7SMOT++FAwcOHDgOcbSFM+HbtIJtoGHWav7w9zhw4MCB44Uc+zXSvunKids74sCBAweOd3HssfLHy3/Stnm/DAdx4MCBA8eaoz1WTtni3vElIH8iHDhw4MCx52gDDbN8xL49a5u3trHEgQMHDhxrjk8rISCCv2JcqwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

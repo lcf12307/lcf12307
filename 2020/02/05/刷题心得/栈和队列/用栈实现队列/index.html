@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【栈和队列】用栈实现队列 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="算法,栈">
+    <meta name="description" content="题目使用栈实现队列的下列操作： push(x) – 将一个元素放入队列的尾部。pop() – 从队列首部移除元素。peek() – 返回队列首部的元素。empty() – 返回队列是否为空。示例: 1234567MyQueue queue &#x3D; new MyQueue();queue.push(1);queue.push(2);  queue.peek();  &#x2F;&#x2F; 返">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【栈和队列】用栈实现队列">
+<meta property="og:url" content="http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="题目使用栈实现队列的下列操作： push(x) – 将一个元素放入队列的尾部。pop() – 从队列首部移除元素。peek() – 返回队列首部的元素。empty() – 返回队列是否为空。示例: 1234567MyQueue queue &#x3D; new MyQueue();queue.push(1);queue.push(2);  queue.peek();  &#x2F;&#x2F; 返">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.003Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="栈">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【栈和队列】用栈实现队列</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【栈和队列】用栈实现队列</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-02-04T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2020-02-05
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/">刷题心得</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码"><span class="post-toc-number">2.</span> <span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-刷题心得/栈和队列/用栈实现队列"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【栈和队列】用栈实现队列</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-02-05 00:00:00" datetime="2020-02-04T16:00:00.000Z"  itemprop="datePublished">2020-02-05 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/">刷题心得</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>使用栈实现队列的下列操作：</p>
+<p>push(x) – 将一个元素放入队列的尾部。<br>pop() – 从队列首部移除元素。<br>peek() – 返回队列首部的元素。<br>empty() – 返回队列是否为空。<br>示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MyQueue queue &#x3D; new MyQueue();</span><br><span class="line"></span><br><span class="line">queue.push(1);</span><br><span class="line">queue.push(2);  </span><br><span class="line">queue.peek();  &#x2F;&#x2F; 返回 1</span><br><span class="line">queue.pop();   &#x2F;&#x2F; 返回 1</span><br><span class="line">queue.empty(); &#x2F;&#x2F; 返回 false</span><br></pre></td></tr></table></figure>
+
+<p>说明:</p>
+<p>你只能使用标准的栈操作 – 也就是只有 push to top, peek/pop from top, size, 和 is empty 操作是合法的。<br>你所使用的语言也许不支持栈。你可以使用 list 或者 deque（双端队列）来模拟一个栈，只要是标准的栈操作即可。<br>假设所有操作都是有效的 （例如，一个空的队列不会调用 pop 或者 peek 操作）。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> MyQueue <span class="keyword">struct</span> &#123;</span><br><span class="line">    arr []<span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Constructor</span><span class="params">()</span> <span class="title">MyQueue</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> MyQueue&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/** Push element x to the back of queue. */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *MyQueue)</span> <span class="title">Push</span><span class="params">(x <span class="keyword">int</span>)</span></span>  &#123;</span><br><span class="line">    <span class="keyword">if</span> this.arr == <span class="literal">nil</span> &#123;</span><br><span class="line">        this.arr = <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    this.arr = <span class="built_in">append</span>(this.arr, x)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/** Removes the element from in front of queue and returns that element. */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *MyQueue)</span> <span class="title">Pop</span><span class="params">()</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> this.arr == <span class="literal">nil</span> &#123;</span><br><span class="line">        this.arr = <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(this.arr) &lt;= <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    a := this.arr[<span class="number">0</span>]</span><br><span class="line">    this.arr = this.arr[<span class="number">1</span>:]</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/** Get the front element. */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *MyQueue)</span> <span class="title">Peek</span><span class="params">()</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> this.arr == <span class="literal">nil</span> &#123;</span><br><span class="line">        this.arr = <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(this.arr) &lt;= <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> this.arr[<span class="number">0</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/** Returns whether the queue is empty. */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *MyQueue)</span> <span class="title">Empty</span><span class="params">()</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> this.arr == <span class="literal">nil</span> || <span class="built_in">len</span>(this.arr) &lt;= <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MyQueue object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * obj := Constructor();</span></span><br><span class="line"><span class="comment"> * obj.Push(x);</span></span><br><span class="line"><span class="comment"> * param_2 := obj.Pop();</span></span><br><span class="line"><span class="comment"> * param_3 := obj.Peek();</span></span><br><span class="line"><span class="comment"> * param_4 := obj.Empty();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%88/" rel="tag">栈</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/&title=《【栈和队列】用栈实现队列》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/&title=《【栈和队列】用栈实现队列》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【栈和队列】用栈实现队列》 — fannnnnn&url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E6%9C%80%E5%A4%A7%E5%80%BC/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">刷题心得/栈和队列/滑动窗口最大值</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">刷题心得/栈和队列/第k大元素</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/&title=《【栈和队列】用栈实现队列》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/&title=《【栈和队列】用栈实现队列》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【栈和队列】用栈实现队列》 — fannnnnn&url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFSklEQVR42u3c0WorRxAE0Pv/P51AngKxpKrqVQi5Z5+MLO/MnBGot3rwr1/x9cdf199/fvXKP1+/32eb1av3X0YcL3z48OHDh+/FTd9D5L99tbxk3OS3rxBzrJb15Rzw4cOHDx++iS8vC3KUZKn5+98vI8fKS6hoq/Dhw4cPH76v8bWP2TlWvlX5ItuiBx8+fPjw4fsv8+VLzYuMNprPY/o8tsCHDx8+fPj+Hb4kOk9KhKdiiLbE2cL6tlWADx8+fPjw3fm2A2r/758fvvDhw4cPH77g67ktSvKx8vIiD+u30iovVn64Dz58+PDhw7dojI/924Gw9q+2+iE/gtYG/VHigg8fPnz48L2YZ97MvgyWN6cvzYD8PZcE4LRIfPjw4cOHr6TZ2uFFDTUFATlE24r4sC58+PDhw4dv4tsCgmQSSRSeL3vjbkOE5J348OHDhw/fhS9/tN7KiPwh/6lmwHuCNtaPwnp8+PDhw4cvnW29yPwQ2+Uo2zaf8aRA/GH6MBY+fPjw4cP3lq9dXouSBARbhLE1ttuPwoc548OHDx8+fBNffrXB+v0x/nJA7dtrxIcPHz58+Da+PPjOIfLGcxLxt+38Oikpj6Z9iAzw4cOHDx++t8/jW3lxj9S3ZvxGc7/Ph/4GPnz48OHDF8zqG+3tvF3dxvRj538aPdpsfPjw4cOHb+LLw+62XZ3fIW+rPzvKJRDBhw8fPnz47nxtIN6G7PcW9bNwycfoJS4+fPjw4cN3zcmjAmKbXLsl7QIum3qPS/Dhw4cPH75LbL312y8lSF0cxBFDPue8qMKHDx8+fPi+wbcF+smDfUKWb+F76Ch23z5S+PDhw4cP316NFP+UpJ1u3upuQ42tPXAJGvDhw4cPH76n+L4X2ecN7PfjtoF+spZ2XHz48OHDh+/O1/7ZNok29D/t/CEQqdvn+PDhw4cPX8x3/yJvp3UvMtrWeB6+J3f+odeBDx8+fPjwxXyXguDenL5E9tuhtK1V8OEDhA8fPnz48MV8SRDQTihvpbdFxr2BnW98VIThw4cPHz58y/N7HXZvTfFLoJAsoG2ob8UKPnz48OHD9yxfHo5vPfl89y5HzZKY4Cun/PDhw4cPH763600i75w1fxRv79DOJw9E8mLoh9fx4cOHDx++A1878GWieYu9vWce7t+3Bx8+fPjw4bvwtQO0w+eN7by4yeODLcKIonl8+PDhw4evzMaTyV3QtwfyjSA/Qrdt9g93wIcPHz58+GK+y8La9nP+jd8C5XFD+4H4MAd8+PDhw4fvwPdHeeW4Lda3GwCXgull4YIPHz58+PDFf9surG4nl0FDW3BszfJL2IEPHz58+PA9xbcVMVtE3ibel2Aib0u05Ro+fPjw4cOX87UT2h6884DgUkDkZc1Wxr1sk+PDhw8fPnwx31NBeVuU5GT5uPlvt40sLnz48OHDh68k226aR+dtAbSF9Zeypi5Z8OHDhw8fvoAvKRouEHkB0ZYal814rP2PDx8+fPjwTXyXo2N3mm1J9wDiHqPgw4cPHz58d772dNvWYs+/95PCqH1/W6BEJ/vw4cOHDx++pTYoiobL0eotDrhE+Zdy6uFzB/jw4cOH77fnyxecv5I3treGd/uevLVQbwY+fPjw4cM38bWt6PyBPFnkr/OVlzh5cRNtGD58+PDhw/c1vhYiAdrChS2GuBRkL0fBhw8fPnz4vsy3ReFJcZOgb0xtzFEg4sOHDx8+fBNfG9bnE2qJ2zZ2u8H3o28P9Drw4cOHD99vzNdG4Ulh0Yb727Lzpvi2JVvRhg8fPnz48L2485+o7LmZX7CYRwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

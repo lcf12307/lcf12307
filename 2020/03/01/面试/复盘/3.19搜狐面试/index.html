@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【面试复盘】百度面试 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="复盘">
+    <meta name="description" content="聚簇索引和非聚簇索引的区别123聚集索引与非聚集索引的区别是：叶节点是否存放一整行记录InnoDB 主键使用的是聚簇索引，MyISAM 不管是主键索引，还是二级索引使用的都是非聚簇索引。  1234聚簇索引的优点1.当你需要取出一定范围内的数据时，用聚簇索引也比用非聚簇索引好。2.当通过聚簇索引查找目标数据时理论上比非聚簇索引要快，因为非聚簇索引定位到对应主键时还要多一次目标记录寻址,即多一次I&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【面试复盘】百度面试">
+<meta property="og:url" content="http://lcf12307.github.io/2020/03/01/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.19%E6%90%9C%E7%8B%90%E9%9D%A2%E8%AF%95/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="聚簇索引和非聚簇索引的区别123聚集索引与非聚集索引的区别是：叶节点是否存放一整行记录InnoDB 主键使用的是聚簇索引，MyISAM 不管是主键索引，还是二级索引使用的都是非聚簇索引。  1234聚簇索引的优点1.当你需要取出一定范围内的数据时，用聚簇索引也比用非聚簇索引好。2.当通过聚簇索引查找目标数据时理论上比非聚簇索引要快，因为非聚簇索引定位到对应主键时还要多一次目标记录寻址,即多一次I&amp;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.011Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="复盘">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【面试复盘】百度面试</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【面试复盘】百度面试</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-02-29T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2020-03-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#聚簇索引和非聚簇索引的区别"><span class="post-toc-number">1.</span> <span class="post-toc-text">聚簇索引和非聚簇索引的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#并发和并行"><span class="post-toc-number">2.</span> <span class="post-toc-text">并发和并行</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-面试/复盘/3.19搜狐面试"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【面试复盘】百度面试</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-01 00:00:00" datetime="2020-02-29T16:00:00.000Z"  itemprop="datePublished">2020-03-01 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="聚簇索引和非聚簇索引的区别"><a href="#聚簇索引和非聚簇索引的区别" class="headerlink" title="聚簇索引和非聚簇索引的区别"></a>聚簇索引和非聚簇索引的区别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">聚集索引与非聚集索引的区别是：叶节点是否存放一整行记录</span><br><span class="line"></span><br><span class="line">InnoDB 主键使用的是聚簇索引，MyISAM 不管是主键索引，还是二级索引使用的都是非聚簇索引。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">聚簇索引的优点</span><br><span class="line">1.当你需要取出一定范围内的数据时，用聚簇索引也比用非聚簇索引好。</span><br><span class="line">2.当通过聚簇索引查找目标数据时理论上比非聚簇索引要快，因为非聚簇索引定位到对应主键时还要多一次目标记录寻址,即多一次I&#x2F;O。</span><br><span class="line">3.使用覆盖索引扫描的查询可以直接使用页节点中的主键值。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.插入速度严重依赖于插入顺序，按照主键的顺序插入是最快的方式，否则将会出现页分裂，严重影响性能。因此，对于InnoDB表，我们一般都会定义一个自增的ID列为主键。</span><br><span class="line">2.更新主键的代价很高，因为将会导致被更新的行移动。因此，对于InnoDB表，我们一般定义主键为不可更新。</span><br><span class="line">3.二级索引访问需要两次索引查找，第一次找到主键值，第二次根据主键值找到行数据。二级索引的叶节点存储的是主键值，而不是行指针（非聚簇索引存储的是指针或者说是地址），这是为了减少当出现行移动或数据页分裂时二级索引的维护工作，但会让二级索引占用更多的空间。</span><br><span class="line">4.采用聚簇索引插入新值比采用非聚簇索引插入新值的速度要慢很多，因为插入要保证主键不能重复，判断主键不能重复，采用的方式在不同的索引下面会有很大的性能差距，聚簇索引遍历所有的叶子节点，非聚簇索引也判断所有的叶子节点，但是聚簇索引的叶子节点除了带有主键还有记录值，记录的大小往往比主键要大的多。这样就会导致聚簇索引在判定新记录携带的主键是否重复时进行昂贵的I&#x2F;O代价。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="并发和并行"><a href="#并发和并行" class="headerlink" title="并发和并行"></a>并发和并行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">并发性(concurrency)，又称共行性，是指能处理多个同时性活动的能力，并发事件之间不一定要同一时刻发生。</span><br><span class="line">并行(parallelism)是指同时发生的两个并发事件，具有并发的含义，而并发则不一定并行。</span><br><span class="line"></span><br><span class="line">前者是逻辑上的同时发生（simultaneous），而后者是物理上的同时发生．</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%8D%E7%9B%98/" rel="tag">复盘</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/03/01/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.19%E6%90%9C%E7%8B%90%E9%9D%A2%E8%AF%95/&title=《【面试复盘】百度面试》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/03/01/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.19%E6%90%9C%E7%8B%90%E9%9D%A2%E8%AF%95/&title=《【面试复盘】百度面试》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/03/01/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.19%E6%90%9C%E7%8B%90%E9%9D%A2%E8%AF%95/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【面试复盘】百度面试》 — fannnnnn&url=http://lcf12307.github.io/2020/03/01/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.19%E6%90%9C%E7%8B%90%E9%9D%A2%E8%AF%95/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/03/01/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.19%E6%90%9C%E7%8B%90%E9%9D%A2%E8%AF%95/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/03/01/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.18%E7%99%BE%E5%BA%A6%E9%9D%A2%E8%AF%95/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【面试复盘】百度面试</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/03/01/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.1%E5%A4%B4%E6%9D%A1%E9%9D%A2%E8%AF%95/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【面试复盘】头条面试</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/03/01/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.19%E6%90%9C%E7%8B%90%E9%9D%A2%E8%AF%95/&title=《【面试复盘】百度面试》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/03/01/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.19%E6%90%9C%E7%8B%90%E9%9D%A2%E8%AF%95/&title=《【面试复盘】百度面试》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/03/01/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.19%E6%90%9C%E7%8B%90%E9%9D%A2%E8%AF%95/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【面试复盘】百度面试》 — fannnnnn&url=http://lcf12307.github.io/2020/03/01/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.19%E6%90%9C%E7%8B%90%E9%9D%A2%E8%AF%95/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/03/01/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/3.19%E6%90%9C%E7%8B%90%E9%9D%A2%E8%AF%95/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD40lEQVR42u3aS46jQBAFQN//0jNbt2YM72UWci+ClQU0VYRbSufn9YqPP2/H+5l/r76f/3R1c1zv59MODx84cODAgSN+1Xz5a6x2xfZr2GDdrI4DBw4cOA5xfNpK/jm5urmnXbddBQcOHDhwfIsjf6U8lWoD/AwIBw4cOHD8To489ZqleXmSdjac48CBAweOsxzt8m3jJynYzf6qLRceq5XiwIEDB46uN7QqFP62z4/Md+DAgQMHjjJZ2owdXD8/D7R5kXE/oocDBw4cOPYcs7ZQm2idKg7mVzfvhQMHDhw4NhzXW0zCbXsmD+Q5ZT70cMOEAwcOHDjWHO2LbRKn9p72zjzli94UBw4cOHCsOa43kSywKRG2626g68QSBw4cOHCUHHkhb798/vxZGG7HHT7+4sCBAwcOHCOOtrWTcCTEs/uvk7H8mVHbCQcOHDhwjDjy4tqsmdS2iPaBf1YExIEDBw4cT3C0gTYv8yUoCdC+yZRD48CBAweOGUehNRov2Gxxltrl968aTjhw4MCBYzTKsA9yp8YRZvT5zwUcOHDgwHGW44DiOulKAu1seKJ+Dg4cOHDgWHPkY2r5JtpUatM0Opsi4sCBAweODcepJQ9MT8SvtEnzboBw4MCBA8cDHNdpT56AtWF7Myo3uzqsceLAgQMHjlFgS4p9+0A7KyZuRveGGS0OHDhw4Cg58pZPEsZyxHbo7VQgr3NHHDhw4MBRpnBtwMuTvWH6VBYEX6PjZkgOBw4cOHCMOIbZXjnKMPurWcKWh/ab/xEcOHDgwDHi2BT4NgMHm3Qr+YZnJUIcOHDgwHGKY5YstQnVJoS34TMPxj/O4MCBAweOBzg2CdJs622qlof2OpHDgQMHDhyHOPKU7OlG0Szly5PAm3tw4MCBA8dRjllA3cDNRiL2V29SOBw4cODAseZog9bszjbstQ2wNpH7z3kcOHDgwPEwR9sQ2pT28jbVpkl2U77EgQMHDhxHOdpBtHwTSaLVjkrsiYspPBw4cODAMeLIN70ZIGhDYPs1zPb58XcHDhw4cOAYccziTh3G1hGtfUJbXsSBAwcOHHuOfIih/Zyki/nQQ1tAnH0lOHDgwIFjz7Fp5LQNoTy1a1c/Vi7EgQMHDhwPdF7aBlWUFI2ecGoUrx3CwIEDBw4ce442QCbDEHkxMS/ttaXJ9ocCDhw4cOA4yzFLkNoXSCJ8/uScvq6V4sCBAweOr3LsKfMAvGmMRfvHgQMHDhxf5cjPt82qJFGcDVXc/BUOHDhw4DjEkW9rn9qdCsDtcF5UiMSBAwcOHGuOvJS2WfgJ1nzcYROeceDAgQNHzPEXHvc1l1GnqSEAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

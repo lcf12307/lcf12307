@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【字符串】最长无重复子串 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="算法,字符串">
+    <meta name="description" content="题目给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。 示例 1: 输入: “abcabcbb”输出: 3解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3。示例 2: 输入: “bbbbb”输出: 1解释: 因为无重复字符的最长子串是 “b”，所以其长度为 1。示例 3: 输入: “pwwkew”输出: 3 解释: 因为无重复字符的最长子串是 “wke”，所以其长度为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【字符串】最长无重复子串">
+<meta property="og:url" content="http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="题目给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。 示例 1: 输入: “abcabcbb”输出: 3解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3。示例 2: 输入: “bbbbb”输出: 1解释: 因为无重复字符的最长子串是 “b”，所以其长度为 1。示例 3: 输入: “pwwkew”输出: 3 解释: 因为无重复字符的最长子串是 “wke”，所以其长度为">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.003Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="字符串">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【字符串】最长无重复子串</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【字符串】最长无重复子串</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-02-04T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2020-02-05
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/">刷题心得</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码"><span class="post-toc-number">2.</span> <span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-刷题心得/字符串/最长无重复子串"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【字符串】最长无重复子串</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-02-05 00:00:00" datetime="2020-02-04T16:00:00.000Z"  itemprop="datePublished">2020-02-05 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/">刷题心得</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
+<p>示例 1:</p>
+<p>输入: “abcabcbb”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3。<br>示例 2:</p>
+<p>输入: “bbbbb”<br>输出: 1<br>解释: 因为无重复字符的最长子串是 “b”，所以其长度为 1。<br>示例 3:</p>
+<p>输入: “pwwkew”<br>输出: 3</p>
+<p>解释: 因为无重复字符的最长子串是 “wke”，所以其长度为 3。<br>     请注意，你的答案必须是 子串 的长度，”pwke” 是一个子序列，不是子串。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(s <span class="keyword">string</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">  	<span class="comment">// 设置一个ascii 数组</span></span><br><span class="line">    locations := [<span class="number">256</span>]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line">    <span class="comment">// 设定初始值 -1</span></span><br><span class="line">    <span class="keyword">for</span> i:=<span class="number">0</span>; i&lt; <span class="built_in">len</span>(locations); i ++ &#123;</span><br><span class="line">        locations[i] = <span class="number">-1</span></span><br><span class="line">    &#125;</span><br><span class="line">  	<span class="comment">// 起始位置和最大值</span></span><br><span class="line">    start, max := <span class="number">0</span>,<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i:=<span class="number">0</span>; i&lt;<span class="built_in">len</span>(s); i++ &#123;</span><br><span class="line">      	<span class="comment">// 如果上次重复的位置比当前的start要大， 重设起始位置</span></span><br><span class="line">        <span class="keyword">if</span> locations[s[i]] &gt;= start &#123;</span><br><span class="line">            start = locations[s[i]] + <span class="number">1</span></span><br><span class="line">          <span class="comment">// 如果没有重复值， 更新最大值</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> i + <span class="number">1</span> - start &gt; max &#123;</span><br><span class="line">            max = i + <span class="number">1</span> - start </span><br><span class="line">        &#125;</span><br><span class="line">      	<span class="comment">// 记录该字符上次出现的位置</span></span><br><span class="line">        locations[s[i]] = i</span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> max  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/&title=《【字符串】最长无重复子串》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/&title=《【字符串】最长无重复子串》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【字符串】最长无重复子串》 — fannnnnn&url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/02/07/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E5%93%88%E5%B8%8C%E8%A1%A8/%E5%BC%82%E4%BD%8D%E8%AF%8D/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">刷题心得/哈希表/异位词</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E5%90%88%E6%B3%95%E6%8B%AC%E5%8F%B7/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【栈和队列】合法括号</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/&title=《【字符串】最长无重复子串》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/&title=《【字符串】最长无重复子串》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【字符串】最长无重复子串》 — fannnnnn&url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E5%AD%97%E7%AC%A6%E4%B8%B2/%E6%9C%80%E9%95%BF%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFT0lEQVR42u3b24ocORAE0Pn/n/bCPq2xuycishoW5vTT0BeV6sigVGT56yt+/fr39eqdPz/dfvv+m+9H+O/r1fvJd74+8cKHDx8+fPj+mEpymeSSr775/rrJfF79qv00mUligg8fPnz48F348uIg2cG3/f1SBrXcOfo3c8OHDx8+fPg+xrexJiVCXS7EcUNbkOHDhw8fPnz/H75ky29Lii0Vv5RE+X3hw4cPHz58n+Pb2slbELA1AzaUz7XY8eHDhw8fvsPpu3hA7Sf8/cHn+/Dhw4cP3w/m+1W+2gfUkvZ2Xkxs7fl7u/2lBj58+PDhw7doPPZfoZJxihC8LKGebbQXrQV8+PDhw4cv5msj9XvAnRO3v93KoFNZhg8fPnz48E0n+ry82I707YF/K4kucUb76RgZ4MOHDx++H893KTuSIqAFeqolUAfu0zLjw4cPHz58l25yHmq3WG0QcEHZxrnPEB8+fPjw4XuqQd7GB+2Dbgn6ZSZ5K6JeEnz48OHDh2/iyzfvp47u2/fzMfNyKm+xv+xy4MOHDx8+fBPfJWp/dje/RBJ5SXSJEn5rk+PDhw8fPnzlWfgeoyfH8rwEaQP0tnDJlz+SwYcPHz58+Eq+7baT7T85nCcolyBjW7Y6+MCHDx8+fPgCvm37b7FasuQ28vFz1rxEw4cPHz58+C582820zfJ2SbYDfNuG3+b8df+3gA8fPnz48JXvbzd5Waq2VZ+A5o3z6Pk+fPjw4cOHL+7wtgfyfOPPW9cb071T0ZZW+PDhw4cP38b3VBlxKTIujfkkXm8bEsV88OHDhw8fvonvqUe42nJkKy+So34S0LcN9W8qPnz48OHDhy/e/S/Fwb2hnl83X+wEt300DR8+fPjw4bvz5Vt7++BXG0ZcIvjkKpeS6yU3Pnz48OHDV/IlG/Z2+a042B4vS75/v25d3uHDhw8fPnxvT77Ptre3A/+9YMqLm/Z+X36KDx8+fPjwxXz3B78uBURbSd1LpXtD4re/8eHDhw8fvj0BiAqCLV5PDuHPRhJb2JE3IfDhw4cPH76Nb9v4t0fB2sltxccnFuObyAAfPnz48OGb+N7H1lvRkB/7LzHBPXp4H9y/vDt8+PDhw4dv4vtEQdAe5vNx2mb2hhu9jw8fPnz48E094vY22qN+MqG8eMoXIxnn0ubHhw8fPnz4Nr4tXm+584ihRdxCgfs/HXz48OHDh6/ly9vS7UH63vzO2/D5zPM7jX6LDx8+fPjwfYDv/e3ljfa8ktpGblsFbZzxF0R8+PDhw4dv4msfBcuLgy0O2Frv+Qhte+DlyPjw4cOHD9/Elx+/28N8e1Dflm1rCbTh/sv+Bj58+PDhw1fedXtEz8PuS0sg52gpt4bEy7vAhw8fPnz4Yr5k6Lx0aGP6vAWeLGH7aVKsfEOMDx8+fPjwlXz5BfJg/dPRf9vavzTUi2IIHz58+PDhm/jyQ3UeNGwFUB4WbHPe8nZ8+PDhw4fvwtcerZNBt/jgEgFcxsnjj78sIT58+PDhwzfx5T97NrjPWwWX0CFvP9QvfPjw4cOH78yXlywta9IOvzTa89m25cs3Txngw4cPHz58MV+7R7fH9a3VvS3V5YrJcp4Q8eHDhw8fvrh82ZrTT0UDWwlybz8k7+PDhw8fPnwXvgvE+4ttAcTlKhfudib48OHDhw/f5/i2+Pv9ArSRQR7x57FCfl+nwgUfPnz48OE787UheNt4bue2FUNbmwEfPnz48OG78OVB9iUsSCa39fmTOV8W4+V38OHDhw8fvpKvjqeDkuWpiV6C+7wBnywSPnz48OHDd+b7Byg0rDPvP3KuAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

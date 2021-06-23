@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>bash快捷键 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="linux,快捷键,云服务器">
+    <meta name="description" content="今天敲命令行时想在单词间移动，竟然不记得快速移动的快捷键。试了Ctrl + W和Ctrl + B&#x2F;F均不凑效，于是怀念之前某博主分享的终端快捷键说明图。 好在很快从浏览记录中找到了链接。原博主(@linuxtoy)分享的终端跳转解说图为：  虽然命令难记，但解说图清晰易懂，让人印象深刻。 趁热打铁，马上找了篇解说bash快捷键的文章温习一下。博主Alan Skorkin的”Bash Shortcu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bash快捷键">
+<meta property="og:url" content="http://lcf12307.github.io/2019/04/24/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/bash%E5%BF%AB%E6%8D%B7%E9%94%AE/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="今天敲命令行时想在单词间移动，竟然不记得快速移动的快捷键。试了Ctrl + W和Ctrl + B&#x2F;F均不凑效，于是怀念之前某博主分享的终端快捷键说明图。 好在很快从浏览记录中找到了链接。原博主(@linuxtoy)分享的终端跳转解说图为：  虽然命令难记，但解说图清晰易懂，让人印象深刻。 趁热打铁，马上找了篇解说bash快捷键的文章温习一下。博主Alan Skorkin的”Bash Shortcu">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/2/10/168d7a68490a6ba5?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="article:published_time" content="2019-04-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.007Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="快捷键">
+<meta property="article:tag" content="云服务器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/2/10/168d7a68490a6ba5?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">bash快捷键</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">bash快捷键</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-23T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-04-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编辑"><span class="post-toc-number">1.</span> <span class="post-toc-text">编辑</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#搜索"><span class="post-toc-number">2.</span> <span class="post-toc-text">搜索</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#控制"><span class="post-toc-number">3.</span> <span class="post-toc-text">控制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Bang-即感叹号"><span class="post-toc-number">4.</span> <span class="post-toc-text">Bang(即感叹号)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">5.</span> <span class="post-toc-text"></span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-常见问题/云服务器/bash快捷键"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">bash快捷键</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-24 00:00:00" datetime="2019-04-23T16:00:00.000Z"  itemprop="datePublished">2019-04-24 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>今天敲命令行时想在单词间移动，竟然不记得快速移动的快捷键。试了<code>Ctrl + W</code>和<code>Ctrl + B/F</code>均不凑效，于是怀念之前某博主分享的终端快捷键说明图。</p>
+<p>好在很快从浏览记录中找到了链接。原博主(<a href="https://link.juejin.im/?target=https%3A%2F%2Ftwitter.com%2Flinuxtoy">@linuxtoy</a>)分享的终端跳转解说图为：</p>
+<p><a href="https://link.juejin.im/?target=https%3A%2F%2Ftlanyan.me%2Fbash-shortcuts%2Fbash-shortcut%2F"><img src="https://user-gold-cdn.xitu.io/2019/2/10/168d7a68490a6ba5?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></a></p>
+<p>虽然命令难记，但解说图清晰易懂，让人印象深刻。</p>
+<p>趁热打铁，马上找了篇解说<code>bash</code>快捷键的文章温习一下。博主<a href="https://link.juejin.im/?target=https%3A%2F%2Fskorks.com">Alan Skorkin</a>的”<a href="https://link.juejin.im/?target=1">Bash Shortcuts For Maximum Productivity</a>“一文写得十分详细，故在此翻译和分享，并部分内容做注释和修正。</p>
+<p>Alan Skorkin将bash快捷键分成四类，接下来一一给出。</p>
+<h2 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h2><ul>
+<li><strong>Ctrl + a</strong> – 跳到行首</li>
+<li><strong>Ctrl + e</strong> – 跳到行尾</li>
+<li><strong>Ctrl + k</strong> – 删除当前光标至行尾内容</li>
+<li><strong>Ctrl + u</strong> – 删除当前光标至行首内容</li>
+<li><strong>Ctrl + w</strong> – 删除当前光标至<strong>词首</strong>内容</li>
+<li><strong>Ctrl + y</strong> – 将剪切的内容粘贴在光标后</li>
+<li><strong>Ctrl + xx</strong> – 在行首和当前光标处(来回)移动</li>
+<li><strong>Alt + b</strong> – 跳到词首</li>
+<li><strong>Alt + f</strong> – 跳到词尾</li>
+<li><strong>Alt + d</strong> – 删除自光标处起的<strong>单词</strong>内容</li>
+<li><strong>Alt + c</strong> – 大写光标处的字符（<strong>注：该条内容与原文不同</strong>）</li>
+<li><strong>Alt + u</strong> – 大写自光标处起的<strong>单词</strong>内容</li>
+<li><strong>Alt + l</strong> – 小写自光标处起的<strong>单词</strong>内容</li>
+<li><strong>Alt + t</strong> – 将光标处单词与上一个词交换</li>
+<li><strong>Ctrl + f</strong> – 向前移动一个字符(相当于按向左箭头)</li>
+<li><strong>Ctrl + b</strong> – 向后移动一个字符(相当于按向右箭头)</li>
+<li><strong>Ctrl + d</strong> – 删除光标后一个字符（相当于按Delete）</li>
+<li><strong>Ctrl + h</strong> – 删除光标前一个字符（相当于按后退键）</li>
+<li><strong>Ctrl + t</strong> – 交换光标处的两个字符</li>
+</ul>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><ul>
+<li><strong>Ctrl + r</strong> – 反向搜索历史命令</li>
+<li><strong>Ctrl + g</strong> – 退出历史搜索模式（相当于按Esc）</li>
+<li><strong>Ctrl + p</strong> – 上一个历史命令（相当于按向上箭头）</li>
+<li><strong>Ctrl + n</strong> – 下一个历史命令（相当于按向下箭头）</li>
+<li><strong>Alt + .</strong> – 使用上一个命令的最后一个单词</li>
+</ul>
+<h2 id="控制"><a href="#控制" class="headerlink" title="控制"></a>控制</h2><ul>
+<li><strong>Ctrl + l</strong> – 清屏</li>
+<li><strong>Ctrl + s</strong> – 终止输出到屏幕（对长时间运行并打印详细信息的命令）</li>
+<li><strong>Ctrl + q</strong> – 允许输出到屏幕（如果之前用过终止输出命令）</li>
+<li><strong>Ctrl + c</strong> – 终止命令</li>
+<li><strong>Ctrl + z</strong> – 中断命令</li>
+</ul>
+<h2 id="Bang-即感叹号"><a href="#Bang-即感叹号" class="headerlink" title="Bang(即感叹号)"></a>Bang(即感叹号)</h2><ul>
+<li><strong>!!</strong> – 执行上一条命令</li>
+<li><strong>!blah</strong> –执行最近运行过的以<code>blah</code>开头的命令</li>
+<li><strong>!blah:p</strong> – 打印<code>!blah</code>要执行的命令（并将其作为最后一条命令加入到命令历史中）</li>
+<li><strong>!$</strong> – 上一条命令的最后一个单词 (等同于<code>Alt + .</code>)</li>
+<li><strong>!$:p</strong> – 打印<code>!$</code>指代的单词</li>
+<li><strong>!*</strong> – 上一条命令除最后一个词的部分</li>
+<li><strong>!*:p</strong> – 打印<code>!*</code>指代部分</li>
+</ul>
+<p>如果错误，敬请指正！</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">云服务器</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">快捷键</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2019/04/24/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/bash%E5%BF%AB%E6%8D%B7%E9%94%AE/&title=《bash快捷键》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2019/04/24/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/bash%E5%BF%AB%E6%8D%B7%E9%94%AE/&title=《bash快捷键》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2019/04/24/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/bash%E5%BF%AB%E6%8D%B7%E9%94%AE/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《bash快捷键》 — fannnnnn&url=http://lcf12307.github.io/2019/04/24/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/bash%E5%BF%AB%E6%8D%B7%E9%94%AE/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2019/04/24/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/bash%E5%BF%AB%E6%8D%B7%E9%94%AE/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/07/21/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/wine%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【常见问题】wine下的应用无法输入中文，解决办法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/24/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/vim%E5%BF%AB%E6%8D%B7%E9%94%AE/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">vim快捷键</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2019/04/24/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/bash%E5%BF%AB%E6%8D%B7%E9%94%AE/&title=《bash快捷键》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2019/04/24/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/bash%E5%BF%AB%E6%8D%B7%E9%94%AE/&title=《bash快捷键》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2019/04/24/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/bash%E5%BF%AB%E6%8D%B7%E9%94%AE/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《bash快捷键》 — fannnnnn&url=http://lcf12307.github.io/2019/04/24/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/bash%E5%BF%AB%E6%8D%B7%E9%94%AE/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2019/04/24/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/bash%E5%BF%AB%E6%8D%B7%E9%94%AE/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAElklEQVR42u3bSW7jQBAEwPn/pzXAXD2SMqtogC0FT4IWkh00UF2L//yJj8e/Y/PN/AxXne3x49jcCSZMmDBhOpfp8fJ4dupn77z+bb7sn796duZ22a/P/PScmDBhwoTpcKbkdMmyn13m9WIS9M13knW9uVtMmDBhwvQFTMmtvA7b+TeTM7fv52kwJkyYMGH6TqY84WzT5qSymj+YfNOACRMmTJi+hyk5Xb7gNm1+U2Bdh/lkXZfVwjFhwoQJ082YZi3Az3h98YEJEyZMmG7G9BgdecLZprJtwN6UfYszY8KECROmY5nyom0SJdsEtd2I5OM+s+bom3vDhAkTJkwHMiVNvrwR2IbnHL1uPcbpbnRFTJgwYcJ0LFM7apOA5oXUPLVONh+zIaF6qAgTJkyYMB3F1F44v+Q+AF+1+NkQUlTexYQJEyZMhzBt0tQkuM42CrPH0E7dRKvDhAkTJkwfwdSebpbQzh5J8nqfuj+9CiZMmDBh+gimNtDmhdr8dnPWdqux+oPAhAkTJkzHMm0WkyxvhviLPdtFGo8JEyZMmM5luvYCOehmdLXdTLRJcvE3hQkTJkyYDmHKS7Sz4dE8kOfF5dl38mthwoQJE6bTmZJAm4TS9mlsltc2QWcpdLGPwIQJEyZMt2dKbmuTmubnT7YaeTK8T6QxYcKECdPpTMnttuXRWRq82ZS0zdc84f/P3xQmTJgwYTqWqR21aV/nKWjbWG0T2mEtHBMmTJgwHciUh8w2Zd2UXPPtQlsabq81vAlMmDBhwnQbpjxYzsZDrxpFbUu6+fhsWybGhAkTJkznMs0S3bYEPPv09eLbVHnVxMWECRMmTAcytcG4DfnJ8vKNRd7mvOpamDBhwoTpXKZNkfc1Vn6js2pq3rzctz8xYcKECdNnMF1VZm2bmrPftu/PtjuYMGHChOl0pjaszlqAVxWI29T6V2rhmDBhwoTpKKb8B20hdRak86R3MwxUP2BMmDBhwnQs0+ym8+R51p7c31VLmcNhwoQJE6bPYEoKuHlReNPs3KDnqygeHiZMmDBhOpxpFkpnozObdDpfZB7yMWHChAnTpzK1QX02+NKib8Z09mXip01NTJgwYcJ0FFPbsJwlye1mInlg7SDOrAk67OtiwoQJE6bbML3+oE0vk9GfWTK8ead92MW+CRMmTJgw3Z5ptiHINxOztHmT4m6Ge6KtACZMmDBhOpap/fEm0W3fb9+ZrWi1Y8KECRMmTDdmmmXMmwC/GQxKjqRwXGwdMGHChAnTRzC1N3TtAE3RVvy1UZ7hxBAmTJgwYbox06zJtwnbSeH12iGhjQAmTJgwYTqd6VEes4Q2SZJnG47ZXeUP783gDiZMmDBhuj1TGyZ/L61ttwub8H8xDSZMmDBhuj3Tta3BNq1tU9xkwe0QT4SICRMmTJgOZ9oHzjyQ7wuybfF3dkVMmDBhwoRpTzlrWG6uO3zkmDBhwoTpC5j2/6qxD/b5RmSWWl+Q+mLChAkTplsyJUXe5NY3gzuzFLfdyuQF32E7ExMmTJgw3Yxp1npMiDchfFbwzT9tv48JEyZMmA5k+gvOlXTWFt7vKgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

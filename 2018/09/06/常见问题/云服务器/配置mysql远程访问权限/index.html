@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>配置mysql远程访问 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="mysql,linux,云服务器">
+    <meta name="description" content="1.使用yum命令安装mysql 1[root@bogon ~]#  yum -y install mysql-server">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置mysql远程访问">
+<meta property="og:url" content="http://lcf12307.github.io/2018/09/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%85%8D%E7%BD%AEmysql%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="1.使用yum命令安装mysql 1[root@bogon ~]#  yum -y install mysql-server">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/1697e3b0-837f-41b0-8baa-8e4578dda4c8.png">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/5269b539-f016-491c-b76c-a43e8e5833d5.png">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/900f746d-0def-457f-92df-c08e0894825d.png">
+<meta property="og:image" content="https://app.yinxiang.com/shard/s37/res/a5e1fa91-d624-48e2-95fd-9b9e261f5b65.png">
+<meta property="article:published_time" content="2018-09-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.008Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="云服务器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">配置mysql远程访问</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">配置mysql远程访问</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-05T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-09-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-常见问题/云服务器/配置mysql远程访问权限"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">配置mysql远程访问</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-06 00:00:00" datetime="2018-09-05T16:00:00.000Z"  itemprop="datePublished">2018-09-06 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>1.使用yum命令安装mysql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon ~]#  yum -y install mysql-server</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>2.设置开机启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon ~]#  chkconfig mysqld on</span><br></pre></td></tr></table></figure>
+
+<p>3.启动MySQL服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon ~]#  service mysqld start</span><br></pre></td></tr></table></figure>
+
+<p>4.设置MySQL的root用户设置密码</p>
+<p><img src="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif" alt="复制代码"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon ~]#  mysql -u root  </span><br><span class="line">mysql&gt; select user,host,password from mysql.user;  </span><br><span class="line">+------+-----------+----------+  </span><br><span class="line">| user | host      | password |  </span><br><span class="line">+------+-----------+----------+  </span><br><span class="line">| root | localhost |          |  </span><br><span class="line">| root | bogon     |          |  </span><br><span class="line">| root | 127.0.0.1 |          |  </span><br><span class="line">|      | localhost |          |  </span><br><span class="line">|      | bogon     |          |  </span><br><span class="line">+------+-----------+----------+  </span><br><span class="line">5 rows in set (0.01 sec)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif" alt="复制代码"></p>
+<p>查询用户的密码，都为空，用下面的命令设置root的密码为root</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; set password for root@localhost&#x3D;password(&#39;root&#39;);  </span><br><span class="line">mysql&gt; exit</span><br></pre></td></tr></table></figure>
+
+<p>6.创建mysql新用户test_user</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create user &#39;test_user&#39;@&#39;%&#39; identified by &#39;test_user&#39;;  </span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>7.给新用户test_user授权，让他可以从外部登陆和本地登陆<br>注意：@左边是用户名，右边是域名、IP和%，表示可以访问mysql的域名和IP，%表示外部任何地址都能访问。</p>
+<p><img src="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif" alt="复制代码"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; grant all privileges on *.* to &#39;test_user&#39;@&#39;localhost&#39; identified by &#39;test_user&#39;;  </span><br><span class="line">Query OK, 0 rows affected (0.00 sec)  </span><br><span class="line">mysql&gt; grant all privileges on *.* to &#39;test_user&#39;@&#39;%&#39; identified by &#39;test_user&#39;;  </span><br><span class="line">Query OK, 0 rows affected (0.00 sec)  </span><br><span class="line">mysql&gt; select user,host,password from mysql.user;  </span><br><span class="line">+----------+-----------+-------------------------------------------+  </span><br><span class="line">| user     | host      | password                                  |  </span><br><span class="line">+----------+-----------+-------------------------------------------+  </span><br><span class="line">| root     | localhost | *81F5E21E35407D884A6CD4A731AEBFB6AF209E1B |  </span><br><span class="line">| root     | bogon     |                                           |  </span><br><span class="line">| root     | 127.0.0.1 |                                           |  </span><br><span class="line">|          | localhost |                                           |  </span><br><span class="line">|          | bogon     |                                           |  </span><br><span class="line">| test_user | %         | *3046CF87132BBD4FDDF06F321C6859074843B7D3 |  </span><br><span class="line">| test_user | localhost | *3046CF87132BBD4FDDF06F321C6859074843B7D3 |  </span><br><span class="line">+----------+-----------+-------------------------------------------+  </span><br><span class="line">7 rows in set (0.00 sec)  </span><br><span class="line">mysql&gt; flush privileges;  </span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif" alt="复制代码"></p>
+<p>8.查看mysql5.1的默认存储引擎<br>从下面的执行结果可以看出，mysql的默认引擎是MyISAM，这个引擎是不支持事务的。</p>
+<p><img src="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif" alt="复制代码"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show engines;  </span><br><span class="line">+------------+---------+------------------------------------------------------------+--------------+------+------------+  </span><br><span class="line">| Engine     | Support | Comment                                                    | Transactions | XA   | Savepoints |  </span><br><span class="line">+------------+---------+------------------------------------------------------------+--------------+------+------------+  </span><br><span class="line">| MRG_MYISAM | YES     | Collection of identical MyISAM tables                      | NO           | NO   | NO         |  </span><br><span class="line">| CSV        | YES     | CSV storage engine                                         | NO           | NO   | NO         |  </span><br><span class="line">| MyISAM     | DEFAULT | Default engine as of MySQL 3.23 with great performance     | NO           | NO   | NO         |  </span><br><span class="line">| InnoDB     | YES     | Supports transactions, row-level locking, and foreign keys | YES          | YES  | YES        |  </span><br><span class="line">| MEMORY     | YES     | Hash based, stored in memory, useful for temporary tables  | NO           | NO   | NO         |  </span><br><span class="line">+------------+---------+------------------------------------------------------------+--------------+------+------------+  </span><br><span class="line">5 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif" alt="复制代码"></p>
+<p>也可以以下面的方式查看</p>
+<p><img src="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif" alt="复制代码"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &#39;storage_engine&#39;;  </span><br><span class="line">+----------------+--------+  </span><br><span class="line">| Variable_name  | Value  |  </span><br><span class="line">+----------------+--------+  </span><br><span class="line">| storage_engine | MyISAM |  </span><br><span class="line">+----------------+--------+  </span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif" alt="复制代码"></p>
+<p>9.修改mysql的默认引擎为InnoDB<br>9.1 停止mysql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; exit;  </span><br><span class="line">[root@bogon ~]# service mysqld stop</span><br></pre></td></tr></table></figure>
+
+<p>9.2 修改/etc/my.cnf<br>[mysqld] 后加入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default-storage-engine=InnoDB</span><br></pre></td></tr></table></figure>
+
+<p>加入后my.cnf的内容为：</p>
+<p><img src="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif" alt="复制代码"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon etc]<span class="comment"># more my.cnf  </span></span><br><span class="line">[mysqld]  </span><br><span class="line">datadir=/var/lib/mysql  </span><br><span class="line">socket=/var/lib/mysql/mysql.sock  </span><br><span class="line">user=mysql  </span><br><span class="line"><span class="comment"># Disabling symbolic-links is recommended to prevent assorted security risks  </span></span><br><span class="line">symbolic-links=0  </span><br><span class="line">  </span><br><span class="line">default-storage-engine=InnoDB  </span><br><span class="line">  </span><br><span class="line">[mysqld_safe]  </span><br><span class="line"><span class="built_in">log</span>-error=/var/<span class="built_in">log</span>/mysqld.log  </span><br><span class="line">pid-file=/var/run/mysqld/mysqld.pid</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif" alt="复制代码"></p>
+<p>9.3 启动mysql</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon etc]<span class="comment"># service mysqld start  </span></span><br><span class="line">Starting mysqld:  [  OK  ]</span><br></pre></td></tr></table></figure>
+
+<p>9.4 查看mysql默认存储引擎</p>
+<p><img src="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif" alt="复制代码"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon etc]# mysql -u root -p  </span><br><span class="line">Enter password:   </span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.  </span><br><span class="line">Your MySQL connection id is 2  </span><br><span class="line">Server version: 5.1.73 Source distribution  </span><br><span class="line">  </span><br><span class="line">Copyright (c) 2000, 2013, Oracle and&#x2F;or its affiliates. All rights reserved.  </span><br><span class="line">  </span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and&#x2F;or its  </span><br><span class="line">affiliates. Other names may be trademarks of their respective  </span><br><span class="line">owners.  </span><br><span class="line">  </span><br><span class="line">Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.  </span><br><span class="line">  </span><br><span class="line">mysql&gt; show variables like &#39;storage_engine&#39;;  </span><br><span class="line">+----------------+--------+  </span><br><span class="line">| Variable_name  | Value  |  </span><br><span class="line">+----------------+--------+  </span><br><span class="line">| storage_engine | InnoDB |  </span><br><span class="line">+----------------+--------+  </span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif" alt="复制代码"></p>
+<p>10.CentOS6.5开放mysql端口3306<br>CentOS6.5默认是不开放端口的，如果要让外部的系统访问CentOS6.5上的mysql，必须开放mysql的端口3306<br>10.1 修改/etc/sysconfig/iptables<br>添加下面一行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<p>修改后iptables中的内容是</p>
+<p><img src="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif" alt="复制代码"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon etc]# more &#x2F;etc&#x2F;sysconfig&#x2F;iptables  </span><br><span class="line"># Firewall configuration written by system-config-firewall  </span><br><span class="line"># Manual customization of this file is not recommended.  </span><br><span class="line">*filter  </span><br><span class="line">:INPUT ACCEPT [0:0]  </span><br><span class="line">:FORWARD ACCEPT [0:0]  </span><br><span class="line">:OUTPUT ACCEPT [0:0]  </span><br><span class="line">-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT  </span><br><span class="line">-A INPUT -p icmp -j ACCEPT  </span><br><span class="line">-A INPUT -i lo -j ACCEPT  </span><br><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT  </span><br><span class="line">#添加配置项  </span><br><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT  </span><br><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 11211 -j ACCEPT  </span><br><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT  </span><br><span class="line">-A INPUT -j REJECT --reject-with icmp-host-prohibited  </span><br><span class="line">-A FORWARD -j REJECT --reject-with icmp-host-prohibited  </span><br><span class="line">  </span><br><span class="line">COMMIT</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://app.yinxiang.com/shard/s37/res/00d39035-814c-4a24-b570-5fc3b75a3a50.gif" alt="复制代码"></p>
+<p>11.重启防火墙</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon etc]<span class="comment"># service iptables restart</span></span><br></pre></td></tr></table></figure>
+
+<p>这样就可以从外部访问mysql了。</p>
+<p>至此，mysql在CentOS6.5上的安装过程、用户创建、外部访问的步骤全部完成。</p>
+<p>—————————分割线—————————————</p>
+<p>上面都是从别人发表的文章中截取的<del>~</del>作者要是看到了莫怪，我只是想收藏，怕源文被删就看不到了，谢谢你们这些摘树的前人。</p>
+<p>其实这样在云主机上设置mysql并访问是OK的。适用于一切的centos6.5，亦或者其他linux系统。万变不离其宗，系统的改变，无非是命令行语言的改变，其宗旨是不会变的。</p>
+<p>LZ第一次用云主机，想试试在本地远程访问一下，结果发现，咦，连接出错了<del>~</del>，后来试了很多方法，还是没有能成功。</p>
+<p>刚开始，用Navicat连接远程数据库，出现如下错误：应该就是远程不允许访问了。</p>
+<p><img src="https://app.yinxiang.com/shard/s37/res/1697e3b0-837f-41b0-8baa-8e4578dda4c8.png" alt="img"></p>
+<p>远程拒绝访问的情况可能有两种：</p>
+<p>一、mysql设置中，不允许远程访问.也即你使用的mysql登陆账号没有远程访问的权限。比如root账号，在我们之前看到的use权限列表中，root就没有远程访问的权限。现在来设置root的远程访问权限。</p>
+<p>方法一：实现远程连接(授权法)</p>
+<p>mysql&gt; use mysql;</p>
+<p>Database changed</p>
+<p>mysql&gt; grant all privileges  on <em>.</em> to root@’%’ identified by “root”;</p>
+<p>mysql&gt; select host,user,password from user;</p>
+<p>+————–+——+——————————————-+</p>
+<p>| host     | user | password                  |</p>
+<p>+————–+——+——————————————-+</p>
+<p>| localhost   | root | *A731AEBFB621E354CD41BAF207D884A609E81F5E |</p>
+<p>| 192.168.1.1 | root | *A731AEBFB621E354CD41BAF207D884A609E81F5E |</p>
+<p>| %       | root | *A731AEBFB621E354CD41BAF207D884A609E81F5E |</p>
+<p>+————–+——+——————————————-+</p>
+<p>3 rows in set (0.00 sec)</p>
+<p>这样机器就可以以用户名root密码root远程访问该机器上的MySql.</p>
+<p>方法二：实现远程连接（改表法）</p>
+<p>将host字段的值改为%就表示在任何客户端机器上能以root用户登录到mysql服务器，建议在开发时设为%。 </p>
+<p>mysql&gt; use mysql;</p>
+<p>Database changed</p>
+<p>mysql&gt; update user set host = ‘%’ where user = ‘root’;</p>
+<p>这时，root将权限改为ALL PRIVILEGES；</p>
+<p>这样在远端就可以通过root用户访问Mysql.</p>
+<p>二、确定服务器上的防火墙没有阻止 3306 端口。也即服务器上面有没有开放mysql的端口~（我的就是这个问题）</p>
+<p>　　看到上面的第10条中，在端口管理iptables中添加3306端口的开放配置，这样算是硬件的配置。然后看看你的云主机设置里面有没有开放对应的端口，或者说是不是开放了所有端口~我的云主机如下图：</p>
+<p><img src="https://app.yinxiang.com/shard/s37/res/5269b539-f016-491c-b76c-a43e8e5833d5.png" alt="img">)<img src="https://app.yinxiang.com/shard/s37/res/900f746d-0def-457f-92df-c08e0894825d.png" alt="img"></p>
+<p>腾讯云主机中，貌似是没有开放所有端口的，所以需要我们自己在这里稍微设置一下，勾选“默认安全组放通全部端口”选项，“确定”。基本上，我们能做的都做了，要不然就是配置文件出错了，再返回去看看。设置好了以后，我去试了一下连接，结果成功了~</p>
+<p><img src="https://app.yinxiang.com/shard/s37/res/a5e1fa91-d624-48e2-95fd-9b9e261f5b65.png" alt="img"></p>
+<p>哈哈，好高兴<del>以后遇到这些问题就知道在哪些地方找问题了</del></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">云服务器</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2018/09/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%85%8D%E7%BD%AEmysql%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/&title=《配置mysql远程访问》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2018/09/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%85%8D%E7%BD%AEmysql%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/&title=《配置mysql远程访问》 — fannnnnn&source=1.使用yum命令安装mysql
+1[root@bogon ~]#  yum -y install mysql-server" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2018/09/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%85%8D%E7%BD%AEmysql%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《配置mysql远程访问》 — fannnnnn&url=http://lcf12307.github.io/2018/09/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%85%8D%E7%BD%AEmysql%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2018/09/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%85%8D%E7%BD%AEmysql%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/02/18/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/git%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">go使用protocbuf</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/08/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/nginx403/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">nginx 403报错</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2018/09/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%85%8D%E7%BD%AEmysql%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/&title=《配置mysql远程访问》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2018/09/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%85%8D%E7%BD%AEmysql%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/&title=《配置mysql远程访问》 — fannnnnn&source=1.使用yum命令安装mysql
+1[root@bogon ~]#  yum -y install mysql-server" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2018/09/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%85%8D%E7%BD%AEmysql%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《配置mysql远程访问》 — fannnnnn&url=http://lcf12307.github.io/2018/09/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%85%8D%E7%BD%AEmysql%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2018/09/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%85%8D%E7%BD%AEmysql%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,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" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

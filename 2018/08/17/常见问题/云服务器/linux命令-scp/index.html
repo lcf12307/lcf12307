@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>linux命令-scp | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="linux,云服务器">
+    <meta name="description" content="scp是secure copy的简写，用于在Linux下进行远程拷贝文件的命令，和它类似的命令有cp，不过cp只是在本机进行拷贝不能跨服务器，而且scp传输是加密的。可能会稍微影响一下速度。当你服务器硬盘变为只读 read only system时，用scp可以帮你把文件移出来。另外，scp还非常不占资源，不会提高多少系统负荷，在这一点上，rsync就远远不及它了。虽然 rsync比scp会快一点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux命令-scp">
+<meta property="og:url" content="http://lcf12307.github.io/2018/08/17/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%91%BD%E4%BB%A4-scp/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="scp是secure copy的简写，用于在Linux下进行远程拷贝文件的命令，和它类似的命令有cp，不过cp只是在本机进行拷贝不能跨服务器，而且scp传输是加密的。可能会稍微影响一下速度。当你服务器硬盘变为只读 read only system时，用scp可以帮你把文件移出来。另外，scp还非常不占资源，不会提高多少系统负荷，在这一点上，rsync就远远不及它了。虽然 rsync比scp会快一点">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-08-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.007Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="云服务器">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">linux命令-scp</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">linux命令-scp</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-08-16T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-08-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-常见问题/云服务器/linux命令-scp"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">linux命令-scp</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-17 00:00:00" datetime="2018-08-16T16:00:00.000Z"  itemprop="datePublished">2018-08-17 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>scp是secure copy的简写，用于在Linux下进行远程拷贝文件的命令，和它类似的命令有cp，不过cp只是在本机进行拷贝不能跨服务器，而且scp传输是加密的。可能会稍微影响一下速度。当你服务器硬盘变为只读 read only system时，用scp可以帮你把文件移出来。另外，scp还非常不占资源，不会提高多少系统负荷，在这一点上，rsync就远远不及它了。虽然 rsync比scp会快一点，但当小文件众多的情况下，rsync会导致硬盘I/O非常高，而scp基本不影响系统正常使用。</p>
+<a id="more"></a>
+
+<p>1．命令格式：</p>
+<p>scp [参数] [原路径] [目标路径]</p>
+<p>2．命令功能：</p>
+<p>scp是 secure copy的缩写, scp是linux系统下基于ssh登陆进行安全的远程文件拷贝命令。linux的scp命令可以在linux服务器之间复制文件和目录。</p>
+<p>3．命令参数：</p>
+<p>-1 强制scp命令使用协议ssh1 </p>
+<p>-2 强制scp命令使用协议ssh2 </p>
+<p>-4 强制scp命令只使用IPv4寻址 </p>
+<p>-6 强制scp命令只使用IPv6寻址 </p>
+<p>-B 使用批处理模式（传输过程中不询问传输口令或短语） </p>
+<p>-C 允许压缩。（将-C标志传递给ssh，从而打开压缩功能） </p>
+<p>-p 保留原文件的修改时间，访问时间和访问权限。 </p>
+<p>-q 不显示传输进度条。 </p>
+<p>-r 递归复制整个目录。 </p>
+<p>-v 详细方式显示输出。scp和ssh(1)会显示出整个过程的调试信息。这些信息用于调试连接，验证和配置问题。 </p>
+<p>-c cipher 以cipher将数据传输进行加密，这个选项将直接传递给ssh。 </p>
+<p>-F ssh_config 指定一个替代的ssh配置文件，此参数直接传递给ssh。 </p>
+<p>-i identity_file 从指定文件中读取传输时使用的密钥文件，此参数直接传递给ssh。  </p>
+<p>-l limit 限定用户所能使用的带宽，以Kbit/s为单位。  </p>
+<p>-o ssh_option 如果习惯于使用ssh_config(5)中的参数传递方式， </p>
+<p>-P port 注意是大写的P, port是指定数据传输用到的端口号 </p>
+<p>-S program 指定加密传输时所使用的程序。此程序必须能够理解ssh(1)的选项。</p>
+<p>4．使用实例：</p>
+<p>scp命令的实际应用概述： </p>
+<p>从本地服务器复制到远程服务器：</p>
+<p>(1) 复制文件： </p>
+<p>命令格式： </p>
+<p>scp local_file remote_username@remote_ip:remote_folder </p>
+<p>或者 </p>
+<p>scp local_file remote_username@remote_ip:remote_file </p>
+<p>或者 </p>
+<p>scp local_file remote_ip:remote_folder </p>
+<p>或者 </p>
+<p>scp local_file remote_ip:remote_file </p>
+<p>第1,2个指定了用户名，命令执行后需要输入用户密码，第1个仅指定了远程的目录，文件名字不变，第2个指定了文件名 </p>
+<p>第3,4个没有指定用户名，命令执行后需要输入用户名和密码，第3个仅指定了远程的目录，文件名字不变，第4个指定了文件名 </p>
+<p>(2) 复制目录： </p>
+<p>命令格式： </p>
+<p>scp -r local_folder remote_username@remote_ip:remote_folder </p>
+<p>或者 </p>
+<p>scp -r local_folder remote_ip:remote_folder </p>
+<p>第1个指定了用户名，命令执行后需要输入用户密码； </p>
+<p>第2个没有指定用户名，命令执行后需要输入用户名和密码；</p>
+<p>从远程服务器复制到本地服务器：</p>
+<p>从远程复制到本地的scp命令与上面的命令雷同，只要将从本地复制到远程的命令后面2个参数互换顺序就行了。</p>
+<p>实例1：从远处复制文件到本地目录</p>
+<p>命令：</p>
+<p>scp <a href="mailto:root@192.168.120.204">root@192.168.120.204</a>:/opt/soft/nginx-0.5.38.tar.gz /opt/soft/</p>
+<p>输出：</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">云服务器</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2018/08/17/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%91%BD%E4%BB%A4-scp/&title=《linux命令-scp》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2018/08/17/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%91%BD%E4%BB%A4-scp/&title=《linux命令-scp》 — fannnnnn&source=scp是secure copy的简写，用于在Linux下进行远程拷贝文件的命令，和它类似的命令有cp，不过cp只是在本机进行拷贝不能跨服务器，而且scp传..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2018/08/17/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%91%BD%E4%BB%A4-scp/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux命令-scp》 — fannnnnn&url=http://lcf12307.github.io/2018/08/17/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%91%BD%E4%BB%A4-scp/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2018/08/17/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%91%BD%E4%BB%A4-scp/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/08/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%AE%BF%E9%97%AEphp%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">访问php直接下载，而不是访问</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/19/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/ubuntu%E5%AE%89%E8%A3%85vscode/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Ubuntu 安装vs code</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2018/08/17/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%91%BD%E4%BB%A4-scp/&title=《linux命令-scp》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2018/08/17/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%91%BD%E4%BB%A4-scp/&title=《linux命令-scp》 — fannnnnn&source=scp是secure copy的简写，用于在Linux下进行远程拷贝文件的命令，和它类似的命令有cp，不过cp只是在本机进行拷贝不能跨服务器，而且scp传..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2018/08/17/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%91%BD%E4%BB%A4-scp/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux命令-scp》 — fannnnnn&url=http://lcf12307.github.io/2018/08/17/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%91%BD%E4%BB%A4-scp/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2018/08/17/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%91%BD%E4%BB%A4-scp/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEh0lEQVR42u3aS47bSBAFQN3/0j2A15b8XiY1ZtHBlaEWRVaUgcrf6xVfP7+u/Jufr3ff/Pz5u6fMnvv6xoUJEyZMmG7J1C7p3cPeLSx5rfw7n5/bPitZOyZMmDBhegZT+3PtIf2NM3cWUiTBASZMmDBh+jeZ8uM8Obz3uBs+TJgwYcKEKUl0N+nrLFDIv7Mp+GLChAkTpucxtT/3+Tuze9sy7r5F+pVaOCZMmDBhuhlTO7jzpH9ffGHChAkTppsx/ZRXcm87cLNJifdl5WjVmDBhwoTpWKYkLZy1MNvUNw9H8sLxpkUaVQgwYcKECdPtmZIjfDYQ07ZF25DiKoIkTMGECRMmTE9lmrU827R5Pzx0bRL+m88xYcKECdOxTJvEcp98bhLafYp+WQKMCRMmTJhuzBQlfotDum0r5mlt3gptg55aGhMmTJgwHcj0+aXbMZo2EU22pA0R8i2JKgSYMGHChOkQpjYVnGFtGpDt739jCAkTJkyYMJ3OlB+97UHeNjg3rceELw9W3j4LEyZMmDAdyzTDau9qE9d9O3OTZmPChAkTpmcwtUM5swbkVSn0JpFeJfmYMGHChOlApk3zMm8ZXtXgnCXbswT+NyOqmDBhwoTpWKY2aWyP/H1Ztk2k2435wztgwoQJE6bDma796U2LcRZq7N/ttfmfggkTJkyYDmfajOm0Bdw86d0M9NStWUyYMGHC9AimNk1tQ4fNWdwGGfvBVkyYMGHC9DymhKNtZ7ZDrnkrdDOpVDdWMWHChAnTsUybImk+rrop8ibcsybrqhCMCRMmTJgOYUped5bctmXZPCCYUW6ehQkTJkyYzmWalWX3R/JVz7qqpZrQY8KECROmc5nyZc8Kvm1y+3nZ+djNtSk3JkyYMGE6nWmWrG5ikHb49XsbE4URmDBhwoTpQKZZeTRPX/MXGnZfF4l38jtv55swYcKECdOxTJsm5WeOtnX6+a48HJmFLJgwYcKE6UlMeYOwTXrb1Ddf3reT8LdVcEyYMGHCdDhTm5puDvVkSfs0u21zvk19MWHChAnTgUyz29o2ZB525FtyLVPRssWECRMmTEcxXRUQ7IOA2ZYk6fos5f5K3IQJEyZMmP53pvZ126GZ2TBNcnjnnyTvkKwREyZMmDCdyLRJMpMjdlNyzcd08q1qx4D+MLiDCRMmTJhuz9QGB21R9W8FBLOUuN0YTJgwYcJ0f6bZwj7D5YFCXmK+qmk622ZMmDBhwvQMptnx2dZCNzTJ9mxSX0yYMGHC9Dym9ohtx3GSRukruGZF3rxsfUFtABMmTJgw3ZLpp7xysllZtk2qZ2XfOv3GhAkTJkzHMuXXZtnXHt55OLJJlfMwAhMmTJgw3Z9pHwS0R3tSis03YF9cjjYAEyZMmDAdzjQ7evNicV4gbluYCV/7zm8DAkyYMGHC9Gim9pM9a34ib4KGaBWYMGHChOkfY5oFAZuXzhPm9q5ogzFhwoQJ0+FM+2Gd/DBONqb9a/4+CeVX2pmYMGHChOkvMbWDO+2BujmS89Jtvj2bFB0TJkyYMB3F9B8JnA+Q87B5VQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

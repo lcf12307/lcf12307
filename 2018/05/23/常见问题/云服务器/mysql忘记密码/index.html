@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>mysql 忘记密码 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="mysql,linux,云服务器">
+    <meta name="description" content="mysql 忘记密码时，如何进行恢复">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql 忘记密码">
+<meta property="og:url" content="http://lcf12307.github.io/2018/05/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="mysql 忘记密码时，如何进行恢复">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-05-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.007Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="云服务器">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">mysql 忘记密码</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">mysql 忘记密码</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-05-22T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-05-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-常见问题/云服务器/mysql忘记密码"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">mysql 忘记密码</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-05-23 00:00:00" datetime="2018-05-22T16:00:00.000Z"  itemprop="datePublished">2018-05-23 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>mysql 忘记密码时，如何进行恢复</p>
+<a id="more"></a>
+
+<p>I. 在终端输入sudo gedit /etc/mysql/mysql.conf.d/mysqld.cnf</p>
+<p>II. 在[mysqld]下方的skip-external-locking下面添加一行：</p>
+<p>skip-grant-tables</p>
+<p>III. 重启MySQL服务：</p>
+<p>sudo service mysql restart</p>
+<p>IV. 在终端输入命令：mysql 进入mysql</p>
+<p>V. 输入USE mysql （切换至mysql数据库）</p>
+<p>VI. 将root用户的密码修改为0000：</p>
+<p>UPDATE mysql.user SET authentication_string=password(‘0000’) WHERE User=’root’ AND Host =’localhost’;</p>
+<p>VII. 修改字段plugin：</p>
+<p>UPDATE user SET plugin=”mysql_native_password”;</p>
+<p>（Plugin字段标识可以用于验证用户身份的插件，如果字段为空，服务器使用内建授权验证机制验证用户身份。 ）</p>
+<p>VIII. 输入flush privileges;</p>
+<p>IX. 输入quit;</p>
+<p>X. 把/etc/mysql/mysql.conf.d/mysqld.cnf文件中添加的一行注释掉<br>-——————–<br>作者：rhanqtlnuse<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/hq815601489/article/details/78608644" target="_blank" rel="noopener">https://blog.csdn.net/hq815601489/article/details/78608644</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">云服务器</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2018/05/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/&title=《mysql 忘记密码》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2018/05/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/&title=《mysql 忘记密码》 — fannnnnn&source=mysql 忘记密码时，如何进行恢复" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2018/05/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql 忘记密码》 — fannnnnn&url=http://lcf12307.github.io/2018/05/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2018/05/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">linux搜索</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2018/05/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/&title=《mysql 忘记密码》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2018/05/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/&title=《mysql 忘记密码》 — fannnnnn&source=mysql 忘记密码时，如何进行恢复" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2018/05/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql 忘记密码》 — fannnnnn&url=http://lcf12307.github.io/2018/05/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2018/05/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFSUlEQVR42u3cQW4bSxQDQN//0sk2gCOJ5Bv/v0hpZcTWqLvGgDl8jXx9xa9fL15/fjf5+e/v/X6F91dL1vl+Jfl3H3vhw4cPHz588VZfLSvZ/Pev29fG9/69ye3Jbzw+fPjw4cO38SUoG2u+geSaeeBIbmRO/PLf8eHDhw8fvh/ma7edh55LxMkDUxu58OHDhw8fvv+L777hS1He3p48eP1HwQUfPnz48OEry/p7mb7djLxKyGNWy/rArAMfPnz48OErT2H9O18//MKHDx8+fPgercW3Wr+tEtoH+/xTNg18+PDhw4dvEqgPdueF+zZW35JDW/Tff0Xw4cOHDx++li//w59w5BvbAlB+C7f4Vd9yfPjw4cOHb+J7v8ntcNgWLNqgk6//MhqPjqbhw4cPHz588fmuvFjfyoI2vmzhKQ86bTCq0x8+fPjw4cN34GtDRl7ZX0JPvsk2oCTXwYcPHz58+O587YGt5I96+0D+/lPa1V7WVvxi4cOHDx8+fMtce/yvRvIlbqV/UvTf19xC48OHDx8+fBe+S1nfviuJRHlgusSRrUSoGxd8+PDhw4evbJu3gjup4Lew0pYF4/A7Hy3gw4cPHz58MV9bjl9izSVM5EXA/YBdUYvgw4cPHz58E187qG6PnV2iQ3urttF+8osSzTfw4cOHDx++YMp8KQJylLxQuNzaPOhccKOyHh8+fPjw4fv281tNcD/U1Q6t7/GiLeKjXyN8+PDhw4fvzJfX6HU+mgJKWwrkh88eOCSHDx8+fPjwLU/HxVGt7cDZpcrfToIlUakIKPkpP3z48OHDhy9YZ35orH10f+q7+S1sd7TtN5p14MOHDx8+fG/nvO0wu33Ub38yL9zbEJaHrQ9Denz48OHDh+9RvsvHtEX/Fju2wPHU5+LDhw8fPnzTs//Xs9trf2ZbTw66FffFmvHhw4cPH76Sbwsuyebzh//2c/OjY5crFwEOHz58+PDhC961leZtub+FknzOf7lOu3J8+PDhw4fvwvfsg/TlKFsbcdoxwL2m/7BmfPjw4cOHL+C7HDXbFpc/9udD8XwQ/tRNxYcPHz58+O587YK2g1/tTdoGBnlqy6PMX66GDx8+fPjwnfnyIjsPHG34yN+Vl/XtrY3WiQ8fPnz48JV8bTjIIbbIsoWnvGJohw1RYMKHDx8+fPgOfG2RvVXhv8rXNgh/atD+oZ7Ahw8fPnz4Jr73YeU+6m4L93b4nYekdg7+4Wr48OHDhw9fydduNa/yk6XkhXuyhsu/t0N6fPjw4cOHr+V7NrJcHsvzG5avqg1GOTo+fPjw4cP3E3z5hdrH9XbIXWwpDjrbQKLoWvDhw4cPH774b/FWwW+R4nLljb69ctG+4MOHDx8+fG93kXf5yYfd6+/LMKA9JLcN6fHhw4cPH747XxsjLg/VeUxpN5NXAO1KXq4NHz58+PDhW5646zp+/ICpUr/c2qQCuByzw4cPHz58+Fq+PCJsh7qSr/MItVXwT43PP1QG+PDhw4cPX8yXDLDzoJMTbxGnPUyW3+x6MIAPHz58+PCd+S5FwOURPd/2ZbDdDic+rAcfPnz48OHbn/TrMn2rGy4FQT5K3+LRVnbgw4cPHz58LV/7Zz4PFttm2utvxccWXOriAB8+fPjw4TsU33lM2eLOpZK4X7+Nbvjw4cOHD99P822vtghoB9vbobpLMPrLxAMfPnz48OH7Ab6tYkiWe6n1L9VGPoZ/+S58+PDhw4dv4rtwXJa7jQ2SUJKPAS7BCx8+fPjw4Wv5tsNbT1X8bUH/7KulP30MPnz48OH71/l+A8yR7v4Eo5mbAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

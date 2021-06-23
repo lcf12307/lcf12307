@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【面试复盘】映客面试 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="复盘">
+    <meta name="description" content="算法树的前中后序遍历12  2&#x2F;   \    判断链表中有环1234&#x2F;&#x2F; 使用快慢链表func cycleExist(root *ListNode) bool &amp;#123;  &amp;#125;    爬楼梯 112&#x2F;&#x2F; 一次可以走一步或者两步 求到第n个楼梯的方法&#x2F;&#x2F; 斐波那契数列    爬楼梯 212&#x2F;&#x2F; 一次可以走1-n步 求走到第n个楼梯的方法&#x2F;&#x2F; 2的n-1次方    从左上角到右下角的方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【面试复盘】映客面试">
+<meta property="og:url" content="http://lcf12307.github.io/2020/02/24/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.24%E6%98%A0%E5%AE%A2%E9%9D%A2%E8%AF%95/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="算法树的前中后序遍历12  2&#x2F;   \    判断链表中有环1234&#x2F;&#x2F; 使用快慢链表func cycleExist(root *ListNode) bool &amp;#123;  &amp;#125;    爬楼梯 112&#x2F;&#x2F; 一次可以走一步或者两步 求到第n个楼梯的方法&#x2F;&#x2F; 斐波那契数列    爬楼梯 212&#x2F;&#x2F; 一次可以走1-n步 求走到第n个楼梯的方法&#x2F;&#x2F; 2的n-1次方    从左上角到右下角的方法">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.009Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="复盘">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【面试复盘】映客面试</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【面试复盘】映客面试</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-02-23T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2020-02-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#算法"><span class="post-toc-number">1.</span> <span class="post-toc-text">算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#树的前中后序遍历"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">树的前中后序遍历</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#判断链表中有环"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">判断链表中有环</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#爬楼梯-1"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">爬楼梯 1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#爬楼梯-2"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">爬楼梯 2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#从左上角到右下角的方法"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">从左上角到右下角的方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#top-k个数"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">top k个数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基础知识"><span class="post-toc-number">2.</span> <span class="post-toc-text">基础知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mysql-group-by的用法"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">mysql group by的用法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#索引的类型"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">索引的类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#引擎"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">引擎</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分类"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">分类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#区别"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#innodb为什么使用b-树"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">innodb为什么使用b + 树</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#为什么不用红黑树"><span class="post-toc-number">2.3.4.</span> <span class="post-toc-text">为什么不用红黑树</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#raft协议"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">raft协议</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#redis"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">redis</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#redis的数据结构"><span class="post-toc-number">2.5.1.</span> <span class="post-toc-text">redis的数据结构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#redis怎么实现持久化的"><span class="post-toc-number">2.5.2.</span> <span class="post-toc-text">redis怎么实现持久化的</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#zset怎么实现的"><span class="post-toc-number">2.5.3.</span> <span class="post-toc-text">zset怎么实现的</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#消息队列"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">消息队列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么使用消息队列"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">为什么使用消息队列</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-面试/复盘/2.24映客面试"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【面试复盘】映客面试</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-02-24 00:00:00" datetime="2020-02-23T16:00:00.000Z"  itemprop="datePublished">2020-02-24 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="树的前中后序遍历"><a href="#树的前中后序遍历" class="headerlink" title="树的前中后序遍历"></a>树的前中后序遍历</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">2</span></span><br><span class="line">/   \</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="判断链表中有环"><a href="#判断链表中有环" class="headerlink" title="判断链表中有环"></a>判断链表中有环</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用快慢链表</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">cycleExist</span><span class="params">(root *ListNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="爬楼梯-1"><a href="#爬楼梯-1" class="headerlink" title="爬楼梯 1"></a>爬楼梯 1</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一次可以走一步或者两步 求到第n个楼梯的方法</span></span><br><span class="line"><span class="comment">// 斐波那契数列</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="爬楼梯-2"><a href="#爬楼梯-2" class="headerlink" title="爬楼梯 2"></a>爬楼梯 2</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一次可以走1-n步 求走到第n个楼梯的方法</span></span><br><span class="line"><span class="comment">// 2的n-1次方</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="从左上角到右下角的方法"><a href="#从左上角到右下角的方法" class="headerlink" title="从左上角到右下角的方法"></a>从左上角到右下角的方法</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ___________</span></span><br><span class="line"><span class="comment">// |s| | | | |</span></span><br><span class="line"><span class="comment">// ___________</span></span><br><span class="line"><span class="comment">// | | | | | |</span></span><br><span class="line"><span class="comment">// ___________</span></span><br><span class="line"><span class="comment">// | | | | |e|</span></span><br><span class="line"><span class="comment">// 从s点到e点有多少种方法</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="top-k个数"><a href="#top-k个数" class="headerlink" title="top k个数"></a>top k个数</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 给定一个数组中的数 求前k个数</span></span><br><span class="line"><span class="comment">// 方法一 暴力排序法</span></span><br><span class="line"><span class="comment">// 方法二 中间容量为k的数组 用来存储 每次最小的出堆。最小堆</span></span><br><span class="line"><span class="comment">// 方法三 每次选一个数将数组分为两个</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="mysql-group-by的用法"><a href="#mysql-group-by的用法" class="headerlink" title="mysql group by的用法"></a>mysql group by的用法</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">value</span>, <span class="keyword">count</span>(*) <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">value</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="索引的类型"><a href="#索引的类型" class="headerlink" title="索引的类型"></a>索引的类型</h3><ul>
+<li>聚合索引</li>
+<li>普通索引</li>
+<li>唯一索引</li>
+<li>主键索引</li>
+</ul>
+<h3 id="引擎"><a href="#引擎" class="headerlink" title="引擎"></a>引擎</h3><h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
+<li>myisam</li>
+<li>innodb</li>
+</ul>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ul>
+<li><strong>innodb支持事务</strong></li>
+<li>获取总量的时候myisam比较快</li>
+<li>innodb支持外键</li>
+<li>索引的数据结构不一样 innodb是 b+树 myisam是b树</li>
+</ul>
+<h4 id="innodb为什么使用b-树"><a href="#innodb为什么使用b-树" class="headerlink" title="innodb为什么使用b + 树"></a>innodb为什么使用b + 树</h4><ul>
+<li>数据结构更精简</li>
+</ul>
+<h4 id="为什么不用红黑树"><a href="#为什么不用红黑树" class="headerlink" title="为什么不用红黑树"></a>为什么不用红黑树</h4><ul>
+<li>二叉树 存储的数据量太少了 ，导致磁盘io次数增加</li>
+<li>b+树可以范围查询</li>
+</ul>
+<h3 id="raft协议"><a href="#raft协议" class="headerlink" title="raft协议"></a>raft协议</h3><h3 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h3><h4 id="redis的数据结构"><a href="#redis的数据结构" class="headerlink" title="redis的数据结构"></a>redis的数据结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string</span><br><span class="line">list</span><br><span class="line">hash</span><br><span class="line">set</span><br><span class="line">zset</span><br></pre></td></tr></table></figure>
+
+<h4 id="redis怎么实现持久化的"><a href="#redis怎么实现持久化的" class="headerlink" title="redis怎么实现持久化的"></a>redis怎么实现持久化的</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AOF 1s 日志 热存储</span><br><span class="line">RDB 快照 冷存储</span><br><span class="line"></span><br><span class="line">结合使用</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="zset怎么实现的"><a href="#zset怎么实现的" class="headerlink" title="zset怎么实现的"></a>zset怎么实现的</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用字典和跳表实现的</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h3><h3 id="为什么使用消息队列"><a href="#为什么使用消息队列" class="headerlink" title="为什么使用消息队列"></a>为什么使用消息队列</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">解耦</span><br><span class="line"></span><br><span class="line">异步</span><br><span class="line"></span><br><span class="line">削峰</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%8D%E7%9B%98/" rel="tag">复盘</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/02/24/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.24%E6%98%A0%E5%AE%A2%E9%9D%A2%E8%AF%95/&title=《【面试复盘】映客面试》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/02/24/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.24%E6%98%A0%E5%AE%A2%E9%9D%A2%E8%AF%95/&title=《【面试复盘】映客面试》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/02/24/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.24%E6%98%A0%E5%AE%A2%E9%9D%A2%E8%AF%95/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【面试复盘】映客面试》 — fannnnnn&url=http://lcf12307.github.io/2020/02/24/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.24%E6%98%A0%E5%AE%A2%E9%9D%A2%E8%AF%95/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/02/24/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.24%E6%98%A0%E5%AE%A2%E9%9D%A2%E8%AF%95/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/02/24/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.24%E4%BC%B4%E9%B1%BC%E9%9D%A2%E8%AF%95/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【面试复盘】伴鱼面试</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/02/24/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.24%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【面试复盘】知乎面试</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/02/24/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.24%E6%98%A0%E5%AE%A2%E9%9D%A2%E8%AF%95/&title=《【面试复盘】映客面试》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/02/24/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.24%E6%98%A0%E5%AE%A2%E9%9D%A2%E8%AF%95/&title=《【面试复盘】映客面试》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/02/24/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.24%E6%98%A0%E5%AE%A2%E9%9D%A2%E8%AF%95/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【面试复盘】映客面试》 — fannnnnn&url=http://lcf12307.github.io/2020/02/24/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.24%E6%98%A0%E5%AE%A2%E9%9D%A2%E8%AF%95/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/02/24/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.24%E6%98%A0%E5%AE%A2%E9%9D%A2%E8%AF%95/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD50lEQVR42u3ayW7bQBAFQP//TztArhGHrxfSBlI8CRI1nCkZaPfy9RVf33+v8+vJnfk75x2en7h24cCBAweOeKF/r2TpJwjyNa/uuXrn6ow4cODAgWOXo3rIwgOOR83vqf4kVUQcOHDgwPE+RxL8zt/KQSeH74VnHDhw4MDxPkeyXHL4aiGytyYOHDhw4PhZjqQ4eN5EnvIl7+f9oMmnOHDgwIHjCY6tgYbf/PoH5jtw4MCB47/k+G5dyTpJopV/mre+JqfDgQMHDhxzjnzIoDdwMAl7Z9weSrQTHDhw4MAx4JiUAqshs9z+Cb7bG3q4XAcHDhw4cIw5Rl8bt3MmaWEe2pslQhw4cODAMeDooeT39wqFk+Lg5Cw4cODAgWNyluQAeakuScy2wmpy+GrZEQcOHDhwzDnyY1fH5qptp17qWA3zo+QNBw4cOHAEHL0mUC8wV++sFv56RcAPKRwOHDhw4Bhz9MpqW9uaBMhqi+tmTRw4cODAscQxecwkA8qbSb3RvfLgBQ4cOHDgWOKotnDOLaJe2OsN2/VaUDcNJxw4cODAMeCoBtfew/IRt2Q/eThPhiSamSUOHDhw4Dhy7G6oN8SQB86kcDkabsCBAwcOHAOO3SLgVlMqP+R8/ZuBBhw4cODA0eKopkBJiS0JikmKtTUqEaWmOHDgwIFjiWOyrcnWc9BeYpns57ILhwMHDhw4Whz5g6uhdKvAV21WvdR2woEDBw4cxz5LtfA3H1N4MwA3i4M4cODAgWOpz/LcePTTAwpJgL8J6jhw4MCBY8yRh6heSW4LOm+PVRtdH56LAwcOHDiWOMoJz2rqNSlcVlPBm0IhDhw4cOAYcFQLal/jq9deytOz5NObvwscOHDgwDHgmCRavTSsd/jJsEWS+EV/KThw4MCBI+DIt1ItwFXTvzx8nt8fBX4cOHDgwLHEkZQCe3DJ1hPQfHwhfx8HDhw4cDzBUR0RmJQOe+lZHuznWDhw4MCBY85RhZgMJeTfzZ/YC+SXe8CBAwcOHEsceZlvUtR7IiXLf6TkjDhw4MCBY4ujOi222zTKQ28SPns/7eX/HThw4MCBo8iRLL2VXDWHDIpPX7hw4MCBA8cSxHxw4Tm4ZP3qDgvFQRw4cODA0Vm/EPx6zaqcLH+dJ2aFFA4HDhw4cIw5kuCaEPRGGXLK6h6SQPvhfRw4cODAscQxKcbtRvjkh+k1tKL7ceDAgQPH6xyT7fZSviSU5lg3cDhw4MCB40WOagFuMrI2D7HNdhQOHDhw4FjiqIbPattpa52ttLCcQeLAgQMHjlrFrDDQMEm6eklgtR2V778JhAMHDhw4Pq/wBwyX9knRAzCYAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

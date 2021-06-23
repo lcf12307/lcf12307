@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【第一课】设计模式 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="设计模式">
+    <meta name="description" content="本篇文章主要就设计模式的常见问题进行了讨论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【第一课】设计模式">
+<meta property="og:url" content="http://lcf12307.github.io/2019/11/14/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="本篇文章主要就设计模式的常见问题进行了讨论">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2016/11/29/aa41f6375b2ddd59c91432e0a2145c25.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2016/11/29/01dabedb62594e22287c10c8b6061a21.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2016/11/29/08ca128f9c8a495acf5efafce66fa23e.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2016/11/29/946f97ce52089c1b3301deea2ced3aad.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2016/11/29/843c9c69723d1f4a9343239efaca216a.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2016/11/29/4fcd2e4ee7cfed2d079fb4b95ed27dab.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2016/11/29/704e0cbaff34c187fec9afb55b0e60f9.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2016/11/29/33ca2f6aa4335c6fea29ce104dc6d75c.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2016/11/29/1db7eb2746546ba047d0628898b3d2ce.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2016/11/29/0d76883319ee8cd0839e2d6f2c3f916d.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2016/11/29/cf070a5fb8111b1314aced631631197c.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2016/11/29/b1fe5f63e817d328c1f7e750cd5d93b4.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2016/11/29/e30d9327210aceecf9bf5cb04269bf85.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2016/11/29/98452fb637f4ad49b822cd6dcf01e364.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="article:published_time" content="2019-11-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.014Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="设计模式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2016/11/29/aa41f6375b2ddd59c91432e0a2145c25.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【第一课】设计模式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【第一课】设计模式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-13T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-11-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六大原则"><span class="post-toc-number">1.</span> <span class="post-toc-text">六大原则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-number">2.</span> <span class="post-toc-text"></span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#观察者模式"><span class="post-toc-number">3.</span> <span class="post-toc-text">观察者模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-策略模式-Strategy"><span class="post-toc-number">4.</span> <span class="post-toc-text">1. 策略模式( Strategy )</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-简单工厂模式-Simple-Factory"><span class="post-toc-number">5.</span> <span class="post-toc-text">2. 简单工厂模式( Simple Factory )</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-工厂模式-Factory"><span class="post-toc-number">6.</span> <span class="post-toc-text">3. 工厂模式( Factory )</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-抽象工厂模式-Abstract-Factory"><span class="post-toc-number">7.</span> <span class="post-toc-text">4. 抽象工厂模式( Abstract Factory )</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-装饰者模式-Decorator"><span class="post-toc-number">8.</span> <span class="post-toc-text">5. 装饰者模式( Decorator )</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-代理模式-Proxy"><span class="post-toc-number">9.</span> <span class="post-toc-text">6. 代理模式( Proxy )</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-模板方法模式-Template"><span class="post-toc-number">10.</span> <span class="post-toc-text">7. 模板方法模式( Template )</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-外观模式-Facade"><span class="post-toc-number">11.</span> <span class="post-toc-text">8. 外观模式( Facade )</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-适配器模式-Adapter"><span class="post-toc-number">12.</span> <span class="post-toc-text">9. 适配器模式( Adapter )</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-桥接模式-Bridge"><span class="post-toc-number">13.</span> <span class="post-toc-text">10. 桥接模式( Bridge )</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-建造者模式-Builder"><span class="post-toc-number">14.</span> <span class="post-toc-text">11. 建造者模式( Builder )</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#12-观察者模式-Observer"><span class="post-toc-number">15.</span> <span class="post-toc-text">12. 观察者模式( Observer )</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#13-单例模式-Singleton"><span class="post-toc-number">16.</span> <span class="post-toc-text">13. 单例模式( Singleton )</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#14-命令模式-Command"><span class="post-toc-number">17.</span> <span class="post-toc-text">14. 命令模式( Command )</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-面试/要点整理/设计模式"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【第一课】设计模式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-11-14 00:00:00" datetime="2019-11-13T16:00:00.000Z"  itemprop="datePublished">2019-11-14 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>本篇文章主要就设计模式的常见问题进行了讨论</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="六大原则"><a href="#六大原则" class="headerlink" title="六大原则"></a>六大原则</h2><ol>
+<li><p>单一原则 每个类尽量实现独立的功能</p>
+</li>
+<li><p>里氏替换原则：子类可以扩展父类的功能，但不能改变父类原有的功能 针对继承</p>
+</li>
+<li><p>依赖倒置原则 避免高层依赖底层</p>
+</li>
+<li><p>接口隔离原则 接口往小了拆分</p>
+</li>
+<li><p>迪米特法则 每个单元对其他单元了解要尽可能小</p>
+</li>
+<li><p>开闭原则 尽量用扩展的方法，不去修改原来逻辑</p>
+</li>
+</ol>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p>对象间一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。</p>
+<h2 id="1-策略模式-Strategy"><a href="#1-策略模式-Strategy" class="headerlink" title="1. 策略模式( Strategy )"></a>1. 策略模式( Strategy )</h2><p>定义个策略接口，不同的实现类提供不同的具体策略算法, 同时它们之间可以互相替换.</p>
+<blockquote>
+<p>IStrategy 接口定义了策略方法，Strategy1 和 Strategy2 通过实现 IStrategy 提供不同的策略，而 User 组合了 IStrategy ，可以通过给 User 对象设置不同具体实现类来让其获得不同的策略</p>
+<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/aa41f6375b2ddd59c91432e0a2145c25.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<p>策略模式.PNG</p>
+</blockquote>
+<h2 id="2-简单工厂模式-Simple-Factory"><a href="#2-简单工厂模式-Simple-Factory" class="headerlink" title="2. 简单工厂模式( Simple Factory )"></a>2. 简单工厂模式( Simple Factory )</h2><p>定义一个用以创建对象的工厂, 根据不同的条件生成不同的对象</p>
+<blockquote>
+<p>注意简单工厂模式与策略模式是不同的，工厂模式是根据给定的条件返回相应的对象，而策略模式是将不同的策略对象传递给使用者以实现不同策略,<em>（好吧，我差点分不清了）</em>详细不同点分析可转<a href="http://blog.csdn.net/fwj380891124/article/details/7552305" target="_blank" rel="noopener">这里</a></p>
+<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/01dabedb62594e22287c10c8b6061a21.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<p>简单工厂模式.PNG</p>
+</blockquote>
+<h2 id="3-工厂模式-Factory"><a href="#3-工厂模式-Factory" class="headerlink" title="3. 工厂模式( Factory )"></a>3. 工厂模式( Factory )</h2><p>针对每一种产品提供一个工厂类，通过不同的工厂实例来创建不同的产品实例</p>
+<blockquote>
+<p>与简单工厂模式不同点是它要为每一种产品提供一个工厂类，不同工厂类实现同一个工厂接口，返回不同产品，详细分析可转<a href="http://blog.csdn.net/superbeck/article/details/4446177" target="_blank" rel="noopener">这里</a></p>
+<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/08ca128f9c8a495acf5efafce66fa23e.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<p>工厂模式.PNG</p>
+</blockquote>
+<h2 id="4-抽象工厂模式-Abstract-Factory"><a href="#4-抽象工厂模式-Abstract-Factory" class="headerlink" title="4. 抽象工厂模式( Abstract Factory )"></a>4. 抽象工厂模式( Abstract Factory )</h2><p>应对产品族概念而生</p>
+<blockquote>
+<p>与工厂模式相比，抽象工厂模式是为了应对产品族</p>
+<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/946f97ce52089c1b3301deea2ced3aad.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<p>抽象工厂模式.PNG</p>
+</blockquote>
+<h2 id="5-装饰者模式-Decorator"><a href="#5-装饰者模式-Decorator" class="headerlink" title="5. 装饰者模式( Decorator )"></a>5. 装饰者模式( Decorator )</h2><p>动态的给一个对象添加一些额外的功能</p>
+<blockquote>
+<p>ComponentImpl 和 Decorator 类都实现了 IComponent 接口，不同的是 ComponentImpl 提供了具体实现，而 Decorator 是先聚合 ComponentImpl 接着在自己的实现方法即 <code>operation()</code> 方法中做些处理<em>（即装饰）</em>后再调用 ComponentImpl 对象的具体实现</p>
+<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/843c9c69723d1f4a9343239efaca216a.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<p>装饰者模式.PNG</p>
+</blockquote>
+<h2 id="6-代理模式-Proxy"><a href="#6-代理模式-Proxy" class="headerlink" title="6. 代理模式( Proxy )"></a>6. 代理模式( Proxy )</h2><p>封装被代理对象并限制外界对被代理对象的访问</p>
+<blockquote>
+<p>注意区分装饰者模式和代理模式的区别。在代理模式中，ComponentImpl 和 Proxy 类都实现了 IComponent 接口，Proxy 对象中虽然也维护着一个 ComponentImpl 对象，但一般情况下它是代理类自己初始化的，不像装饰者模式是通过 <code>set</code> 进去的，同时在接口方法即 <code>operation()</code> 中代理对象会限制外界对被代理对象的访问，而装饰者模式是装饰者给被装饰者添加额外的行为，详细不同点分析可转<a href="http://www.cnblogs.com/jaredlam/archive/2011/11/08/2241089.html" target="_blank" rel="noopener">这里</a></p>
+<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/4fcd2e4ee7cfed2d079fb4b95ed27dab.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<p>代理模式.PNG</p>
+</blockquote>
+<h2 id="7-模板方法模式-Template"><a href="#7-模板方法模式-Template" class="headerlink" title="7. 模板方法模式( Template )"></a>7. 模板方法模式( Template )</h2><p>定义一个操作的算法骨架, 并将一些步骤延迟到子类中</p>
+<blockquote>
+<p>AbsTemplate 抽象类中定义了一系列的方法，其中外界唯一能调用的 <code>operation()</code> 方法是 final 的<em>（即不可重写）</em>，在该方法中分别调用了 <code>first()</code> 、<code>second()</code> 、<code>third()</code> 方法<em>（即搭好算法框架）</em>，子类通过继承抽象类重写不同的方法来添加各自的行为</p>
+<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/704e0cbaff34c187fec9afb55b0e60f9.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<p>模板方法模式.PNG</p>
+</blockquote>
+<h2 id="8-外观模式-Facade"><a href="#8-外观模式-Facade" class="headerlink" title="8. 外观模式( Facade )"></a>8. 外观模式( Facade )</h2><p>为系统向外界提供一个统一的接口</p>
+<blockquote>
+<p>Fracade 为 ComponentA 、ComponentB 、ComponentC 向外即 ClientA 、ClientB 提供统一的接口</p>
+<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/33ca2f6aa4335c6fea29ce104dc6d75c.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<p>外观模式.PNG</p>
+</blockquote>
+<h2 id="9-适配器模式-Adapter"><a href="#9-适配器模式-Adapter" class="headerlink" title="9. 适配器模式( Adapter )"></a>9. 适配器模式( Adapter )</h2><p>将一个类的接口转换成客户希望的另一个接口</p>
+<blockquote>
+<p>比如项目引入第三方类库后应该先封装起来转换成自己需要的接口再使用，防止以后类库出现变更。AdapterA 先将 LibraryClass 封装起来，其对外提供的 <code>operation()</code> 方法中调用 LibraryClass 对象的方法，若以后换类库，只需改 AdapterA 类或者创建新的 Adapter 实现类即可</p>
+<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/1db7eb2746546ba047d0628898b3d2ce.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<p>适配器模式.PNG</p>
+</blockquote>
+<h2 id="10-桥接模式-Bridge"><a href="#10-桥接模式-Bridge" class="headerlink" title="10. 桥接模式( Bridge )"></a>10. 桥接模式( Bridge )</h2><p>将抽象部分与实现部分分离，使它们都可以独立的变化</p>
+<blockquote>
+<p>将原本要耦合的上下层抽象出来，上层和下层以组合的方式连接，然后上下层抽象可派生出许多不同方向的子类。AbsShape 封装了 IDrawProgram 接口，这样它的子类想从 DPA 切换到 DPB 或者别的，只需 <code>set</code> 进去就行啦<em>（你看，这 UML 图多像座桥）</em></p>
+<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/0d76883319ee8cd0839e2d6f2c3f916d.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<p>桥接模式.PNG</p>
+<p>注： <a href="http://blog.itpub.net/7243794/viewspace-837018/" target="_blank" rel="noopener">适配器、桥接与外观三模式之间关系</a></p>
+</blockquote>
+<h2 id="11-建造者模式-Builder"><a href="#11-建造者模式-Builder" class="headerlink" title="11. 建造者模式( Builder )"></a>11. 建造者模式( Builder )</h2><p>将一个复杂对象的构建与它的表示分离.</p>
+<blockquote>
+<p>作为 Product 的内部类，Builder 统一了 Product 的整个构建过程，同时在 <code>build</code> 过程中，可以由于 <code>set</code> 值顺序不同等原因产生不同的效果</p>
+<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/cf070a5fb8111b1314aced631631197c.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<p>建造者模式.PNG</p>
+</blockquote>
+<h2 id="12-观察者模式-Observer"><a href="#12-观察者模式-Observer" class="headerlink" title="12. 观察者模式( Observer )"></a>12. 观察者模式( Observer )</h2><p>定义了一种一对多的依赖关系,让多个观察者对象同时监听某一主题对象,在它的状态发生变化时,会通知所有的观察者.</p>
+<blockquote>
+<p>先将 Observer 注册到 Observable ，那么当 Observable 状态改变时会通知它持有的所有 Observer ,对了，最好 Observable 中的 mList 的泛型是 <code>WeakReference</code> ,防止内存泄漏</p>
+<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/b1fe5f63e817d328c1f7e750cd5d93b4.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<p>观察者模式.PNG</p>
+</blockquote>
+<h2 id="13-单例模式-Singleton"><a href="#13-单例模式-Singleton" class="headerlink" title="13. 单例模式( Singleton )"></a>13. 单例模式( Singleton )</h2><p>保证一个类仅有一个实例,并提供一个访问它的全局控制点.</p>
+<blockquote>
+<p>下图是利用 Java 的语言特性实现的线程安全且能延迟初始化的单例模式，Singleton 中维护着静态私有的 SingleHolder 类， SingleHolder 类中持有个静态常量 sHolder ，Client 若通过 getSingleInstance 方法获取 Singleton 对象则直接返回 SingleHolder 类的 sHolder ，详细分析可转<a href="http://www.race604.com/java-double-checked-singleton/" target="_blank" rel="noopener">这里</a></p>
+<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/e30d9327210aceecf9bf5cb04269bf85.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<p>单例模式.PNG</p>
+</blockquote>
+<h2 id="14-命令模式-Command"><a href="#14-命令模式-Command" class="headerlink" title="14. 命令模式( Command )"></a>14. 命令模式( Command )</h2><p>将一个请求封装成为一个对象, 使可以用不同的请求对客户进行参数化</p>
+<blockquote>
+<p>Action 封装了具体行为，Command 封装了 Action 并提供空方法 <code>execute()</code> ，它的子类通过重写该方法可在方法里调用 mAction 不同行为达到封装命令的目的，最后 Client 封装了一系列的 Command 对象，并可以通过 <code>notify()</code> 方法一个接着一个调用所持有 Command 对象们的 <code>execute()</code> 方法达到给 Action 传达命令的目的</p>
+<p><img src="https://user-gold-cdn.xitu.io/2016/11/29/98452fb637f4ad49b822cd6dcf01e364.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<p>命令模式.PNG</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2019/11/14/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/&title=《【第一课】设计模式》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2019/11/14/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/&title=《【第一课】设计模式》 — fannnnnn&source=
+本篇文章主要就设计模式的常见问题进行了讨论
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2019/11/14/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【第一课】设计模式》 — fannnnnn&url=http://lcf12307.github.io/2019/11/14/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2019/11/14/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/01/20/%E9%BB%91%E7%A7%91%E6%8A%80/hexo/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">搭建一个hexo博客</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/11/13/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【第一课】操作系统</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2019/11/14/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/&title=《【第一课】设计模式》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2019/11/14/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/&title=《【第一课】设计模式》 — fannnnnn&source=
+本篇文章主要就设计模式的常见问题进行了讨论
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2019/11/14/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【第一课】设计模式》 — fannnnnn&url=http://lcf12307.github.io/2019/11/14/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2019/11/14/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEhElEQVR42u3aW27bQBAEQN//0skBHEvdM1TApUtfhhMtyaKBeX59xZ8/3z75v/502veffzrt9XWTn19f8bIPJkyYMGG6JVNyW68vlnw3/7mlTGhen5y8EkyYMGHCdDpTG7Y/kSi8Jnj9eO1d5c+OCRMmTJgwzdKLnCA5pz0ZEyZMmDBhahOCvOycJQf5K8n/DyZMmDBh+j1Ms9CbAOW/yZOD/K5m52PChAkTpicx5YH5eT9/ZL8JEyZMmDDdhulP+ckR26DbBuPZ/cw+mDBhwoTpXKY8QLbjySQMt63etlxPXmG+PIQJEyZMmM5lStqgeaCdVY6bIeVVlNGwExMmTJgwHcWUB+x2cNgOF5NSdtO0nb2qrzavwYQJEyZMt2RKAnkL1A5H25DfLve0v8/qYEyYMGHCdHemfJR4VSN1NrB8fVryqtp0BxMmTJgwPYMpX6nZX7hNIDaUSRKQn4MJEyZMmM5l2jxScluz0D57vPzMvAz+2qBgwoQJE6YbMO0XbpITNvT7By7Glj+ZYMKECROmY5n2azpJI3gT7PP28ebFFNfChAkTJkxHMeUhM1+j2QT72UA0fw3J073JmzBhwoQJ01FMsyFfztd+d7a+k19l04bGhAkTJkznMu3Xa/J1nzY5yBOCWau3La0xYcKECdO5TG3jNR895gXtLLTv05Hh3xEmTJgwYTqQaXMr7TLNpuE7a09vEhdMmDBhwnQiUx0Oy0J0X4uvgndcwL9pPWPChAkTpkcwFV+76vLr9aBZ4M9Hm5gwYcKE6XSm2aCxbfK23Fc1ai9b08GECRMmTMcyzQJn3g5OrpgH6eSBZ83fuvTFhAkTJkyHMLUt1xllmxzMUpZZWV44YMKECROmA5k2yzRJUfq5UjkpjNsXGfXCMWHChAnTgUybNm6eLsweLB9k5g3iOoHAhAkTJkzHMrVl7Wx1JoGbvar2N7OmMyZMmDBhehLTpqDNg+t+Eeeq6w5XeTBhwoQJ01FMbejN+fKHz/naBGLzreGWEyZMmDBhuiXTbHUmP6EtMlu+a7eZ3gw1MWHChAnTgUz7QL4vXFuITZO3fV5MmDBhwnQiU7uC0y7NzNaA8nWc4m+hbPIWRS8mTJgwYbo9Ux7mr7rRtljNv7VJbt4kBJgwYcKE6VimpHW7acXmCUc7ksyL83p4OXtITJgwYcJ0e6a2sTsLw7NX0jaC85Fn1AXHhAkTJkyPY2qXeNoSOg/P7Qmb5aF/nIAJEyZMmB7B1LZKk9K3XQzNz9yUu3kxjwkTJkyYTmdqB4d5onDtaW0LeHOV//pgmDBhwoTpw0z7tuym1dtCtMPUJEVIEg5MmDBhwnQu0yy074vY/aD0E8tGszY3JkyYMGG6P1PbzM0Hh5cNFIMX0L6GOsnAhAkTJkyHM23C+Syo79uvsxI9vwomTJgwYcI0u3w7K2yBZq8kKn0xYcKECdOvYZoF+zxgX9XS3Y9gMWHChAnTM5j2IbYdec6A8jvZpA6rcSYmTJgwYboZU9tm3RSWecG5XxXKQ/7rtAMTJkyYMB3L9BcEtBwscyF6lAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

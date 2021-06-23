@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>linux搜索 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="linux,云服务器">
+    <meta name="description" content="Ubuntu的which、whereis、locate和find命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux搜索">
+<meta property="og:url" content="http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="Ubuntu的which、whereis、locate和find命令">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-07-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.007Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="云服务器">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">linux搜索</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">linux搜索</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-05T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-07-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Ubuntu的which、whereis、locate和find命令"><span class="post-toc-number">1.</span> <span class="post-toc-text">Ubuntu的which、whereis、locate和find命令</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-常见问题/云服务器/linux搜索命令"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">linux搜索</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-06 00:00:00" datetime="2018-07-05T16:00:00.000Z"  itemprop="datePublished">2018-07-06 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Ubuntu的which、whereis、locate和find命令"><a href="#Ubuntu的which、whereis、locate和find命令" class="headerlink" title="Ubuntu的which、whereis、locate和find命令"></a><a href="https://www.cnblogs.com/andrewlee0708/p/Linux_locate.html" target="_blank" rel="noopener">Ubuntu的which、whereis、locate和find命令</a></h1><a id="more"></a>
+
+<p>which 只能寻找执行文件 ，并在PATH变量里面寻找。</p>
+<p>whereis 从linux文件数据库（/var/lib/slocate/slocate.db）寻找，所以有可能找到刚刚删除，或者没有发现新建的文件。</p>
+<p>locate 同上,不过文件名是部分匹配。</p>
+<p>find 是直接在硬盘上搜寻，功能强大，但耗硬盘，一般不要用。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">云服务器</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4/&title=《linux搜索》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4/&title=《linux搜索》 — fannnnnn&source=Ubuntu的which、whereis、locate和find命令" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux搜索》 — fannnnnn&url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%A4%9A%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">linux多命令连接</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/05/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/mysql%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">mysql 忘记密码</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4/&title=《linux搜索》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4/&title=《linux搜索》 — fannnnnn&source=Ubuntu的which、whereis、locate和find命令" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux搜索》 — fannnnnn&url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFM0lEQVR42u3a0YrjRhQE0Pn/n55AngK79lTVlbOQHD0ZI0ut0wbdrttfX/Hx/ffx6+dX3+RX+P7HcR/Dqyu/un5yzgMHPnz48OHD9/YS7VBenZ8AvZ+My5U3gdwEHz58+PDhu/AlhUL++m+P99e5FCLvr5ZM0g9W+PDhw4cP38f4nipi7sXE+0nNg4B2nPjw4cOHD9+f4tui/AvrU3F/8lfAhw8fPnz4Ps2XL7Dbb9ryIvlVG+Vv5zzc68CHDx8+fPjOG9T+q58fPvDhw4cPH76pvb3F6J8uJrbWQlJI/aCBDx8+fPjwLRp1YF3H2cGCvy0aksV8Gy60QT8+fPjw4cO38SUPti25k+1rl7Tj3k5oC5ev7X+BDx8+fPjwlY90WaJv83kpjPJ7PVCu4cOHDx8+fMuoiuEmZ142n+XntOVL/ocowgJ8+PDhw4dv4rssztub3RHblXsbguRhBz58+PDhw5fzbdu2tiLmPlWXwqKNKqKyBh8+fPjw4Zv4tpf3tuTelvfvJzsP6Lc/wQ87+/Dhw4cPH74DXzuUvATJQ/x7Y35r2NeI+PDhw4cP38SXX+Ie1rcbwi6N8EusEI0BHz58+PDhmwQuDea2KEmCiUur/jIZ7TPiw4cPHz58Ld9TNO2Zn4sk2hb+1qgYIwN8+PDhw4evDLjzB2sX6knpsIURWxsgGhU+fPjw4cM38W1N7nzLV4t4KZW2MYwNe3z48OHDh2/iy2+cxwFtiXA55xIxbN+M84YPHz58+P73fO3L+46VlEFb07ptnOdN/aidjw8fPnz48B34LkXDNqx8GvKJ2bYCbJOEDx8+fPjwJXz167l8mKThvd33EnPkd3xsfx8+fPjw4cMX77D6dBN6rLMOEcO2oe03Yvjw4cOHD9/ElwO1xUoSB+TNgHzKn2oV/DDl+PDhw4cP35nv0qjOi5itgNgKprYJUUwwPnz48OHDN9Uhlwg7D/EvMX0eo+fFSn7fH66MDx8+fPjwTXzbi7+N0bfFf7uk356ojRLw4cOHDx++C1+75SsvRFqmbUourYW2iY4PHz58+PBtfFsUfi8R8pIov1cbKGwxAT58+PDhw/cJvvzBtsKlbVTnBPm2uTw0efkNPnz48OHDN/FtSUNeLmwBwQXlEtYnd/nN/j58+PDhw4cvTtT//Qb2Jb5PyNrSZCxc8OHDhw8fvolvW2Dni/D357eBQl7ibGFBuwkAHz58+PDhu6x2L5feGt6XCL6946Wh/psr48OHDx8+fCVf++Jv4+9LfJD89j4BeWEUbXHDhw8fPnz4Sr78AbaH3Frj+dRulA/D4cOHDx8+fC/O2YqStjS5RxL3ED8feR3W48OHDx8+fGWb/HL7vIneBvrtCC+/zZv0+PDhw4cP34Uvib+T7WUXiPsGuHz893Kq6ADgw4cPHz5804u/fezt/Hv99V0ebQlV7y/Ahw8fPnz4grBgu2W+dexS0OTN+HzTW/t3eRkZ4MOHDx8+fDHf1vBuh5hPzHa003y/Fz58+PDhw3fnawP6LUTIt74lU5iMJ/9chPv48OHDhw/f0hduXtUlX70Ijxf27QS3488nGx8+fPjw4Wv57hvRLv35rRx5tmRpyyB8+PDhw4fvzrc1lZ8K35NfJRN8gd7uiw8fPnz48H2Ob1t4J83ytuzIJ/h9SLHFFvjw4cOHD9+f5cuDhi2YuDcYLs/1Ayg+fPjw4cM38V0az3nk3Ub8lyCgvXtbYOHDhw8fPnwb3yfC9LZdfdlMdvkmf/Y2nsCHDx8+fPh+GdVfPhE0A2s5gYMAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

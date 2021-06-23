@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【链表和数组】K个一组反转链表 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="算法,链表">
+    <meta name="description" content="题目给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。 k 是一个正整数，它的值小于或等于链表的长度。 如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。 示例 : 给定这个链表：1-&gt;2-&gt;3-&gt;4-&gt;5 当 k &#x3D; 2 时，应当返回: 2-&gt;1-&gt;4-&gt;3-&gt;5 当 k &#x3D; 3 时，应当返回: 3-&gt;2-&amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【链表和数组】K个一组反转链表">
+<meta property="og:url" content="http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/K%E4%B8%AA%E4%B8%80%E7%BB%84%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="题目给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。 k 是一个正整数，它的值小于或等于链表的长度。 如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。 示例 : 给定这个链表：1-&gt;2-&gt;3-&gt;4-&gt;5 当 k &#x3D; 2 时，应当返回: 2-&gt;1-&gt;4-&gt;3-&gt;5 当 k &#x3D; 3 时，应当返回: 3-&gt;2-&amp;g">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.005Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="链表">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【链表和数组】K个一组反转链表</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【链表和数组】K个一组反转链表</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-02-03T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2020-02-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/">刷题心得</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码"><span class="post-toc-number">2.</span> <span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-刷题心得/链表和数组/K个一组反转链表"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【链表和数组】K个一组反转链表</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-02-04 00:00:00" datetime="2020-02-03T16:00:00.000Z"  itemprop="datePublished">2020-02-04 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/">刷题心得</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。</p>
+<p>k 是一个正整数，它的值小于或等于链表的长度。</p>
+<p>如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。</p>
+<p>示例 :</p>
+<p>给定这个链表：1-&gt;2-&gt;3-&gt;4-&gt;5</p>
+<p>当 k = 2 时，应当返回: 2-&gt;1-&gt;4-&gt;3-&gt;5</p>
+<p>当 k = 3 时，应当返回: 3-&gt;2-&gt;1-&gt;4-&gt;5</p>
+<p>说明 :</p>
+<p>你的算法只能使用常数的额外空间。<br>你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。</p>
+<p><a href="https://leetcode-cn.com/problems/reverse-nodes-in-k-group/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/reverse-nodes-in-k-group/</a></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * type ListNode struct &#123;</span></span><br><span class="line"><span class="comment"> *     Val int</span></span><br><span class="line"><span class="comment"> *     Next *ListNode</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">reverseKGroup</span><span class="params">(head *ListNode, k <span class="keyword">int</span>)</span> *<span class="title">ListNode</span></span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag">链表</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/K%E4%B8%AA%E4%B8%80%E7%BB%84%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/&title=《【链表和数组】K个一组反转链表》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/K%E4%B8%AA%E4%B8%80%E7%BB%84%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/&title=《【链表和数组】K个一组反转链表》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/K%E4%B8%AA%E4%B8%80%E7%BB%84%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【链表和数组】K个一组反转链表》 — fannnnnn&url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/K%E4%B8%AA%E4%B8%80%E7%BB%84%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/K%E4%B8%AA%E4%B8%80%E7%BB%84%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/02/05/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">刷题心得/栈和队列/第k大元素</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【链表和数组】两两交换链表中的节点</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/K%E4%B8%AA%E4%B8%80%E7%BB%84%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/&title=《【链表和数组】K个一组反转链表》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/K%E4%B8%AA%E4%B8%80%E7%BB%84%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/&title=《【链表和数组】K个一组反转链表》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/K%E4%B8%AA%E4%B8%80%E7%BB%84%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【链表和数组】K个一组反转链表》 — fannnnnn&url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/K%E4%B8%AA%E4%B8%80%E7%BB%84%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/K%E4%B8%AA%E4%B8%80%E7%BB%84%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,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" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

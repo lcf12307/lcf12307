@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>linux多命令连接 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="linux,云服务器">
+    <meta name="description" content="当我们需要一次执行多个命令的时候，命令之间需要用连接符连接，不同的连接符有不同的效果。下面我们总结一下，加以区分。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux多命令连接">
+<meta property="og:url" content="http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%A4%9A%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="当我们需要一次执行多个命令的时候，命令之间需要用连接符连接，不同的连接符有不同的效果。下面我们总结一下，加以区分。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-07-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.007Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="云服务器">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">linux多命令连接</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">linux多命令连接</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-05T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-07-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-常见问题/云服务器/linux多命令连接"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">linux多命令连接</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-06 00:00:00" datetime="2018-07-05T16:00:00.000Z"  itemprop="datePublished">2018-07-06 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>当我们需要一次执行多个命令的时候，命令之间需要用连接符连接，不同的连接符有不同的效果。下面我们总结一下，加以区分。</p>
+<a id="more"></a>
+
+<p>(1)  ; </p>
+<p>分号，没有任何逻辑关系的连接符。当多个命令用分号连接时，各命令之间的执行成功与否彼此没有任何影响，都会一条一条执行下去。</p>
+<p>(2) ||</p>
+<p>逻辑或，当用此连接符连接多个命令时，前面的命令执行成功，则后面的命令不会执行。前面的命令执行失败，后面的命令才会执行。</p>
+<p>(3) &amp;&amp;</p>
+<p>逻辑与，当用此连接符连接多个命令时，前面的命令执行成功，才会执行后面的命令，前面的命令执行失败，后面的命令不会执行，与 || 正好相反。</p>
+<p>(4) |</p>
+<p>管道符，当用此连接符连接多个命令时，前面命令执行的正确输出，会交给后面的命令继续处理。若前面的命令执行失败，则会报错，若后面的命令无法处理前面命令的输出，也会报错。</p>
+<p>例 ls | grep *.txt</p>
+<p>﻿</p>
+<p><strong>在linux中，&amp;和&amp;&amp;,|和||介绍如下：</strong></p>
+<p><strong>&amp;  表示任务在后台执行，如要在后台运行redis-server,则有 redis-server &amp;</strong></p>
+<p><strong>&amp;&amp; 表示前一条命令执行成功时，才执行后一条命令 ，如 echo ‘1‘ &amp;&amp; echo ‘2’</strong>   </p>
+<p><strong>| 表示管道，上一条命令的输出，作为下一条命令参数，如 echo ‘yes’ | wc -l</strong></p>
+<p><strong>|| 表示上一条命令执行失败后，才执行下一条命令，如 cat nofile || echo “fail”</strong></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">云服务器</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%A4%9A%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5/&title=《linux多命令连接》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%A4%9A%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5/&title=《linux多命令连接》 — fannnnnn&source=当我们需要一次执行多个命令的时候，命令之间需要用连接符连接，不同的连接符有不同的效果。下面我们总结一下，加以区分。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%A4%9A%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux多命令连接》 — fannnnnn&url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%A4%9A%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%A4%9A%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/07/12/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/ubuntu%E5%AE%89%E8%A3%85wine%E5%BA%94%E7%94%A8/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【常见问题】Ubuntu下利用deepin-wine安装软件简要方案</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">linux搜索</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%A4%9A%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5/&title=《linux多命令连接》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%A4%9A%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5/&title=《linux多命令连接》 — fannnnnn&source=当我们需要一次执行多个命令的时候，命令之间需要用连接符连接，不同的连接符有不同的效果。下面我们总结一下，加以区分。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%A4%9A%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《linux多命令连接》 — fannnnnn&url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%A4%9A%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2018/07/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%A4%9A%E5%91%BD%E4%BB%A4%E8%BF%9E%E6%8E%A5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFSUlEQVR42u3cQW7jSBAEQP//015gbgvDUmYW7YuDJ0PiNJtBAazOaszHR3x8/ju++/zrt59fjq/jfPft6zG/m893/+r1Oa+v+NiBDx8+fPjwvbzVp24sGWH7vCVrfwSJCT58+PDhw3fhSy78Gu5C1s4hL1AuJVRUwOHDhw8fPnw/xpdT5tzJzSflxWWebYmDDx8+fPjw/T7fheAyZlLQXKIBfPjw4cOH73f48gV2XjTkEfmlMZA06e+tggd6Hfjw4cOHD9+0Qe0v/P2D+/vw4cOHD98f5vssj3aZnY95CevbQCEPHd7MHB8+fPjw4Vs06sD60ghPFvxbUdWGC5f2Q92XwIcPHz58+OIba1/5+ZjtxrXX52+f3MssfPjw4cOHr+W73PwWEyTPsw0Utvb2Vq7hw4cPHz58F75kusmyedv4ldz8pdWdlFz5A/vYnjY+fPjw4cOXv5LjoqGN4Lfio71u3vjPx8GHDx8+fPg2vksE0JY7l1Z6sshvg/j2zChrwYcPHz58+IIUOl/SbxfIS5D7aHkkkTTUizY5Pnz48OHDF/C1JcizZybReR7K/1zb/ttz8OHDhw8fvmVPV71V677ZK98QthU0Wwuh3QSADx8+fPjwtXxt2zhvgedBfzvaFnM8Nc7/vsWHDx8+fPgOfFsDOwnc25i+LWi2Amu7r3qDGj58+PDhw/dNWJ8M9OxSPwnW76FAvsUtaRvgw4cPHz58F778tZ2XFFvjOae8bztrC7I3c8CHDx8+fPhKvm2B/exUWqAW61ni4jeFDx8+fPjwxcVBGxa05c5ncLRt+C0a2BoM+PDhw4cP38aXoDwb0+exeF4etd+2JcubXgc+fPjw4cPX5ef1f5qZTLctGu5N9zpkjw98+PDhw4fvKb7thZ1Pqw3Nc9wt1NhChLFBjg8fPnz48H2JDDagnytW2nb4fVb5zB/7feHDhw8fPnxBdL5F+clVtuZ3O7e2Qf7mweDDhw8fPnxTHbJF53mInx95XJ6Mc6EvfiL48OHDhw/fxLe9+POFfR7Qb2XTBpHP5NTrwIcPHz58+A6Dbov8ton+muwS8V8a6vjw4cOHD9+Fr32FJ+j3oDx/qPnjydvzxTY1fPjw4cOH78CXlyZt/P36KpdiJQ8yttLqjQM+fPjw4cM38V3C6zYWb0OElubSfmgfOT58+PDhw7fx5bfdxt9Fx6Bs2+dx/AYajYMPHz58+PCVfMlNtjFBMtq27ezC+nDJgg8fPnz48E18bWP43sxut6O1RUleQj1QGOHDhw8fPnz7mjq67bYmam/g2YbBRry1H/Dhw4cPH76EL59iG7vnuJegfGs2XAqa8Qnjw4cPHz58wUn5J1ssfmmxbyF+XoQVvQ58+PDhw4fv0OfNF+Rt23srVtr53AOLoi2BDx8+fPjwTXztP2vb223rum0D5LF7GygUTXF8+PDhw4eve++fGs/5bWxt6Q29nVU+c3z48OHDh2/jy4uGNrhvi4Y23N82q7Ul15v548OHDx8+fBPfpUG+PYD8NtpCqp3P5Vr48OHDhw/fne+ynSuPD7aNbpeY4Nnrjr8UfPjw4cP35/m2aD4PxLdCoW145498u+4DBRY+fPjw4cNXLqrvTehtupfYIv97K4Pw4cOHDx++C9+lgNjqo0tB0za2a5R8HHz48OHDh+/H+C5FQzJOEqa35dH2wPLr4sOHDx8+fL/Dl0wu3xx2v9a2lt+a5Q8ULvjw4cOH78/z5WH9FrXf8+2WI2mxb+XUqdeBDx8+fPj+PF8blLfTSr7NmbZyZLtiO3N8+PDhw4fv5cz/A5New3MV1WhvAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>go语言规范 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="go">
+    <meta name="description" content="1. 系统知识系统知识主要用于评判候选人是否为资深软件工程师">
+<meta property="og:type" content="article">
+<meta property="og:title" content="go语言规范">
+<meta property="og:url" content="http://lcf12307.github.io/2019/02/20/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E7%B2%BE%E9%80%89%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="1. 系统知识系统知识主要用于评判候选人是否为资深软件工程师">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-02-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.013Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="go">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">go语言规范</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">go语言规范</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-02-19T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-02-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-系统知识"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 系统知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-网络"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 网络</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-1-1-网络七层模型"><span class="post-toc-number">1.1.0.1.</span> <span class="post-toc-text">1.1.1 网络七层模型</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-1-2-网络四层模型"><span class="post-toc-number">1.1.0.2.</span> <span class="post-toc-text">1.1.2 网络四层模型</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-1-3-TCP、UDP、IP-协议"><span class="post-toc-number">1.1.0.3.</span> <span class="post-toc-text">1.1.3 TCP、UDP、IP 协议</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-1-4-TCP端口快速回收与重用"><span class="post-toc-number">1.1.0.4.</span> <span class="post-toc-text">1.1.4 TCP端口快速回收与重用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-系统调用与函数调用"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2 系统调用与函数调用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-2-1-系统调用"><span class="post-toc-number">1.2.0.1.</span> <span class="post-toc-text">1.2.1 系统调用</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-2-2-函数调用"><span class="post-toc-number">1.2.0.2.</span> <span class="post-toc-text">1.2.2 函数调用</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-2-3-系统调用与函数调用的区别"><span class="post-toc-number">1.2.0.3.</span> <span class="post-toc-text">1.2.3 系统调用与函数调用的区别</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-并发与并行"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.3 并发与并行</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-3-1-并发"><span class="post-toc-number">1.3.0.1.</span> <span class="post-toc-text">1.3.1 并发</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-3-2-并行"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">1.3.2 并行</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-3-3-多线程同步"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">1.3.3 多线程同步</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-架构能力"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 架构能力</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-分布式与集群"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 分布式与集群</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-1-1-分布式锁"><span class="post-toc-number">2.1.0.1.</span> <span class="post-toc-text">2.1.1 分布式锁</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-微服务"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 微服务</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-编程语言"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 编程语言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-PHP"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">3.1 PHP</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-Golang"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">3.2 Golang</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-2-1-Golang的调度器模型"><span class="post-toc-number">3.2.0.1.</span> <span class="post-toc-text">3.2.1 Golang的调度器模型</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-2-2-channel"><span class="post-toc-number">3.2.0.2.</span> <span class="post-toc-text">3.2.2 channel</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-2-3-goroutine"><span class="post-toc-number">3.2.0.3.</span> <span class="post-toc-text">3.2.3 goroutine</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-数据库"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. 数据库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-1-关联查询"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">4.1 关联查询</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-事务"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">4.2 事务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-2-1-ACID特性"><span class="post-toc-number">4.2.0.1.</span> <span class="post-toc-text">4.2.1 ACID特性</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-2-2-事务的使用"><span class="post-toc-number">4.2.0.2.</span> <span class="post-toc-text">4.2.2 事务的使用</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-2-3-事务的回滚"><span class="post-toc-number">4.2.0.3.</span> <span class="post-toc-text">4.2.3 事务的回滚</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-4-4-事务隔离级别"><span class="post-toc-number">4.2.0.4.</span> <span class="post-toc-text">4.4.4 事务隔离级别</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-3-索引"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">4.3 索引</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-4-锁"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">4.4 锁</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-4-1-锁方案"><span class="post-toc-number">4.4.0.1.</span> <span class="post-toc-text">4.4.1 锁方案</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-4-2-锁类型"><span class="post-toc-number">4.4.0.2.</span> <span class="post-toc-text">4.4.2 锁类型</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-缓存"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. 缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-1-缓存金字塔"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">5.1 缓存金字塔</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-2-http请求的缓存过程"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">5.2 http请求的缓存过程</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-web开发"><span class="post-toc-number">6.</span> <span class="post-toc-text">6. web开发</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-数据结构和算法"><span class="post-toc-number">7.</span> <span class="post-toc-text">7. 数据结构和算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-shell脚本"><span class="post-toc-number">8.</span> <span class="post-toc-text">8. shell脚本</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-面试/要点整理/精选面试题"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">go语言规范</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-02-20 00:00:00" datetime="2019-02-19T16:00:00.000Z"  itemprop="datePublished">2019-02-20 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="1-系统知识"><a href="#1-系统知识" class="headerlink" title="1. 系统知识"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#1-系统知识" target="_blank" rel="noopener">1. 系统知识</a></h2><p>系统知识主要用于评判候选人是否为资深软件工程师</p>
+<a id="more"></a>
+
+<h3 id="1-1-网络"><a href="#1-1-网络" class="headerlink" title="1.1 网络"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#11-网络" target="_blank" rel="noopener">1.1 网络</a></h3><p>考察对象: 工作三年以上</p>
+<h5 id="1-1-1-网络七层模型"><a href="#1-1-1-网络七层模型" class="headerlink" title="1.1.1 网络七层模型"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#111-网络七层模型" target="_blank" rel="noopener">1.1.1 网络七层模型</a></h5><p>又称OSI 模型，从下到上分别为：</p>
+<ul>
+<li>物理层：底层数据传输，如网线；网卡标准。</li>
+<li>数据链路层：定义数据的基本格式，如何传输，如何标识；如网卡MAC地址。</li>
+<li>网络层：定义IP编址，定义路由功能；如不同设备的数据转发。</li>
+<li>传输层：端到端传输数据的基本功能；如 TCP、UDP。</li>
+<li>会话层：控制应用程序之间会话能力；如不同软件数据分发给不同软件。</li>
+<li>标识层：数据格式标识，基本压缩加密功能。</li>
+<li>应用层：各种应用软件，包括 Web 应用。</li>
+</ul>
+<h5 id="1-1-2-网络四层模型"><a href="#1-1-2-网络四层模型" class="headerlink" title="1.1.2 网络四层模型"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#112-网络四层模型" target="_blank" rel="noopener">1.1.2 网络四层模型</a></h5><p>从下到上分别为：</p>
+<ul>
+<li>网络访问层：ARP、RARP等协议</li>
+<li>互联网层：ICMP、IP等协议</li>
+<li>传输层：TCP、UDP等协议</li>
+<li>应用层：DNS、FTP、HTTP、SMTP、TELNET、IRC、WHOIS等协议</li>
+</ul>
+<h5 id="1-1-3-TCP、UDP、IP-协议"><a href="#1-1-3-TCP、UDP、IP-协议" class="headerlink" title="1.1.3 TCP、UDP、IP 协议"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#113-tcpudpip-协议" target="_blank" rel="noopener">1.1.3 TCP、UDP、IP 协议</a></h5><ul>
+<li>TCP与UDP的区别<ol>
+<li>TCP属于有状态的可靠连接，通过ack、拆包组包机制保障数据按照顺序传递，一旦建立好连接，路由路线是固定的；UDP本身是无状态的不可靠连接，没有固定的路由路线，优先选择速度快的路由路线，顺序靠应用程序自己保障。</li>
+<li>TCP是基于数据流的，对应用层来说没有固定包大小，在TCP内部会发生拆包组包；UDP是基于数据包的，对应用程序来说有固定大小，UDP内部不会发生拆包组包。但不管是TCP还是UDP，在IP层都有可能发生拆包组包。</li>
+</ol>
+</li>
+<li>TCP粘包问题<ol>
+<li>发送端需要等缓冲区满才发送出去，造成粘包（nalge算法也可能造成粘包现象），可以通过设置socket为 nodelay解决。</li>
+<li>接收方不及时接收缓冲区的包，造成多个包接收。应用程序对每个数据包添加包头来区分数据界限解决。</li>
+</ol>
+</li>
+<li>TCP拆包问题<ol>
+<li>发送的TCP报文大于TCP发送缓冲区剩余空间大小。</li>
+<li>缓冲区中待发送的数据大小大于MSS（最大报文长度） 拆包问题，可以通过压缩数据得到改善。</li>
+</ol>
+</li>
+<li>TCP快速重传、快速恢复、慢启动、滑动窗口<ol>
+<li>TCP使用滑动窗口机制进行拥塞控制，避免网络质量变差时ACK时间过长导致丢包以及网络质量变好时频繁的ACK导致网络速度无法提升。</li>
+<li>所谓的慢启动是指滑动窗口的调整是缓慢的调整，即使是网络质量很好的情况下，滑动窗口调整到合适大小也是需要一定时间。</li>
+<li>快速重传：接收方接收到无序的包时，会立即发送ACK给发送方请求重传缺失的包，如果发送方连续收到3个或者3个以上的重传ACK，那么就判定丢包了，立即重传丢失的包。</li>
+<li>快速恢复：丢包意味着网络环境变差，默认情况下TCP会恢复到慢启动来进行重传。快速恢复算法在收到3个重传ACK的时候判定网络环境质量并不差，决定不恢复到慢启动，直接重传丢失的包。</li>
+</ol>
+</li>
+<li>IP层拆包组包 当报文超过MTU（最大传输单元）大小时，将发生IP层的拆包组包。MTU由路由协商决定，取路由两端以太网帧大小中较小的值。</li>
+</ul>
+<h5 id="1-1-4-TCP端口快速回收与重用"><a href="#1-1-4-TCP端口快速回收与重用" class="headerlink" title="1.1.4 TCP端口快速回收与重用"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#114-tcp端口快速回收与重用" target="_blank" rel="noopener">1.1.4 TCP端口快速回收与重用</a></h5><p>由于http协议是短连接，请求完毕后会关闭连接，导致服务器频繁的建立、断开连接，而TCP的回收是有等待时间的，在高并发的http服务器上，我们需要对TCP连接进行调优。否则，容易出现大量time_wait状态的连接占用大量资源。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 开启SYN Cookies。当出现SYN等待队列溢出时，启用cookies来处理，可防范少量SYN攻击，默认为0，表示关闭</span><br><span class="line">net.ipv4.tcp_syncookies &#x3D; 1</span><br><span class="line"># 开启重用。允许将TIME-WAIT sockets重新用于新的TCP连接，默认为0，表示关闭</span><br><span class="line">net.ipv4.tcp_tw_reuse &#x3D; 1</span><br><span class="line"># 开启TCP连接中TIME-WAIT sockets的快速回收，默认为0，表示关闭。</span><br><span class="line">net.ipv4.tcp_tw_recycle &#x3D; 1</span><br><span class="line"># 修改系統默认的TIMEOUT时间</span><br><span class="line">net.ipv4.tcp_fin_timeout &#x3D; 30</span><br><span class="line">net.ipv4.tcp_timestamps &#x3D; 1</span><br></pre></td></tr></table></figure>
+
+<p>服务端程序监听端口的socket也可能会遇到回收慢的问题。服务因意外挂掉没及时关闭socket，导致重启时无法监听端口。可以在代码里设置socket的reuse参数</p>
+<h3 id="1-2-系统调用与函数调用"><a href="#1-2-系统调用与函数调用" class="headerlink" title="1.2 系统调用与函数调用"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#12-系统调用与函数调用" target="_blank" rel="noopener">1.2 系统调用与函数调用</a></h3><p>考察对象: 工作三年以上 附加考察点：应用程序地址空间的划分</p>
+<p>应用程序地址空间的最高1G的内存空间是内核态内存空间，其余的属于用户态内存空间。内核态内存空间主要用于系统调用时在内核态保存数据。</p>
+<h5 id="1-2-1-系统调用"><a href="#1-2-1-系统调用" class="headerlink" title="1.2.1 系统调用"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#121-系统调用" target="_blank" rel="noopener">1.2.1 系统调用</a></h5><p>系统调用是指通过软中断调用系统内核函数的过程。</p>
+<ul>
+<li>应用程序调用C函数库中的函数（GO例外，GO自己封装了系统库函数）</li>
+<li>C函数库中触发软中断 INT 0x80，把系统调用号放入 %eax 寄存器</li>
+<li>保存应用程序上下文到应用程序栈内存，主要是保存各种寄存器的值，其中最重要的是程序计数器（PC）和栈指针寄存器（SP）</li>
+<li>陷入内核态</li>
+<li>调用<code>copy_from_user</code>将参数从用户态内存复制到内核态内存</li>
+<li>调用内核函数</li>
+<li>调用<code>copy_to_user</code>将返回值从内核态内存复制到用户态内存</li>
+<li>返回用户态</li>
+<li>恢复应用程序上下文，并将PC所指内存地址的指令加载到指令寄存器（IP）</li>
+<li>继续执行应用程序</li>
+</ul>
+<h5 id="1-2-2-函数调用"><a href="#1-2-2-函数调用" class="headerlink" title="1.2.2 函数调用"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#122-函数调用" target="_blank" rel="noopener">1.2.2 函数调用</a></h5><p>函数调用是指给定特定参数调用函数功能并获取返回结果的过程。</p>
+<ul>
+<li>保存函数参数到函数栈帧</li>
+<li>保存函数调用完成后执行的下一条指令的地址到栈帧</li>
+<li>跳转到函数地址</li>
+<li>执行函数体</li>
+<li>将返回值保存到栈帧</li>
+<li>从栈帧加载下一条指令地址</li>
+<li>执行下一条指令</li>
+</ul>
+<h5 id="1-2-3-系统调用与函数调用的区别"><a href="#1-2-3-系统调用与函数调用的区别" class="headerlink" title="1.2.3 系统调用与函数调用的区别"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#123-系统调用与函数调用的区别" target="_blank" rel="noopener">1.2.3 系统调用与函数调用的区别</a></h5><ul>
+<li>函数调用不需要触发软中断</li>
+<li>函数调用不需要执行上下文切换</li>
+<li>系统调用是调用系统内核函数，函数调用是调用应用程序的函数</li>
+</ul>
+<h3 id="1-3-并发与并行"><a href="#1-3-并发与并行" class="headerlink" title="1.3 并发与并行"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#13-并发与并行" target="_blank" rel="noopener">1.3 并发与并行</a></h3><p>并发：某一时间段内处理多个任务的能力。 并行：某一时间点处理多个任务的能力。</p>
+<h5 id="1-3-1-并发"><a href="#1-3-1-并发" class="headerlink" title="1.3.1 并发"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#131-并发" target="_blank" rel="noopener">1.3.1 并发</a></h5><p>并发强调的是单个处理单元在单位时间内处理任务的能力。常见的并发场景有：</p>
+<ul>
+<li>单个CPU核单位时间内执行的任务（线程）数。如通过top查看到的load avrage在一定程度上反馈了CPU的并发数</li>
+<li>单个服务器单位时间内处理的请求数。如QPS这一指标一定程度上衡量了一台服务器的处理能力。</li>
+</ul>
+<h4 id="1-3-2-并行"><a href="#1-3-2-并行" class="headerlink" title="1.3.2 并行"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#132-并行" target="_blank" rel="noopener">1.3.2 并行</a></h4><p>并行强调的是整个系统某一时间点同时处理任务的能力。常见的并行场景有：</p>
+<ul>
+<li>CPU的指令流水线同时处理的指令数。如三级流水线表示整个流水线能同时处理三条指令：取指（加载指令）、预处理、执行。</li>
+<li>CORE I7 处理器4核8线程，能同时让8个线程在上面工作。</li>
+<li>一个拥有10个节点的集群，能同时处理至少10个网络请求。</li>
+</ul>
+<h4 id="1-3-3-多线程同步"><a href="#1-3-3-多线程同步" class="headerlink" title="1.3.3 多线程同步"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#133-多线程同步" target="_blank" rel="noopener">1.3.3 多线程同步</a></h4><p>原因：CPU内核有缓存，现代多核CPU缓存中寄存器、L1缓存是独占的，L2、L3缓存是多核共享。多线程不同步的原因本质上是CPU核之间缓存不同步、CPU缓存与内存不同步。 解决方案：1、加锁，强制同步CPU核之间的缓存，适合复杂数据类型。2、volatile关键字，禁止寄存器优化，适合简单数据类型（如整数），但只能降低概率，并不能保证原子性。3、原子操作，CPU利用内存屏障，在CPU对内容进行“读-修改-写”这一连续操作时，锁定内存总线，屏蔽其他的读写操作。内存屏障分为读屏障（load barrier）、写屏障（store barrier）、全屏障（full barrier）。读屏障是加在指令前强制让CPU缓存失效，直接从内存读取；写屏障是加在指令后强制将CPU缓存中的数据写入到内存。</p>
+<h2 id="2-架构能力"><a href="#2-架构能力" class="headerlink" title="2. 架构能力"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#2-架构能力" target="_blank" rel="noopener">2. 架构能力</a></h2><p>考察对象：工作五年以上 架构能力考察候选人软件架构方面的知识和能力。</p>
+<h3 id="2-1-分布式与集群"><a href="#2-1-分布式与集群" class="headerlink" title="2.1 分布式与集群"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#21-分布式与集群" target="_blank" rel="noopener">2.1 分布式与集群</a></h3><p>集群：多个处理相同任务的节点组成集群。 分布式：多个处理不同子任务的节点组成分布式系统。 分布式系统中往往涉及关键数据的同步，需要用到分布式锁。</p>
+<h5 id="2-1-1-分布式锁"><a href="#2-1-1-分布式锁" class="headerlink" title="2.1.1 分布式锁"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#211-分布式锁" target="_blank" rel="noopener">2.1.1 分布式锁</a></h5><p>分布式锁基本理论：CAP、悲观锁、乐观锁（CAS） CAP：任何一个分布式系统都无法同时满足一致性（Consistency）、可用性（Availability）和分区容错性（Partition tolerance），最多只能同时满足两项。 CAS： compare and swap，比较并交换。在修改正式数据之前，先会把现有数据版本与修改前的数据版本比较：如果相等则执行修改操作；如果不相等则需要重新获取数据和版本并提交CAS请求。 悲观锁：假设所有操作都可能会修改数据，默认执行加锁操作，直到等待锁释放后才能加锁成功。相当于互斥锁。 乐观锁：假设所有操作中读操作远比写操作多，在修改数据之前检查条件，条件符合则执行修改操作，条件不符合则返回失败。</p>
+<p>常用的分布式锁主要有以下几种</p>
+<ul>
+<li><p>基于redis、memcached等缓存实现 redis的悲观锁： 加锁</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setnx test 1</span><br></pre></td></tr></table></figure>
+
+<p>，如果test已经存在，则返回0表示加锁失败。解锁</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">del test</span><br></pre></td></tr></table></figure>
+
+<p> redis的乐观锁：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">watch</span><br><span class="line">multi</span><br><span class="line">set test 1</span><br><span class="line">get test</span><br><span class="line">exec</span><br><span class="line">unwatch</span><br></pre></td></tr></table></figure>
+
+<p>判断get test的返回值是否为 set 的值来判断是否加锁成功</p>
+</li>
+<li><p>基于zookeeper、etcd等集群管理软件实现 etcd 的悲观锁：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 创建一个key</span><br><span class="line">2. 如果key不存在返回成功并执行第 5 步</span><br><span class="line">3. 如果key存在则返回失败，需要watch这个key等待key被删除</span><br><span class="line">4. 如果key被删除则重试第 1 步</span><br><span class="line">5. 执行需要的操作</span><br></pre></td></tr></table></figure>
+
+<p>etcd 的乐观锁：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 读取数据以及数据的版本号 ModifiedIndex</span><br><span class="line">2. 修改数据时用ModifiedIndex作为数据的比较条件</span><br><span class="line">3. 如果ModifiedIndex与现有数据的相同，则修改成功；否则修改失败，重试第 1 步</span><br></pre></td></tr></table></figure>
+
+<p>etcd v3 已经提供了lock和unlock的接口</p>
+</li>
+<li><p>基于mysql等数据库实现 悲观锁：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM methodLock WHERE method_name&#x3D;xxx FOR UPDATE</span><br><span class="line">UPDATE tb_stock SET number&#x3D;number-1</span><br></pre></td></tr></table></figure>
+
+<p>乐观锁：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update tb_stock set number&#x3D;number-1 where product_id&#x3D;xxx</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="2-2-微服务"><a href="#2-2-微服务" class="headerlink" title="2.2 微服务"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#22-微服务" target="_blank" rel="noopener">2.2 微服务</a></h3><ul>
+<li>SOA：服务注册与发现、配置管理 ETCD、zookeeper的用法</li>
+<li>RPC：微服务调用 thrift、protobuf、grpc的原理和用法</li>
+<li>MQ：异步调用、日志收集 rabbitmq、kafka的架构和用法</li>
+<li>容器：服务调度和治理 docker、kubernetes的原理和用法</li>
+</ul>
+<h2 id="3-编程语言"><a href="#3-编程语言" class="headerlink" title="3. 编程语言"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#3-编程语言" target="_blank" rel="noopener">3. 编程语言</a></h2><h3 id="3-1-PHP"><a href="#3-1-PHP" class="headerlink" title="3.1 PHP"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#31-php" target="_blank" rel="noopener">3.1 PHP</a></h3><h3 id="3-2-Golang"><a href="#3-2-Golang" class="headerlink" title="3.2 Golang"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#32-golang" target="_blank" rel="noopener">3.2 Golang</a></h3><p>考察点：</p>
+<ul>
+<li>go调度器模型</li>
+<li>channel的各种用法</li>
+<li>goroutine的各种用法</li>
+<li>interface的各种用法</li>
+<li>sync包的用法</li>
+<li>time包定时器的用法</li>
+<li>context包用法和实现原理</li>
+</ul>
+<h5 id="3-2-1-Golang的调度器模型"><a href="#3-2-1-Golang的调度器模型" class="headerlink" title="3.2.1 Golang的调度器模型"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#321-golang的调度器模型" target="_blank" rel="noopener">3.2.1 Golang的调度器模型</a></h5><p>用这个知识点来初步判断候选人是否真的对golang感兴趣并了解过golang</p>
+<h5 id="3-2-2-channel"><a href="#3-2-2-channel" class="headerlink" title="3.2.2 channel"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#322-channel" target="_blank" rel="noopener">3.2.2 channel</a></h5><p><strong>种类</strong></p>
+<ul>
+<li>nil 值为nil的channel，读写都会block。主要用于select的时候将close掉的channel置为nil，防止触发相应case。</li>
+<li>无缓冲 读写都会block，读操作在写操作之前完成。一般用于同步通知。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ch :&#x3D; make(chan struct&#123;&#125;)</span><br><span class="line">go func()&#123;</span><br><span class="line">	&#x2F;&#x2F;do something</span><br><span class="line">    close(ch)</span><br><span class="line">&#125;()</span><br><span class="line">&#x2F;&#x2F;wait goroutine finish</span><br><span class="line">&lt;- ch</span><br><span class="line">&#x2F;&#x2F;do something</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>单缓冲 无数据时，读操作block；有数据时，写操作block。用于保证数据有序传递并且限制接收端的最大速度。</li>
+<li>多缓冲 只要缓冲区有数据，读操作不会被block；即使有数据，只要缓冲区有空间，写操作不会被block。可以保证数据有序传递，但无法限制接收端的最大速度，只能限制接收端的平均速度。</li>
+</ul>
+<h5 id="3-2-3-goroutine"><a href="#3-2-3-goroutine" class="headerlink" title="3.2.3 goroutine"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#323-goroutine" target="_blank" rel="noopener">3.2.3 goroutine</a></h5><h2 id="4-数据库"><a href="#4-数据库" class="headerlink" title="4. 数据库"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#4-数据库" target="_blank" rel="noopener">4. 数据库</a></h2><h3 id="4-1-关联查询"><a href="#4-1-关联查询" class="headerlink" title="4.1 关联查询"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#41-关联查询" target="_blank" rel="noopener">4.1 关联查询</a></h3><ul>
+<li>内联结：将两个表中存在联结关系的字段符合联结关系的那些记录形成记录集的联结。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.Name B.Hobby FROM A, B WHERE A.id &#x3D; B.id</span><br><span class="line">或者</span><br><span class="line">SELECT A.Name FROM A INNER JOIN B ON A.id &#x3D; B.id</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>外联结：分为外左联结和外右联结。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT A.Name FROM A LEFT JOIN B ON A.id &#x3D; B.id</span><br><span class="line">或者</span><br><span class="line">SELECT A.Name FROM B RIGHT JOIN A ON A.id &#x3D; B.id</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>全联结：将两个表中存在联结关系的字段的所有记录取出形成记录集的联结。 mysql本身没有实现全联结，可以使用<code>左连接 union 右连接</code>来实现</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT L.*,r.* FROM left_table L LEFT JOIN right_table r on L.age&#x3D;r.age UNION</span><br><span class="line">SELECT L.*,r.* FROM left_table L RIGHT JOIN right_table r on L.age&#x3D;r.age</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>无联结：没有使用联结功能，也有自联结的说法。</li>
+</ul>
+<p>假如要取两个用户共同评论过的商品详情，如何写SQL语句？</p>
+<h3 id="4-2-事务"><a href="#4-2-事务" class="headerlink" title="4.2 事务"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#42-事务" target="_blank" rel="noopener">4.2 事务</a></h3><h5 id="4-2-1-ACID特性"><a href="#4-2-1-ACID特性" class="headerlink" title="4.2.1 ACID特性"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#421-acid特性" target="_blank" rel="noopener">4.2.1 ACID特性</a></h5><ul>
+<li>原子性（Atomicity） 原子性是指事务包含的所有操作要么全部成功，要么全部失败回滚。</li>
+<li>一致性（Consistency） 一致性是指事务必须使数据库从一个一致的状态变到另外一个一致的状态，也就是执行事务之前和之后的状态都必须处于一致的状态。</li>
+<li>隔离性(Isolation) 隔离性是指当多个用户并发访问数据库时，比如操作同一张表时，数据库为每一个用户开启的事务，不能被其他事务的操作所干扰，多个并发事务之间要相互隔离</li>
+<li>持久性(Durability) 持久性是指一个事务一旦被提交了，那么对于数据库中的数据改变就是永久性的，即便是在数据库系统遭遇到故障的情况下也不会丢失提交事务的操作。</li>
+</ul>
+<h5 id="4-2-2-事务的使用"><a href="#4-2-2-事务的使用" class="headerlink" title="4.2.2 事务的使用"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#422-事务的使用" target="_blank" rel="noopener">4.2.2 事务的使用</a></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set autocommit &#x3D; 0;</span><br><span class="line">start transaction;</span><br><span class="line">update accout set money&#x3D;money+100 where name&#x3D;&quot;Jason&quot;;</span><br><span class="line">commit;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-2-3-事务的回滚"><a href="#4-2-3-事务的回滚" class="headerlink" title="4.2.3 事务的回滚"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#423-事务的回滚" target="_blank" rel="noopener">4.2.3 事务的回滚</a></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set autocommit &#x3D; 0;</span><br><span class="line">start transaction;</span><br><span class="line">update account set money&#x3D;money-100 where name&#x3D;&quot;justin&quot;;</span><br><span class="line">rollback;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-4-4-事务隔离级别"><a href="#4-4-4-事务隔离级别" class="headerlink" title="4.4.4 事务隔离级别"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#444-事务隔离级别" target="_blank" rel="noopener">4.4.4 事务隔离级别</a></h5><p>查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @@tx_isolation;</span><br></pre></td></tr></table></figure>
+
+<p>设置当前session的下一个事务的隔离级别</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set transaction isolation level Read uncommitted;</span><br></pre></td></tr></table></figure>
+
+<p>设置当前session以后所有事务的隔离级别</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set session transaction isolation level Read uncommitted;</span><br></pre></td></tr></table></figure>
+
+<p>设置之后的所有session的隔离级别，不包括当前session</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set global transaction isolation level Read uncommitted;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-索引"><a href="#4-3-索引" class="headerlink" title="4.3 索引"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#43-索引" target="_blank" rel="noopener">4.3 索引</a></h3><h3 id="4-4-锁"><a href="#4-4-锁" class="headerlink" title="4.4 锁"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#44-锁" target="_blank" rel="noopener">4.4 锁</a></h3><h5 id="4-4-1-锁方案"><a href="#4-4-1-锁方案" class="headerlink" title="4.4.1 锁方案"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#441-锁方案" target="_blank" rel="noopener">4.4.1 锁方案</a></h5><ul>
+<li>一次封锁：可以避免大量并发情况下的死锁，前提条件是已知要在哪些数据加锁，不适合用在数据库事务中。</li>
+<li>两段锁：两段锁协议将事务分成两个阶段：加锁阶段和解锁阶段。在事务开始时加锁，事务结束后解锁。无法避免死锁，但能保证事务的串行化。</li>
+</ul>
+<h5 id="4-4-2-锁类型"><a href="#4-4-2-锁类型" class="headerlink" title="4.4.2 锁类型"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#442-锁类型" target="_blank" rel="noopener">4.4.2 锁类型</a></h5><ul>
+<li>表锁：对一整张表加锁，并发能力低下（即使有分读锁、写锁），一般在DDL处理时使用。</li>
+<li>行锁：只锁住特定行的数据，并发能力强，MySQL一般都是用行锁来处理并发事务。</li>
+<li>GAP锁（间隙锁）：是MySQL使用索引对行锁两边的区间进行加锁，避免其他事务在这两个区间insert的一种锁。</li>
+<li>Next-Key锁：Next-Key锁是行锁和GAP锁的合并（MySQL使用它来避免幻读）</li>
+<li>MVVC(多版本并发控制）：Innodb中的乐观锁实现。通过它提高MySQL的读取操作的性能。并能解决MySQL的重复读问题。</li>
+</ul>
+<h2 id="5-缓存"><a href="#5-缓存" class="headerlink" title="5. 缓存"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#5-缓存" target="_blank" rel="noopener">5. 缓存</a></h2><h3 id="5-1-缓存金字塔"><a href="#5-1-缓存金字塔" class="headerlink" title="5.1 缓存金字塔"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#51-缓存金字塔" target="_blank" rel="noopener">5.1 缓存金字塔</a></h3><p>从上到下速度由快到慢，容量由小到大</p>
+<ul>
+<li>寄存器</li>
+<li>L1缓存</li>
+<li>L2缓存、L3缓存</li>
+<li>系统缓存：缓存系统元数据和文件数据。</li>
+<li>内存缓存：redis、memcached等使用内存来保存数据的缓存</li>
+<li>磁盘缓存：交换分区、缓存文件等</li>
+<li>网络缓存：CDN等通过网络来访问的缓存</li>
+</ul>
+<h3 id="5-2-http请求的缓存过程"><a href="#5-2-http请求的缓存过程" class="headerlink" title="5.2 http请求的缓存过程"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#52-http请求的缓存过程" target="_blank" rel="noopener">5.2 http请求的缓存过程</a></h3><p>从上到下优先级从高到低</p>
+<ul>
+<li>浏览器内存缓存</li>
+<li>浏览器文件缓存</li>
+<li>浏览器DNS缓存</li>
+<li>CDN缓存</li>
+<li>nginx缓存</li>
+<li>web服务缓存</li>
+<li>redis缓存</li>
+<li>数据库缓存</li>
+</ul>
+<h2 id="6-web开发"><a href="#6-web开发" class="headerlink" title="6. web开发"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#6-web开发" target="_blank" rel="noopener">6. web开发</a></h2><ul>
+<li>http缓存</li>
+<li>http状态码</li>
+<li>web后端框架</li>
+<li>websocket建立过程</li>
+<li>http2基本原理</li>
+</ul>
+<h2 id="7-数据结构和算法"><a href="#7-数据结构和算法" class="headerlink" title="7. 数据结构和算法"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#7-数据结构和算法" target="_blank" rel="noopener">7. 数据结构和算法</a></h2><ul>
+<li>树操作：前序遍历、中序遍历、后序遍历；平衡二叉树调整子节点</li>
+<li>堆：TopN 问题</li>
+<li>数组：快排、归并</li>
+</ul>
+<h2 id="8-shell脚本"><a href="#8-shell脚本" class="headerlink" title="8. shell脚本"></a><a href="https://wiki.n.miui.com/pages/viewpage.action?pageId=115214950#8-shell脚本" target="_blank" rel="noopener">8. shell脚本</a></h2><ul>
+<li>awk 输出第一列、第二列、最后一列，用一个空格隔开。</li>
+<li>逐行读取文件，在每行行首添加行号，用空格隔开</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/" rel="tag">go</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2019/02/20/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E7%B2%BE%E9%80%89%E9%9D%A2%E8%AF%95%E9%A2%98/&title=《go语言规范》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2019/02/20/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E7%B2%BE%E9%80%89%E9%9D%A2%E8%AF%95%E9%A2%98/&title=《go语言规范》 — fannnnnn&source=1. 系统知识系统知识主要用于评判候选人是否为资深软件工程师" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2019/02/20/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E7%B2%BE%E9%80%89%E9%9D%A2%E8%AF%95%E9%A2%98/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《go语言规范》 — fannnnnn&url=http://lcf12307.github.io/2019/02/20/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E7%B2%BE%E9%80%89%E9%9D%A2%E8%AF%95%E9%A2%98/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2019/02/20/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E7%B2%BE%E9%80%89%E9%9D%A2%E8%AF%95%E9%A2%98/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/24/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/vim%E5%BF%AB%E6%8D%B7%E9%94%AE/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">vim快捷键</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/02/18/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/git%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">go使用protocbuf</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2019/02/20/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E7%B2%BE%E9%80%89%E9%9D%A2%E8%AF%95%E9%A2%98/&title=《go语言规范》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2019/02/20/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E7%B2%BE%E9%80%89%E9%9D%A2%E8%AF%95%E9%A2%98/&title=《go语言规范》 — fannnnnn&source=1. 系统知识系统知识主要用于评判候选人是否为资深软件工程师" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2019/02/20/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E7%B2%BE%E9%80%89%E9%9D%A2%E8%AF%95%E9%A2%98/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《go语言规范》 — fannnnnn&url=http://lcf12307.github.io/2019/02/20/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E7%B2%BE%E9%80%89%E9%9D%A2%E8%AF%95%E9%A2%98/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2019/02/20/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E7%B2%BE%E9%80%89%E9%9D%A2%E8%AF%95%E9%A2%98/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAElklEQVR42u3a24ojORAFQP//T3th2YeFwe5zMsuMVR311NjjkhQakPLyeMTP89/n/3+/ev781avfvvokmcOrmbz61Z8jPj7xYMKECROmr2RKlp0s7P0nsyW9f3+7bZstx4QJEyZMpzNd9roXv03e014dkmM+2bxoSzBhwoQJ0y9gaifxnmaG+H5WG2hMmDBhwoRpNswmsTvbsIQeEyZMmDD9NqY8EM0Tte8hZingfWL647lwTJgwYcL0ZUybI/n0vz/e34QJEyZMmP4q07N8Zgd5nhrepIATgufowYQJEyZM5zLlJck2UNwndmdtN5tt/gEaEyZMmDAdy9Qeme858nfOmnXy5X38fxYmTJgwYTqKKV/qvpkmCZtz1s08828xYcKECdPpTLNGllmCOH/nVc1AeSSLCRMmTJjux5QnZFusWeo2L5q2M8yvAo929zBhwoQJ09cz5cdkm2zNN6PlmzX9DOEwYcKECdOBTNcen22RMl/8rES6D4//+xwTJkyYMB3L1B60OcTsEjCDfpZPG2BjwoQJE6b7Mc3adGZHbNvcky+4fU9U/sSECRMmTDdiyg/sWbJ1s9RZ2ndVzsSECRMmTAcytcnQtkWmbQBqLyuzRHAeAGPChAkTptOZ2tLg+2GSb2cNN+11JA+z82sNJkyYMGE6kakt/rWHbp4OzpOwm1ahNuTGhAkTJkz3ZpoFvZvF77lnJcwfQm5MmDBhwnQs06z+2R60bUp3X08cVnTfa2DChAkTptsxtSXDdlptQ0/bjpNvc3T1wYQJEyZMBzLV6c64rac92ttgOw9rL5g5JkyYMGE6nGnWWJNfBdpGnFk7Trvlxa8wYcKECdPhTI9Ln01BdF+q3I8Yhb6YMGHChOkopvzg3086+bZNH7etq/k1olgeJkyYMGH6SqZZyTA5/nOy2WJmyev2AlH/z8KECRMmTF/G1CZV82vBBrRNK7ef1AVUTJgwYcJ0I6ZZGXJT/tyXUfPGoFnbECZMmDBhOp0pb8dJUq4tdDuftnSa5wBejogJEyZMmI5l2pQ2P12MbEfPLxl5pRITJkyYMN2JqQgFR/9m1gzUNujMks75rDBhwoQJ04lMszadvDCZb0Y7kzyxm2/MyzdjwoQJE6YDmfKAtm2dyQuN+X5u2omS7Xk5Z0yYMGHCdCzT/nV5+nV2IcjHnaWA23ExYcKECdNZTMkh2pYMNyHrVYd3u6k/zBATJkyYMB3O1AaQbWD8GD15QN7OJE9GY8KECROmOzFdVQjMS57Xlipn15foWoMJEyZMmI5l+sTw114U8laeCxafj4sJEyZMmA5hepbPJu3bBq7tNaXdpGIOmDBhwoTpWKb2gEw+nzX3XJVEzouaefMQJkyYMGE6nWlzCdgEvfkh3R7zs/YdTJgwYcJ0b6akrJjQJM03bdI2WWTblNNefTBhwoQJ029galO3CWiy7Nm1o8W67EKACRMmTJhuwdS28uwP+7yY2hYvP3ghwIQJEyZMX8PUplDzouYs/frDpONvZ6PUXU6YMGHChOmLmfaNO7MU8KyY2oa4z/hJ6DFhwoQJ01FM/wBxORwsaUAbJgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

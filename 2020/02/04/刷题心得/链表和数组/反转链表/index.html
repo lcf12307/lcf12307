@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【链表和数组】反转链表 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="算法,链表">
+    <meta name="description" content="反转一个单链表。示例: 输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL进阶:你可以迭代或递归地反转链表。你能否用两种方法解决这道题？ \206. 反转链表 - 力扣（LeetCode）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【链表和数组】反转链表">
+<meta property="og:url" content="http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="反转一个单链表。示例: 输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL进阶:你可以迭代或递归地反转链表。你能否用两种方法解决这道题？ \206. 反转链表 - 力扣（LeetCode）">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.005Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="链表">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【链表和数组】反转链表</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【链表和数组】反转链表</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-02-03T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2020-02-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/">刷题心得</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#反转一个单链表。"><span class="post-toc-number">1.</span> <span class="post-toc-text">反转一个单链表。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解题思路"><span class="post-toc-number">2.</span> <span class="post-toc-text">解题思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码"><span class="post-toc-number">3.</span> <span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-刷题心得/链表和数组/反转链表"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【链表和数组】反转链表</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-02-04 00:00:00" datetime="2020-02-03T16:00:00.000Z"  itemprop="datePublished">2020-02-04 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/">刷题心得</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="反转一个单链表。"><a href="#反转一个单链表。" class="headerlink" title="反转一个单链表。"></a>反转一个单链表。</h2><p>示例:</p>
+<p>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br>输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL<br>进阶:<br>你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p>
+<p><a href="https://leetcode-cn.com/problems/reverse-linked-list/" target="_blank" rel="noopener"><br>\206. 反转链表 - 力扣（LeetCode）</a></p>
+<a id="more"></a>
+
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>新建一个空节点 作为反转后的串的顶部节点</p>
+<p>遍历每个节点 并执行以下操作</p>
+<ul>
+<li>临时变量存储next的值</li>
+<li>head的next指向prev</li>
+<li>prev 指向当前的head</li>
+<li>head指向下一个节点</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * type ListNode struct &#123;</span></span><br><span class="line"><span class="comment"> *     Val int</span></span><br><span class="line"><span class="comment"> *     Next *ListNode</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">reverseList</span><span class="params">(head *ListNode)</span> *<span class="title">ListNode</span></span> &#123;</span><br><span class="line">  <span class="keyword">var</span> prev *ListNode</span><br><span class="line">  <span class="keyword">for</span> head != <span class="literal">nil</span> &#123;</span><br><span class="line">    temp := head.Next</span><br><span class="line">    head.Next = prev</span><br><span class="line">    prev = head</span><br><span class="line">    head = temp</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> prev</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag">链表</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/&title=《【链表和数组】反转链表》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/&title=《【链表和数组】反转链表》 — fannnnnn&source=反转一个单链表。示例:
+输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL输出: 5-&gt;4-&gt;3-&gt;2-&gt..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【链表和数组】反转链表》 — fannnnnn&url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/%E4%B8%A4%E4%B8%A4%E4%BA%A4%E6%8D%A2%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【链表和数组】两两交换链表中的节点</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【链表和数组】环形链表</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/&title=《【链表和数组】反转链表》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/&title=《【链表和数组】反转链表》 — fannnnnn&source=反转一个单链表。示例:
+输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL输出: 5-&gt;4-&gt;3-&gt;2-&gt..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【链表和数组】反转链表》 — fannnnnn&url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/02/04/%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFN0lEQVR42u3d0YobRxQEUP//TzuQpwRHUlXdkSH4zJPZHY26Ty/M7boN/vEjvn7+ff36k39er36bP+fV977/7as7X40wuefhCx8+fPjw4XsLkQ9lw/0G8f2P4/18X44BHz58+PDhm/jasiDBSiCSQbelUr54yag+WOHDhw8fPnxf49uKlaSwyKHzSW6I+PDhw4cP3/+Rr2VtifOi6tklx4cPHz58+J7iS7brl5KiHXoS5T81zt/U68CHDx8+fPjKRvKf8++HL3z48OHDhy94PScv9fvGuy1ctpigLU0iDXz48OHDh2/RGCefbObbabTF0z0+aFsFUeKCDx8+fPjwvRjn1lpuj3Ml7fO27MiLj2Qu29Pw4cOHDx++jS9vabfN9fcFxGVhtsw8P7IW/THhw4cPHz58Jd/22k4i73bTvuEmz8kXMh85Pnz48OHD9xRfG5S3n7qc7NqijaewPowHHz58+PDhW7LxgmlrVG9LlS/GeFJgKnfw4cOHDx++C9/9gFpeUmzE7xcsbxvkTf0iyseHDx8+fPgmvvZ13k4pLwguDYNLEz0ZCT58+PDhw3fhS4aYE28t6nyTfymDLrHCyzHgw4cPHz58JV/7xcVGulyePHpoP9v2teu4Hx8+fPjw4Qv48sb2U6H2/SBavmzbYuRRBT58+PDhw9fybR94T9NG//fYPQnZ83Z7HXDgw4cPHz588ajyAiIf9FZYbO3tNl7Pxxnh4sOHDx8+fCVf3jC+DC4HugT921JtrfQik8CHDx8+fPhKpvvrPIdrD7Ft9+RBQwSKDx8+fPjwTT3o5BEtbvv8y9O2Fngec3wQwIcPHz58+AK+bxwUyzfkl+/dlucSNPzH/fjw4cOHD9+jfJefv3/lJwVQG9Bvi5HPCx8+fPjw4fsGX74t3zbbeYlzH0NeNo3tc3z48OHDh2/ia7f07Z1PRerbhNsmfREu4MOHDx8+fI/ybSXCFgpsTYIkqrh/78tlw4cPHz58+Eq+y1b/Ur7kQf8lZM+hL+UXPnz48OHDt/HVH5uC8u2IWLtIlxA/D/fx4cOHDx++O1/Lmsf3eZmS/Dzn+xlcbbmGDx8+fPjwbXz3hnQ73HxK+bTbqGIrmKKp4sOHDx8+fCXfJVi/hAJbZJA0xYuGd9sMwIcPHz58+A58ly++t9LbemCLCdrSpChc8OHDhw8fvsOe97LhvyzSvQDaWg55g/9fz8GHDx8+fPhKvq2YyI9/bRO7PL+FyKMEfPjw4cOH7863wbVTvbeo28Ci3vxvz8GHDx8+fPgmvsuDnhrWFrhvzYCkGIoCEXz48OHDh2/pFD/2X/w+tfm/xO5tlH/pd+PDhw8fPnwbX0u2hd35cC/l0WVeeZP+w98gPnz48OHD94Jvaw9vk08OhN0/lY+5LZiKsAAfPnz48OEL9tTtxjs/rLY1sPPlyYuh5DlbKYYPHz58+PAlfFuZ8lR8kBci+cTapd1KNHz48OHDh+/Cd3nBXzbbeRCf0+QBRHt9COvx4cOHDx++iS/feCcb++0wWX4Q7RIobPcU3X58+PDhw4fvcLWb8PeU7bTbKL9tsbdzwYcPHz58+C58lwbzpdS4lCNtIbKF9VH8gQ8fPnz48E187Yv8qUNmlyghbzBs7YdoFvjw4cOHD9/X+NqYvn1mvr1v78yzk7y0wocPHz58+H4PX9tmzsude4mTjzMhi56ADx8+fPjwTXz3xnMbo7cE7cTaJ+Rl2QO9Dnz48OHD9wfztQfU2q/ZFiYfetuk3yKMNp7Ahw8fPnz4frnzL4GHzq6y3kOkAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

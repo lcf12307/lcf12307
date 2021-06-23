@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【第一课】etcd&amp;zookeeper | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="golang">
+    <meta name="description" content="etcd 和zookeeper123etcd是一个高可用的键值存储系统，主要用于共享配置和服务发现。etcd是由CoreOS开发并维护的，灵感来自于 ZooKeeper 和 Doozer，它使用Go语言编写，并通过Raft一致性算法处理日志复制以保证强一致性。Raft是一个来自Stanford的新的一致性算法，适用于分布式系统的日志复制，Raft通过选举的方式来实现一致性，在Raft中，任何一个节">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【第一课】etcd&amp;zookeeper">
+<meta property="og:url" content="http://lcf12307.github.io/2020/03/23/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/etcd&zookeeper/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="etcd 和zookeeper123etcd是一个高可用的键值存储系统，主要用于共享配置和服务发现。etcd是由CoreOS开发并维护的，灵感来自于 ZooKeeper 和 Doozer，它使用Go语言编写，并通过Raft一致性算法处理日志复制以保证强一致性。Raft是一个来自Stanford的新的一致性算法，适用于分布式系统的日志复制，Raft通过选举的方式来实现一致性，在Raft中，任何一个节">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-23T08:14:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.012Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="golang">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【第一课】etcd&amp;zookeeper</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【第一课】etcd&amp;zookeeper</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-23T08:14:00.000Z" itemprop="datePublished" class="page-time">
+  2020-03-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#etcd-和zookeeper"><span class="post-toc-number">1.</span> <span class="post-toc-text">etcd 和zookeeper</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#能否用redis替代etcd"><span class="post-toc-number">2.</span> <span class="post-toc-text">能否用redis替代etcd</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-面试/要点整理/etcd&amp;zookeeper"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【第一课】etcd&zookeeper</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-23 16:14:00" datetime="2020-03-23T08:14:00.000Z"  itemprop="datePublished">2020-03-23 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="etcd-和zookeeper"><a href="#etcd-和zookeeper" class="headerlink" title="etcd 和zookeeper"></a>etcd 和zookeeper</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">etcd是一个高可用的键值存储系统，主要用于共享配置和服务发现。etcd是由CoreOS开发并维护的，灵感来自于 ZooKeeper 和 Doozer，它使用Go语言编写，并通过Raft一致性算法处理日志复制以保证强一致性。Raft是一个来自Stanford的新的一致性算法，适用于分布式系统的日志复制，Raft通过选举的方式来实现一致性，在Raft中，任何一个节点都可能成为Leader。Google的容器集群管理系统Kubernetes、开源PaaS平台Cloud Foundry和CoreOS的Fleet都广泛使用了etcd。</span><br><span class="line"></span><br><span class="line">etcd 集群的工作原理基于 raft 共识算法 (The Raft Consensus Algorithm)。etcd 在 0.5.0 版本中重新实现了 raft 算法，而非像之前那样依赖于第三方库 (https:&#x2F;&#x2F;github.com&#x2F;goraft&#x2F;raft) 。raft 共识算法的优点在于可以在高效的解决分布式系统中各个节点日志内容一致性问题的同时，也使得集群具备一定的容错能力。即使集群中出现部分节点故障、网络故障等问题，仍可保证其余大多数节点正确的步进。甚至当更多的节点（一般来说超过集群节点总数的一半）出现故障而导致集群不可用时，依然可以保证节点中的数据不会出现错误的结果。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Zookeeper是一个用户维护配置信息、命名、分布式同步以及分组服务的集中式服务框架，它使用Java语言编写，通过(http:&#x2F;&#x2F;www.stanford.edu&#x2F;class&#x2F;cs347&#x2F;reading&#x2F;zab.pdf)协议来保证节点的一致性。因为Zookeeper是一个CP型系统，所以当网络分区问题发生时，系统就不能注册或查找服务。</span><br><span class="line"></span><br><span class="line">etcd是一个用于共享配置和服务发现的高可用的键值存储系统，使用Go语言编写，通过Raft来保证一致性，有基于HTTP+JSON的API接口。etcd也是一个强一致性系统，但是etcd似乎支持从non-leaders中读取数据以提高可用性；另外，写操作仍然需要leader的支持，所以在网络分区时，写操作仍可能失败。</span><br><span class="line"></span><br><span class="line">在原生接口和提供服务方式方面，etcd更适合作为集群配置服务器，用来存储集群中的大量数据。方便的REST接口也可以让集群中的任意一个节点在使用Key&#x2F;Value服务时获取方便。ZooKeeper则更加的适合于提供分布式协调服务，他在实现分布式锁模型方面较etcd要简单的多。所以在实际使用中应该根据自身使用情况来选择相应的服务。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">并且在面对网络分区的时候，为了保持一致性，读取的可用性是可以牺牲的。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="能否用redis替代etcd"><a href="#能否用redis替代etcd" class="headerlink" title="能否用redis替代etcd"></a>能否用redis替代etcd</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">不能 </span><br><span class="line">1、redis 没有版本的概念，历史版本数据在大规模微服务中非常有必要，对于状态回滚和故障排查，甚至定锅都很重要</span><br><span class="line">2、redis 的注册和发现目前只能通过 pub 和 sub 来实现，这两个命令完全不能满足生产环境的要求，具体原因可以 gg 或看源码实现</span><br><span class="line">3、etcd 在 2.+版本时，watch 到数据官方文档均建议再 get 一次，因为会存在数据延迟，3.+版本不再需要，可想 redis 的 pub 和 sub 能否达到此种低延迟的要求</span><br><span class="line">4、楼主看到的微服务架构应该都是将 etcd 直接暴露给 client 和 server 的，etcd 的性能摆在那，能够承受多少的 c&#x2F;s 直连呢，更好的做法应该是对 etcd 做一层保护，当然这种做法会损失一些功能</span><br><span class="line">5、redis 和 etcd 的集群实现方案是不一致的，etcd 采用的是 raft 协议，一主多从，只能写主，底层采用 boltdb 作为 k&#x2F;v 存储，直接落盘</span><br><span class="line">6、redis 的持久化方案有 aof 和 rdb，这两种方案在宕机的时候都或多或少的会丢失数据</span><br><span class="line"></span><br><span class="line">总结，瑞迪斯从来没有想过抢 etcd 在服务注册和发现的饭碗，目前的架构来说也抢不动，在缓存方面目前在性能和功能也无出其右； etcd 只关注在服务注册与发现方面，非要当做 k&#x2F;v 存储来用（丢弃 watch 特性而言）也可以用，性能也不错，但只能说你选错对象了</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pubsub 不会保留历史信息, 收到就行, 收不到也不会重复通知, 换句话说, 你必须客户端永远在线, 才能收到 sub 的信息, 一旦客户端网络短时间出问题, 就收不到变更通知了, redis 可以做, 但是不是用 pubsub 做, 而是要自己做一个定时的轮询, 时刻保持客户端信息最新</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CAP： </span><br><span class="line">C：Consistency 即一致性</span><br><span class="line">A：Availability 即可用性</span><br><span class="line">P：Partiton tolerence 即分区容忍性</span><br><span class="line"></span><br><span class="line">etcd是CP的 而redis是AP的</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/golang/" rel="tag">golang</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/03/23/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/etcd&zookeeper/&title=《【第一课】etcd&zookeeper》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/03/23/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/etcd&zookeeper/&title=《【第一课】etcd&zookeeper》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/03/23/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/etcd&zookeeper/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【第一课】etcd&zookeeper》 — fannnnnn&url=http://lcf12307.github.io/2020/03/23/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/etcd&zookeeper/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/03/23/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/etcd&zookeeper/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2021/06/22/%E5%95%86%E4%B8%9A/%E8%A1%8C%E4%B8%9A%E8%B0%83%E7%A0%94%E6%AD%A5%E9%AA%A4/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">商业/行业调研步骤</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/03/19/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/go/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【第一课】golang常考知识点</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/03/23/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/etcd&zookeeper/&title=《【第一课】etcd&zookeeper》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/03/23/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/etcd&zookeeper/&title=《【第一课】etcd&zookeeper》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/03/23/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/etcd&zookeeper/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【第一课】etcd&zookeeper》 — fannnnnn&url=http://lcf12307.github.io/2020/03/23/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/etcd&zookeeper/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/03/23/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/etcd&zookeeper/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD7UlEQVR42u3aW27bUAwFQO9/0+l3kUo6h7yOU2D8Fbi2zDsqQPHxesWvr4vX5rv315z96/fPvN7xwoEDBw4ci3CvPvP9/SSIhPUURPstHDhw4MBxluMq9PYzyVGTd+6Pl0eSx48DBw4cOD7L0Sa2vG7Kr5DT48CBAweO38yRpMbkwJvuXHJNHDhw4MDxWY6zI5xZwy5Jovd/b1qKOHDgwIHjFEd+vP/377fsd+DAgQMHjrJYylPdfu2gPUYbVXQ6HDhw4MCx5tj8fB7cqeZgHtVm3IUDBw4cOE5x5Mtt+UJD28LLr982BJMT4cCBAweOPUc+7GlLozYRzlL4/VHzJYa/KlocOHDgwLHm2Ceq+0zerkq0yxBt+Xd5HRw4cODAseY4VQ69A7RFaVPsQwMRBw4cOHAsOGbLAe14aZYCc8Sc7+ERAQcOHDhwrDnyllwLlzTmZut3eemYL2TgwIEDB46f4chHR7PBVbuWlxx+WMXiwIEDB45DDcH8B9pVhnZBoS3V2pbiQ4Q4cODAgePMLKYeHbXl0OwwSbKf3byiV4oDBw4cOEYcs+KqTWntkGkG1JaF0VoDDhw4cOCIOdoE1ibR/eio5VsNnHDgwIEDx9HZfT2bKpPZZoD0AVwcOHDgwDHiyJuAbZLbDITyYdV+eaLIzzhw4MCBY5Q3r47dMuWtxrzo2gyi2t/CgQMHDhwzjn2iSlD2yw35I8Iskb/agHDgwIEDx3o8Mwto03b8il+bViYOHDhw4HgfRzsEypt37WCpbf/NisB/RIIDBw4cONYcSUpLgstT7KbcysdgyZDs4f8IDhw4cOAYceRrBPsg2nKxXY/LHxoexk44cODAgWPB0RZL7dpcG1BeqrVNw3qnAwcOHDhwjDg2l24bcwlfHsmpIrCoZXHgwIEDxyGOWVmVNOba4nB/Y6KKFgcOHDhwHOUoplXxO205tx9lzfhw4MCBA8cpjoRm8/6srJo1BNsR1OVCAw4cOHDgGHG0hVbb4Gs/sx8jtbftlfcvceDAgQNHwNE26X6+wdf+YvLoUPdKceDAgQNHyZEfeNYu3LTw8mJsPwbDgQMHDhx7jvzLsyTXDqLycVfbghwuzOHAgQMHjpJjNshpE2RSPrXNvnZUVqdYHDhw4MAx4mjT3ibEWSmYD5/yVJ3cWhw4cODAseHIk2vbHGwPvLljm0SLAwcOHDjewdEmqqTo2jTvZkt1m0cHHDhw4MDxKY62LtwXb6e+9ZBiceDAgQPHhzjaVl1bXM2S+mZJ4vBzBw4cOHDgKJcY2mIs59usQbTF5IFeKQ4cOHDgWC80zNJncpj7q22akrORGA4cOHDgGHH8AbW5c3Uq6epfAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

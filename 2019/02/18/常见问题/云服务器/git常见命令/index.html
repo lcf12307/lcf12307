@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>go使用protocbuf | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="云服务器,git">
+    <meta name="description" content="git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态 git stash #把所有没有提交的修改暂存到stash里面。可用git stash pop回复。 git reset –hard HASH #返回到某个节点，不保留修改。 git reset –soft HASH #返回到某个节点。 保留修改git clean -df #返回到某个节点 git clean 参数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="go使用protocbuf">
+<meta property="og:url" content="http://lcf12307.github.io/2019/02/18/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/git%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态 git stash #把所有没有提交的修改暂存到stash里面。可用git stash pop回复。 git reset –hard HASH #返回到某个节点，不保留修改。 git reset –soft HASH #返回到某个节点。 保留修改git clean -df #返回到某个节点 git clean 参数">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-02-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.007Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="云服务器">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">go使用protocbuf</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">go使用protocbuf</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-02-17T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-02-18
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-常见问题/云服务器/git常见命令"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">go使用protocbuf</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-02-18 00:00:00" datetime="2019-02-17T16:00:00.000Z"  itemprop="datePublished">2019-02-18 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ol>
+<li>git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态</li>
+<li>git stash #把所有没有提交的修改暂存到stash里面。可用git stash <a href="https://www.baidu.com/s?wd=pop&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">pop</a>回复。</li>
+<li>git reset –hard HASH #返回到某个节点，不保留修改。</li>
+<li>git reset –soft HASH #返回到某个节点。</li>
+<li>保留修改git clean -df #返回到某个节点</li>
+<li>git clean 参数-n 显示 将要 删除的文件和目录-f 删除 文件-df 删除文件和目录</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">回退命令：</span><br><span class="line">$ git reset --hard HEAD^         回退到上个版本</span><br><span class="line">$ git reset --hard HEAD~3        回退到前3次提交之前，以此类推，回退到n次提交之前</span><br><span class="line">$ git reset --hard commit_id     退到/进到 指定commit的sha码</span><br><span class="line"></span><br><span class="line">强推到远程：</span><br><span class="line">$ git push origin HEAD --force</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">云服务器</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2019/02/18/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/git%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/&title=《go使用protocbuf》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2019/02/18/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/git%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/&title=《go使用protocbuf》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2019/02/18/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/git%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《go使用protocbuf》 — fannnnnn&url=http://lcf12307.github.io/2019/02/18/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/git%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2019/02/18/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/git%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/02/20/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E7%B2%BE%E9%80%89%E9%9D%A2%E8%AF%95%E9%A2%98/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">go语言规范</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/09/06/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E9%85%8D%E7%BD%AEmysql%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">配置mysql远程访问</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2019/02/18/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/git%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/&title=《go使用protocbuf》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2019/02/18/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/git%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/&title=《go使用protocbuf》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2019/02/18/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/git%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《go使用protocbuf》 — fannnnnn&url=http://lcf12307.github.io/2019/02/18/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/git%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2019/02/18/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/git%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEe0lEQVR42u3aS27jSBAFQN//0h5gVgN0S/1eZnnaRQdXgk2RVUEBzN/HR3x8/nv8+vnVmf89Xl0hOfPX899frV3J4QMTJkyYMH1Lps+3R7vQ99d5D5E/pM0vIl85JkyYMGF6ElN7udUtD71z83Pa4AYTJkyYMP1MpvcbS2422/apV3ueBmPChAkTJkzJ7fPCax4o5OfkcJgwYcKE6Scw5ZfLi7bti3nWmMxT9FU4ggkTJkyYrmXaDO7c/vl/mm/ChAkTJkx/iemzPHK45OWaBwSb9LgNAn6zEkyYMGHCdC1TPpTTBgr5u7UNR/JrJkXnoqCMCRMmTJguZGobmX+rwfnlv5T3e8eECRMmTI9gagOCWcKckLXDQ22i3oYamDBhwoTpXqb9a37WDdwntLPrzFJ0TJgwYcJ0L9NsnGXWqjxbnG3HW5NQ4KUAJkyYMGF6BFPL0S49GanZlJvbJLlItjFhwoQJ0yOY2uJsO9azOSdH3KfZUeqLCRMmTJguZGqbiLM2Z47VrqEd+ilWhQkTJkyYrmWapZqzKmjeYmwbqJticdH1xYQJEyZMlzPNmo771/xXEMwGUuvfESZMmDBh+vZMs5GXPMVtl95eIU+z22bqb4q8mDBhwoTpWqZZa3CTuJ76S373zXcxYcKECdMzmJKN5a3BNumdDZieKlJHFV9MmDBhwnQt02aJm8HQWXrchgv5j+DlZ0yYMGHCdC1T0e0MXu2zYnEbsuQrmSH+4VuYMGHChOlCps3ITnvOZpN5Anyq+IsJEyZMmG5n2iSBOdzZhmjx/Mt9vaTHhAkTJkzXMuWtzVNjPfuAYEa5uRcmTJgwYXoSU9sUzNPLffraPtS2uPyeHhMmTJgw3cs0K+PmZPn2kkeSp+uzNBsTJkyYMD2bqX3ZbwrEw+7rgmMVRmDChAkTpguZNiinyql5upsn5Idrs5gwYcKE6UFM7y80G9/ZtEiTdumph/fyLpgwYcKE6XKmPBXclHFnQUMbLpwd3xn2TjFhwoQJ01VMeTqaJ8/7MvEs9a2nmTBhwoQJ0yOY8iQzb0Dmizv1eZMMr4q8mDBhwoTp2zPlzcJ8uZtlzdLgtgVbpPGYMGHChOmhTO2LdhM6bMrEbRqfn4MJEyZMmJ7ElBdVZ0HAJiXeFHn3Y0CYMGHChOlepvxV+v6cGfrXBQSzHf0BDhMmTJgwXch0Klltg4akUdoGAXnAkT/ml6kvJkyYMGG6kOlsQNCmnXlB+WwoEKXEmDBhwoTpWqZZe6+9ZdtinAUieSq+ad9iwoQJE6a7mD7Lo00+v6Itui/71gEKJkyYMGG6lik/NiM4CeJmbGgW1szaopgwYcKE6Uamtt2YF3nbQm2+sXZgKH94L/eCCRMmTJguZ5q9es9yzFqYm8dWXAETJkyYMP0ApvYvbcE3KSjn29vs66O9PSZMmDBheihTXt6dJaXtIFGeSNfNS0yYMGHCdDlTXuTNF5EPxGzOaUd22jtiwoQJE6bbmfaDO/l/2weTBB/7ACVP0TFhwoQJ01VM/wCQeSSl9Ao1KwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

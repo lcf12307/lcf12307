@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【第一课】数据库 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数据库,MYSQL">
+    <meta name="description" content="本篇文章主要就数据库的常见问题进行了讨论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【第一课】数据库">
+<meta property="og:url" content="http://lcf12307.github.io/2019/11/08/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="本篇文章主要就数据库的常见问题进行了讨论">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-11-08T08:14:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.013Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="MYSQL">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【第一课】数据库</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【第一课】数据库</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-08T08:14:00.000Z" itemprop="datePublished" class="page-time">
+  2019-11-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事务的特性"><span class="post-toc-number">1.</span> <span class="post-toc-text">事务的特性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#myisam和innodb的区别"><span class="post-toc-number">2.</span> <span class="post-toc-text">myisam和innodb的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mysql-性能调优"><span class="post-toc-number">3.</span> <span class="post-toc-text">mysql 性能调优</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#索引的实现"><span class="post-toc-number">4.</span> <span class="post-toc-text">索引的实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mysql表示时间"><span class="post-toc-number">5.</span> <span class="post-toc-text">mysql表示时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#索引可以加快查询速度，那么是不是只要是查询语句需要，就建上索引？"><span class="post-toc-number">6.</span> <span class="post-toc-text">索引可以加快查询速度，那么是不是只要是查询语句需要，就建上索引？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是脏读，不可重复读，幻读-https-juejin-im-entry-5b835dfbf265da43531d0593"><span class="post-toc-number">7.</span> <span class="post-toc-text">什么是脏读，不可重复读，幻读](https:&#x2F;&#x2F;juejin.im&#x2F;entry&#x2F;5b835dfbf265da43531d0593)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#乐观锁"><span class="post-toc-number">8.</span> <span class="post-toc-text">乐观锁</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#悲观锁"><span class="post-toc-number">9.</span> <span class="post-toc-text">悲观锁</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#产生死锁的原因"><span class="post-toc-number">10.</span> <span class="post-toc-text">产生死锁的原因</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#产生死锁的四个必要条件"><span class="post-toc-number">11.</span> <span class="post-toc-text">产生死锁的四个必要条件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#死锁"><span class="post-toc-number">12.</span> <span class="post-toc-text">死锁</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#存储过程"><span class="post-toc-number">13.</span> <span class="post-toc-text">存储过程</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-面试/要点整理/数据库"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【第一课】数据库</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-11-08 16:14:00" datetime="2019-11-08T08:14:00.000Z"  itemprop="datePublished">2019-11-08 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>本篇文章主要就数据库的常见问题进行了讨论</p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="事务的特性"><a href="#事务的特性" class="headerlink" title="事务的特性"></a>事务的特性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">acid 原子性，一致性 隔离性 持久性</span><br><span class="line">事务隔离分为： </span><br><span class="line">读取未提交数据 读取其他事务提交数据</span><br><span class="line">可重读 串行化</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="myisam和innodb的区别"><a href="#myisam和innodb的区别" class="headerlink" title="myisam和innodb的区别"></a>myisam和innodb的区别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">采用MyISAM引擎</span><br><span class="line">- R&#x2F;W &gt; 100:1 且update相对较少</span><br><span class="line">- 并发不高</span><br><span class="line">- 表数据量小</span><br><span class="line">- 硬件资源有限</span><br><span class="line">- 不支持外键</span><br><span class="line">- 不支持事务</span><br><span class="line">- 执行selecte较多的时候优先使用</span><br><span class="line">- 表锁</span><br><span class="line">- 不会死锁</span><br><span class="line"></span><br><span class="line">采用InnoDB引擎</span><br><span class="line">- R&#x2F;W比较小，频繁更新大字段</span><br><span class="line">- 表数据量超过1000万，并发高</span><br><span class="line">- 安全性和可用性要求高</span><br><span class="line">- 支持外键</span><br><span class="line">- 执行update inser较多的时候优先使用</span><br><span class="line">- delete的时候 innodb会一行一行的删除</span><br><span class="line">- 行锁</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="mysql-性能调优"><a href="#mysql-性能调优" class="headerlink" title="mysql 性能调优"></a>mysql 性能调优</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">开启查询缓存</span><br><span class="line">explain下自己的sql语句并分析</span><br><span class="line">只用一行数据的话 limit 1</span><br><span class="line">为搜索字段建索引</span><br><span class="line">千万不要order by rand()</span><br><span class="line">避免selecte *</span><br><span class="line">不要设置null</span><br><span class="line">尽量少的多表查询</span><br><span class="line">拆分大的delete和insert语句， 因为这个操作会锁表，最好不要占用太久</span><br><span class="line">选择合适的存储引擎</span><br><span class="line">冗余数据</span><br><span class="line">使用尽可能小的合适的数据类型</span><br><span class="line">读写分离</span><br><span class="line">拆分表 垂直拆分和水平拆分</span><br><span class="line">在使用InnoDB存储引擎时，如果没有特别的需要，请永远使用一个与业务无关的自增字段作为主键。</span><br><span class="line"></span><br><span class="line">分析过程：</span><br><span class="line">是否有周期性的崩溃-》 增加缓存</span><br><span class="line">开启profiling查询慢日志和explain来分析</span><br><span class="line">等待时间长-》对服务器调优</span><br><span class="line">执行时间长-》对语句调优</span><br><span class="line">还不行-&gt; 增加硬件</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="索引的实现"><a href="#索引的实现" class="headerlink" title="索引的实现"></a>索引的实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">索引（Index）是帮助MySQL高效获取数据的数据结构</span><br><span class="line">mysql的索引是b+树</span><br><span class="line">InnoDB的数据文件本身就是索引文件。从上文知道，MyISAM索引文件和数据文件是分离的</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="mysql表示时间"><a href="#mysql表示时间" class="headerlink" title="mysql表示时间"></a>mysql表示时间</h3><p>数据库中可以用datetime、bigint、timestamp来表示时间</p>
+<h3 id="索引可以加快查询速度，那么是不是只要是查询语句需要，就建上索引？"><a href="#索引可以加快查询速度，那么是不是只要是查询语句需要，就建上索引？" class="headerlink" title="索引可以加快查询速度，那么是不是只要是查询语句需要，就建上索引？"></a>索引可以加快查询速度，那么是不是只要是查询语句需要，就建上索引？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">答案是否定的。因为索引虽然加快了查询速度，但索引也是有代价的：索引文件本身要消耗存储空间，同时索引会加重插入、删除和修改记录时的负担，另外，MySQL在运行时也要消耗资源维护索引，因此索引并不是越多越好。一般两种情况下不建议建索引。</span><br><span class="line"></span><br><span class="line">第一种情况是表记录比较少 另一种不建议建索引的情况是索引的选择性较低。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="什么是脏读，不可重复读，幻读-https-juejin-im-entry-5b835dfbf265da43531d0593"><a href="#什么是脏读，不可重复读，幻读-https-juejin-im-entry-5b835dfbf265da43531d0593" class="headerlink" title="什么是脏读，不可重复读，幻读](https://juejin.im/entry/5b835dfbf265da43531d0593)"></a>什么是脏读，不可重复读，幻读](<a href="https://juejin.im/entry/5b835dfbf265da43531d0593" target="_blank" rel="noopener">https://juejin.im/entry/5b835dfbf265da43531d0593</a>)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">脏读 一个事务中访问到了另外一个事务未提交的数据</span><br><span class="line">不可重复读 一个事务读取同一条记录2次，得到的结果不一致</span><br><span class="line">幻读 一个事务读取2次，得到的记录条数不一致</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h3><p>使用数据版本来实现。</p>
+<h3 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">共享锁</span><br><span class="line">排它锁</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="产生死锁的原因"><a href="#产生死锁的原因" class="headerlink" title="产生死锁的原因"></a>产生死锁的原因</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">（1） 因为系统资源不足。</span><br><span class="line">（2） 进程运行推进的顺序不合适。</span><br><span class="line">（3） 资源分配不当等。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="产生死锁的四个必要条件"><a href="#产生死锁的四个必要条件" class="headerlink" title="产生死锁的四个必要条件"></a>产生死锁的四个必要条件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">（1） 互斥条件：一个资源每次只能被一个进程使用。</span><br><span class="line">（2） 请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放。</span><br><span class="line">（3） 不剥夺条件:进程已获得的资源，在末使用完之前，不能强行剥夺。</span><br><span class="line">（4） 循环等待条件:若干进程之间形成一种头尾相接的循环等待资源关系。</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">（1）死锁预防：通过确保死锁的一个必要条件不会满足，保证不会发生死锁</span><br><span class="line">（2）死锁检测：允许死锁的发生，但是可以通过系统设置的检测结构及时的检测出死锁的发生，采取一些措施，将死锁清除掉</span><br><span class="line">（3）死锁避免：在资源分配过程中，使用某种方法避免系统进入不安全的状态，从而避免发生死锁</span><br><span class="line">（4）死锁解除：与死锁检测相配套的一种措施。当检测到系统中已发生死锁，需将进程从死锁状态中解脱出来。</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">### mvcc</span><br><span class="line">http:&#x2F;&#x2F;blog.codinglabs.org&#x2F;articles&#x2F;theory-of-mysql-index.html</span><br><span class="line">https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;86a1fd2d7406</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MYSQL/" rel="tag">MYSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2019/11/08/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93/&title=《【第一课】数据库》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2019/11/08/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93/&title=《【第一课】数据库》 — fannnnnn&source=
+本篇文章主要就数据库的常见问题进行了讨论
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2019/11/08/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【第一课】数据库》 — fannnnnn&url=http://lcf12307.github.io/2019/11/08/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2019/11/08/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/11/12/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/linux/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【第一课】linux命令</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/11/06/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E7%BD%91%E7%BB%9C/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【第一课】网络</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2019/11/08/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93/&title=《【第一课】数据库》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2019/11/08/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93/&title=《【第一课】数据库》 — fannnnnn&source=
+本篇文章主要就数据库的常见问题进行了讨论
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2019/11/08/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【第一课】数据库》 — fannnnnn&url=http://lcf12307.github.io/2019/11/08/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2019/11/08/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD70lEQVR42u3cS24bWRAEQN7/0jPbATwkMytbNgwEV4JFdvcLLZL1gV+v+PXPf17vfvvrz79+Nnl9/lRyzXdP8tgLBw4cOHDER81vnxw+v1f+nuRJbnw4cODAgeNZjjY+kxt/vmZ798/BmXAkz4MDBw4cOP4URx5jSSmVB2p+YBw4cODA8bdwLDfOG3Ztsbd8UcCBAwcOHD/B0Y5w8uhtozR/kn2IhQMHDhw4foIjj72/9+cf2e/AgQMHDhxxmZQHUrKOcAvapZl4PB0OHDhw4Jg5nrp9u2qwtwU/NweXcRcOHDhw4Ng58uJtH+3kQZ6syuUNwfxEOHDgwIFj4UjGObfb50OjW8AvqxVvHXDgwIEDx0McS1swj+FbC68t7do/w7FXigMHDhw4vmfoa3noG2gC1wZ/ixKFMQ4cOHDgKDmW9l8+8lkisG07tsGMAwcOHDie4mghbiGaX3MZTbVYbytaHDhw4MAxcOyNszxokzHScX3ttE7xar9Z4MCBAweOE8e+WLAfNW8U3sZaX06NAwcOHDhmjn34lK8d3D67R/6tCMSBAwcOHDtH27DbG3NJAba3C4vmIA4cOHDgmDnyoitP6bzhmDT12tWK5S44cODAgWPnODbLgsd66spJ0OZ/sAf2B3HgwIEDx5snvDXy8mHPMhBqg7NtREb1Kw4cOHDguFRbx/+s/zZwapuDLfrtXFFzEAcOHDhwlBxtWzCJsaeWG9oC74GgxYEDBw4cA8ft9dSqwXL95ZAPA+HAgQMHjrIw27GSwU+7nNe2Mr8UgThw4MCBY+a4jXn2sdOt3GoPfFyYw4EDBw4cA0c7TGo3AdrBVT6Uaq8WfZnAgQMHDhwzxy0mkwLvVrzd1umeKvZw4MCBA8fOsawyJKF4K6WSQz5VBOLAgQMHjmc52kxu24VtWOZhfCsUk3/BgQMHDhwLx9KkWx6lDcVbEViPx3DgwIEDx8xR9xHjuE2us6/NtcTRWAsHDhw4cAwcSRF1G0e1Id228BKshP64i4cDBw4cOGKOW8tvaeTtQ6miD/q5UMSBAwcOHA9xTCvL8Tufag4m72zXHXDgwIEDx1Mc7WGW97/KV7vikPN9AcKBAwcOHAPHbZCzr0G0K3R5UZf/9kvE4sCBAweOE0cbe23g3QZat9LrFvxtPOPAgQMHjoRjOUbbRrwNqNqSb1rXw4EDBw4cD3HcFt3yIiovmW5rEze+//kUDhw4cOD4oxzPDqiSAF4+FX0JwIEDBw4cv51jCcj8t5/p28MXKxc4cODAgeMhjnyJ4bYGl7QO93ZkPhJ7YOyEAwcOHDjmhYa8YXcbNbVDo3zdoeXGgQMHDhwnjn8BKGI/cUA/OicAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

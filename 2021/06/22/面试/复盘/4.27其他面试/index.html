@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>面试/复盘/4.27其他面试 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="go的内存管理 go和php的区别 go项目的调用过程 es的日志量 每一行一个单词 1：cookie与session的区别2：mysql性能优化（慢日志，explain，索引，内存碎片化）3：聚簇索引与非聚簇索引（B+树与B树，覆盖索引，普通索引，主键索引）4：redis主从同步（日志&amp;&amp;rdb）5：redis实现延时队列6：令牌桶&amp;&amp;漏斗限流7：进程间通信的几种">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试&#x2F;复盘&#x2F;4.27其他面试">
+<meta property="og:url" content="http://lcf12307.github.io/2021/06/22/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/4.27%E5%85%B6%E4%BB%96%E9%9D%A2%E8%AF%95/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="go的内存管理 go和php的区别 go项目的调用过程 es的日志量 每一行一个单词 1：cookie与session的区别2：mysql性能优化（慢日志，explain，索引，内存碎片化）3：聚簇索引与非聚簇索引（B+树与B树，覆盖索引，普通索引，主键索引）4：redis主从同步（日志&amp;&amp;rdb）5：redis实现延时队列6：令牌桶&amp;&amp;漏斗限流7：进程间通信的几种">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-22T15:55:01.011Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.011Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="php">
+<meta property="article:tag" content="go">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">面试/复盘/4.27其他面试</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">面试/复盘/4.27其他面试</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-06-22T15:55:01.011Z" itemprop="datePublished" class="page-time">
+  2021-06-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-面试/复盘/4.27其他面试"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">面试/复盘/4.27其他面试</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-06-22 23:55:01" datetime="2021-06-22T15:55:01.011Z"  itemprop="datePublished">2021-06-22 </time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>go的内存管理</p>
+<p>go和php的区别</p>
+<p>go项目的调用过程</p>
+<p>es的日志量</p>
+<p>每一行一个单词</p>
+<p>1：cookie与session的区别<br>2：mysql性能优化（慢日志，explain，索引，内存碎片化）<br>3：聚簇索引与非聚簇索引（B+树与B树，覆盖索引，普通索引，主键索引）<br>4：redis主从同步（日志&amp;&amp;rdb）<br>5：redis实现延时队列<br>6：令牌桶&amp;&amp;漏斗限流<br>7：进程间通信的几种方式与限制条件<br>8：项目<br>9：三道LeetCode的esay难度题目</p>
+<p>MySQL的存储引擎的区别<br>B树与B+树的区别<br>Join与In的查询效率<br>有没有使用分布式或者微服务<br>为什么使用SpringBoot而不使用SSM，区别是啥？<br>Redis里面使用的Hash算法是什么？<br>Redis不设置过期时间，他的过期时间是多久？<br>你在系统开发中上从宏观角度有没有一些设计？<br>JDK8里面的一些新东西是？<br>两个List怎么去重？<br>Limit 分页会有什么效率问题？</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2021/06/22/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/4.27%E5%85%B6%E4%BB%96%E9%9D%A2%E8%AF%95/&title=《面试/复盘/4.27其他面试》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2021/06/22/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/4.27%E5%85%B6%E4%BB%96%E9%9D%A2%E8%AF%95/&title=《面试/复盘/4.27其他面试》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2021/06/22/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/4.27%E5%85%B6%E4%BB%96%E9%9D%A2%E8%AF%95/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《面试/复盘/4.27其他面试》 — fannnnnn&url=http://lcf12307.github.io/2021/06/22/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/4.27%E5%85%B6%E4%BB%96%E9%9D%A2%E8%AF%95/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2021/06/22/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/4.27%E5%85%B6%E4%BB%96%E9%9D%A2%E8%AF%95/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/06/22/%E8%82%A1%E7%A5%A8/%E8%82%A1%E7%A5%A8%E5%88%9D%E7%BA%A7/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">股票/股票初级</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2021/06/22/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/4.27%E5%85%B6%E4%BB%96%E9%9D%A2%E8%AF%95/&title=《面试/复盘/4.27其他面试》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2021/06/22/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/4.27%E5%85%B6%E4%BB%96%E9%9D%A2%E8%AF%95/&title=《面试/复盘/4.27其他面试》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2021/06/22/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/4.27%E5%85%B6%E4%BB%96%E9%9D%A2%E8%AF%95/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《面试/复盘/4.27其他面试》 — fannnnnn&url=http://lcf12307.github.io/2021/06/22/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/4.27%E5%85%B6%E4%BB%96%E9%9D%A2%E8%AF%95/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2021/06/22/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/4.27%E5%85%B6%E4%BB%96%E9%9D%A2%E8%AF%95/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD5klEQVR42u3aS07DQBAFQO5/aZDYgETivH49CUiUV1GUjGfKi3Z/3t7i6/3zuvf5+/XzN2e/ud7h9R6OXThw4MCBI14oP16yiQ1Bvub1Q8rPiAMHDhw4znJMg2sSdJOjJsRJ4Ew4rv+FAwcOHDhez9HBXaMMQuBwbzhw4MCB4+9z5OGwO+QGdLp/HDhw4MDxbI6kONg1cpI1p4XIvPz3xFopDhw4cODoT1QWCv/O55fOd+DAgQPHP+Z4r67NOnka1t1xczocOHDgwLHn6NKzbnBhGvaSFZ6yExw4cODAsdjJNJhtNj1u/8Str2n76u46OHDgwIFjzbEfX0i20gX4pCmV0B9uLOHAgQMHjsWGrkPpfhyhG6o4O75wt1aKAwcOHDgqjo5gGpXyVC0PqwlT/tKAAwcOHDhOcXRyeYEvfwLT4l1e+Bs0vXDgwIEDxyGOTThM0qe8IdQRTFtQ44wWBw4cOHDEHHk61B1g36CaFi6nTTUcOHDgwHGWI2/kTFO4LnnrQvs0Nb27Dg4cOHDgWHNsAmp+yzyFyw9cvlMkjxYHDhw4cKw58gRsOlo3HbPb94A2rSwcOHDgwHGKY5pEdYfvDjwtXOb3LZ85Dhw4cOBYxJT9NR07mKaO+/Wj+Q4cOHDgwDHkSG52fctp0yhff3rU/BXhxv5x4MCBA8cTOLpUarPdDXFSHByUFHHgwIEDx5oj2WKeOHVBNC8RTscd8hcFHDhw4MBximMj19nnxzgVgFe1Uhw4cODAMeTIA14eCKf/2uyhC+pRXosDBw4cOCqOrqCWh8k8wcufXrd+dF8cOHDgwHGIY4pyILbHSd0mYRu3ynDgwIEDx5qjC5nTYt907CAJw0kCOR2AwIEDBw4ce47ub9MErEvk8tW6x/Ygo8WBAwcOHBVHst1pAtaNI0xbWXnqOA38OHDgwIFjw5EnP/nAwfSaFu/yltI4JOPAgQMHjjVH1xDqWjibZC8JvXssHDhw4MCx59gEzm6w4FRzK9/PYIc4cODAgeMox2YsoBs1OPWmkL8QPPgvDhw4cOA4xDFNuroCX94W6pK3TWvqxnwHDhw4cOCoOPZDctPBiM3MxWbNpPiIAwcOHDj2HN3wwbSNdKoRlaRnq/Vx4MCBA8eaowt+m1GD6WDEvuyY7x8HDhw4cJziyAcXukSuK+Ql95ruoYz/OHDgwIGj4siD63S0btp8mq4zPfaD3+PAgQMHjl/l6AbaTjWuOqyoC4cDBw4cOF7C0Y0mdEW6fYgt21E4cODAgeMQR5eATb/ZhNh8D6tCIQ4cOHDgWHN0vZhpEN2U/7rWV77/1XwHDhw4cOD4uj4AnKaukYNhiHgAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

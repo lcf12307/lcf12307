@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Ubuntu 安装vs code | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="应用安装">
+    <meta name="description" content="ubuntu16.04安装visual-studio-code微软主页的安装说明，https:&#x2F;&#x2F;code.visualstudio.com&#x2F;docs&#x2F;setup&#x2F;linux   有一点英语基础就能看懂，写的很好，一切以官方文档为主 方法一：可以使用umake，（要先安装，非常牛逼的工具，可以安装很多种流行的开发工具） sudo apt install ubuntu-make umake web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu 安装vs code">
+<meta property="og:url" content="http://lcf12307.github.io/2018/07/19/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/ubuntu%E5%AE%89%E8%A3%85vscode/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="ubuntu16.04安装visual-studio-code微软主页的安装说明，https:&#x2F;&#x2F;code.visualstudio.com&#x2F;docs&#x2F;setup&#x2F;linux   有一点英语基础就能看懂，写的很好，一切以官方文档为主 方法一：可以使用umake，（要先安装，非常牛逼的工具，可以安装很多种流行的开发工具） sudo apt install ubuntu-make umake web">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-07-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.006Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="应用安装">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Ubuntu 安装vs code</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Ubuntu 安装vs code</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-18T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-07-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ubuntu16-04安装visual-studio-code"><span class="post-toc-number">1.</span> <span class="post-toc-text">ubuntu16.04安装visual-studio-code</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-常见问题/ubuntu安装vscode"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Ubuntu 安装vs code</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-19 00:00:00" datetime="2018-07-18T16:00:00.000Z"  itemprop="datePublished">2018-07-19 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="ubuntu16-04安装visual-studio-code"><a href="#ubuntu16-04安装visual-studio-code" class="headerlink" title="ubuntu16.04安装visual-studio-code"></a><a href="https://www.cnblogs.com/iamhenanese/p/5628275.html" target="_blank" rel="noopener">ubuntu16.04安装visual-studio-code</a></h1><p><a href="https://code.visualstudio.com/docs/setup/linux" target="_blank" rel="noopener">微软主页的安装说明</a>，<a href="https://code.visualstudio.com/docs/setup/linux" target="_blank" rel="noopener">https://code.visualstudio.com/docs/setup/linux</a>  </p>
+<p>有<strong>一点</strong>英语基础就能看懂，写的很好，一切以官方文档为主</p>
+<p>方法一：可以使用umake，（要先安装，非常牛逼的工具，可以安装很多种流行的开发工具）</p>
+<p>sudo apt install ubuntu-make</p>
+<p>umake web visual-studio-code  ,会问你安装目录，回车即可，接受，完成安装，快捷方式会出现在快速启动栏，不过有个问题，我不懂如何命令行启动，这让我用的不舒服。</p>
+<p>umake -r web visual-studio-code   即可删除</p>
+<p>方法二：或者到微软的vscode网站  （下载地址）<a href="https://code.visualstudio.com/Download，即可安装，可以使用（" target="_blank" rel="noopener">https://code.visualstudio.com/Download，即可安装，可以使用（</a>  命令行输入code .  在任何目录中打开该编辑器，只用deb安装的可以命令行打开，其他不行） 推荐使用这种方法，bug最少，启动最方便</p>
+<p>方法三：或者直接下载一个.zip文件，双击一个叫code的可执行文件即可。</p>
+<p>感觉非常棒，但是换编辑器太花时间，而且atom已经用的比较习惯了，所以先放一放。</p>
+<p>如果不能安装成功，可以看一看参考<a href="http://os.51cto.com/art/201509/490032.htm" target="_blank" rel="noopener">Arun Pyasi的文章</a>，他写的更详细，网址<a href="http://os.51cto.com/art/201509/490032.htm" target="_blank" rel="noopener">http://os.51cto.com/art/201509/490032.htm</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BA%94%E7%94%A8%E5%AE%89%E8%A3%85/" rel="tag">应用安装</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2018/07/19/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/ubuntu%E5%AE%89%E8%A3%85vscode/&title=《Ubuntu 安装vs code》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2018/07/19/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/ubuntu%E5%AE%89%E8%A3%85vscode/&title=《Ubuntu 安装vs code》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2018/07/19/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/ubuntu%E5%AE%89%E8%A3%85vscode/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu 安装vs code》 — fannnnnn&url=http://lcf12307.github.io/2018/07/19/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/ubuntu%E5%AE%89%E8%A3%85vscode/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2018/07/19/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/ubuntu%E5%AE%89%E8%A3%85vscode/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/08/17/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%91%BD%E4%BB%A4-scp/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">linux命令-scp</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/07/18/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/ubuntu%E5%AE%89%E8%A3%85navicat/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Ubuntu Navicat for MySQL安装以及破解方案</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2018/07/19/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/ubuntu%E5%AE%89%E8%A3%85vscode/&title=《Ubuntu 安装vs code》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2018/07/19/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/ubuntu%E5%AE%89%E8%A3%85vscode/&title=《Ubuntu 安装vs code》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2018/07/19/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/ubuntu%E5%AE%89%E8%A3%85vscode/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu 安装vs code》 — fannnnnn&url=http://lcf12307.github.io/2018/07/19/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/ubuntu%E5%AE%89%E8%A3%85vscode/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2018/07/19/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/ubuntu%E5%AE%89%E8%A3%85vscode/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADKUlEQVR42u3aQW7jMBAEQP//0851Acd295BZWHTpFEQWxaIOA/bwdouv+z/X438e7z4+O3vXs5EfZ3L7iwsbGxv7Iuz7yythr4y5Tk3G+WWe2NjY2MexXxee1wUjX6Bnzybj58sXFVFsbGzsr2cnk0gKW7J8s2KGjY2NjZ0Ply9BEgDtLX7Y2NjY38OeAdq2Qb7ESSH8T1kaNjY29sez867o5//9J/1tbGxs7A9m38tr73mYpDSuzPbp27GxsbEPYrdBTz7FWfy0HmMV88fGxsY+iJ3HNEmcFEXzwcjtsrZHi7CxsbHPYK8UpPXGbVuQ2oL3ZgeGjY2NfRA7ednsuMxs/LZx297FxsbGPom9/vqc1x73yctk+wGwsbGxT2K3G4BZccq/wKwlXI+GjY2NfRw7n2hS2Nptya5QKX8XNjY29knsXW3dlYM4LXv2S2xsbOxT2bMCVhxtLDce642EaObY2NjYx7Fnjd48eMp/0y5HHjMNszRsbGzsj2fnhao9OtOOsH4AKFmaN00CbGxs7Muyk8dmpWIXqV3WvPRiY2NjX53dxkazUrGyECsF7OmY2NjY2Aex12P39XZCe+0KvLCxsbFPYudBf9tYXdmuzBrGs64uNjY29nXZyRAz0q67s0/yZmRsbGzsg9jtxmMWNrXlcOXtw+0HNjY29mXZyQZj1uLNR5gdDMqDreiYDjY2NvZl2W1M08bxKwuUf4xh6xcbGxv7a9izSGglqNrb7n0TKmFjY2MfxJ79vasEzhrJeR8bGxsb+3vYSXs132zkpWUltJo9i42NjX0eO2/ZtsdrkqA/j43aUrchS8PGxsa+FDuPhNqwaXb4ZsaOSik2Njb2cez2YGXbfM0L5GwT0h73xMbGxj6DfS+vWYFpJ5p8hg2NAWxsbOwj2LMC0JaffEuT89ptzKzsYWNjY1+F3Ratva3Z9UI1LGDY2NjYx7HXI/tdjd727iyWwsbGxv5mdr5tmLV12+3NbIbY2NjY2G0gtbJMuxZr2N/GxsbGvgi7PYKZbxJadhIP5VudDe0BbGxs7I9nz4rQeog/PEaTBEblnLGxsbEvy/4BGehKFZARtbMAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

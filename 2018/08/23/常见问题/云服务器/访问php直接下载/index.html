@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>访问php直接下载，而不是访问 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="php,linux,云服务器,nginx">
+    <meta name="description" content="遇到这种问题，首先确认你web服务器配置中的.php是不是被指定给FastCGI server处理：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="访问php直接下载，而不是访问">
+<meta property="og:url" content="http://lcf12307.github.io/2018/08/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%AE%BF%E9%97%AEphp%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="遇到这种问题，首先确认你web服务器配置中的.php是不是被指定给FastCGI server处理：">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-08-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.008Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="php">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="云服务器">
+<meta property="article:tag" content="nginx">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">访问php直接下载，而不是访问</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">访问php直接下载，而不是访问</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-08-22T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-08-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-常见问题/云服务器/访问php直接下载"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">访问php直接下载，而不是访问</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-23 00:00:00" datetime="2018-08-22T16:00:00.000Z"  itemprop="datePublished">2018-08-23 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>遇到这种问题，首先确认你web服务器配置中的.php是不是被指定给FastCGI server处理：</p>
+<a id="more"></a>
+
+<p>location ~ .php$ {<br>fastcgi_pass 127.0.0.1:9000;</p>
+<p>}</p>
+<p>如已配置，那么可能是由于fastcgi_script_name访问脚本路径不正确引起的。</p>
+<p>尤其是带有子目录的情况，比如对于Yii框架而言，路径通常是project/web</p>
+<p>那么如果在URL中访问 /project/index.php，那么nginx配置中的SCRIPT_NAME会是全路径：project/index.php</p>
+<p>如果你配置中的代码如下：</p>
+<p>fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</p>
+<p>那么实际访问的文件就是/var/site_root/project/web/project/index.php，这显然不是我们想要的结果，我们想访问的是/project/web/index.php。</p>
+<p>这些错误可以通过查看php-fpm.log（错误日志）来跟踪。</p>
+<p>解决方法是修改相应的路径配置。</p>
+<p>此时我们先在查看下错误日志 error.log，发现里面都是清一色的报错：</p>
+<p>connect() failed (111: Connection refused) while connecting to upstream ……   fastcgi://127.0.0.1:9000 ……</p>
+<p>提示的意思就是说连接不上9000端口，这就奇怪了，其实在平时配置nginx的server里面，大部分应该都是配置127.0.0.1:9000 作为分发端口。</p>
+<p>现在需要查看一下是否有监听9000端口：</p>
+<p>[root@izwz9glf2r6p2z8ytslvblz /]# netstat -ant | grep 9000<br>发现并没有监听到，但实际上我们的php-fpm已经启动，那现在怎么办呢？<br>我们去查看一下php-fpm.conf里面的配置：</p>
+<p>[root@izwz9glf2r6p2z8ytslvblz /]# vim /usr/local/php/etc/php-fpm.conf</p>
+<p>找到listen：<br><value name="listen_address">/tmp/php-cgi.sock</value></p>
+<p>此时我们需要根据配置文件的listen地址做对应的修改：</p>
+<p>location ~ .php$ {<br>fastcgi_pass 127.0.0.1:9000;<br>fastcgi_index index.php;<br>fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;<br>include fastcgi_params;</p>
+<p>}</p>
+<p>改成：<br>location ~ .php$ {<br>fastcgi_pass unix:/tmp/php-cgi.sock;<br>fastcgi_index index.php;<br>fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;<br>include fastcgi_params;<br>}</p>
+<p>重启nginx。访问成功。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">云服务器</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2018/08/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%AE%BF%E9%97%AEphp%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD/&title=《访问php直接下载，而不是访问》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2018/08/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%AE%BF%E9%97%AEphp%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD/&title=《访问php直接下载，而不是访问》 — fannnnnn&source=遇到这种问题，首先确认你web服务器配置中的.php是不是被指定给FastCGI server处理：" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2018/08/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%AE%BF%E9%97%AEphp%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《访问php直接下载，而不是访问》 — fannnnnn&url=http://lcf12307.github.io/2018/08/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%AE%BF%E9%97%AEphp%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2018/08/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%AE%BF%E9%97%AEphp%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/08/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/nginx403/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">nginx 403报错</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/08/17/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/linux%E5%91%BD%E4%BB%A4-scp/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">linux命令-scp</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2018/08/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%AE%BF%E9%97%AEphp%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD/&title=《访问php直接下载，而不是访问》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2018/08/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%AE%BF%E9%97%AEphp%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD/&title=《访问php直接下载，而不是访问》 — fannnnnn&source=遇到这种问题，首先确认你web服务器配置中的.php是不是被指定给FastCGI server处理：" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2018/08/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%AE%BF%E9%97%AEphp%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《访问php直接下载，而不是访问》 — fannnnnn&url=http://lcf12307.github.io/2018/08/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%AE%BF%E9%97%AEphp%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2018/08/23/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/%E8%AE%BF%E9%97%AEphp%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFLUlEQVR42u3dwWojSRAEUP//T+9eZ/FIjohsGRZen4ymVap6LVBUZsF8fcXXP39c31/5/q9/3pOP/+pdr8Z/P04y/vv5P3bhw4cPHz58Lyb3arj303oPl4yWfHrOl8x8+3L8ZTR8+PDhw4dv4kt+7HOIyyLbEZJxkseZf13w4cOHDx++3+R7FqUNDfmVFAW22eLDhw8fPny/w3fhTsoE90L8JULhw4cPHz58v8nX/vznxYI8LmxLyt/bftbDvQ58+PDhw4cvvraC+P/374cvfPjw4cOH71wWb0sDebFgi0d5iHmqJYAPHz58+PBNAuOhrnzzn9//bHjKH2FbbsCHDx8+fPg2vuTQWAuUFPfzh5Hfcz/oVj9yfPjw4cOHb+JLfuzviPn2/gJ6mVXLig8fPnz48LV8l419XlLPl9GGku1QWvtZdfrDhw8fPnz4yp1vG2Uum/xLlGlRLlg/tMnx4cOHDx++A19S7N4a2FtMaRfWNtS3leLDhw8fPnwbX0vZlsUvcaQtE1yK7y06Pnz48OHDd+HbmseXOy/HyPLSf1LEv7QE8OHDhw8fvpbvssFuC/qXg2Xt4i/BqDhmhw8fPnz48E18bcF6ixr565cWwjZOG2Lw4cOHDx++T/C1B9SSKW5j5rNq3xUFlCRJ4cOHDx8+fBNiO7mnyu7tyFtj/h656l4HPnz48OHDF/R580L5pdHeFt/fz2GLTXms+WqTFz58+PDhw1e2kNsAkW/a20b1Fjueev3lDPHhw4cPH76SL/+Zb991aZxfIsildtK2KPDhw4cPH76Wr/3xvmzd29L8vUOd841fAnz48OHDh2/JD+N/DnHf8CdNgss97cPI548PHz58+PC1fJd29aXRngeXNlgk87mU74uvJT58+PDhw1ceUMuX92zfYINo2wP3v/Hhw4cPH76Nbwsu2wGvnDUJEBvWJ1aEDx8+fPjwJe/aiubtnVsouY/ZttXrd+HDhw8fPnyHd20b+LygvzW886L5VoK/RDd8+PDhw4ev5csbzPe/23J/8q/tnfnaxyyDDx8+fPjwxXyXUJIvr85T8SY/L75vMn8ZDR8+fPjw4Tvw5Vv6nGbbnLft7acKH/Xq8OHDhw8fvmV1H8RqSxLb4bPLsbM8+oydB3z48OHDh29qSG9N5QSuLd+3B9020IISHz58+PDhi/naSJG/noMmbex7QaFugQeg+PDhw4cP38a3TWVrWo8TnQ7V3Yv4p8SHDx8+fPjwlSX7Zwvl+VGw7QHnRfntc4uMgw8fPnz48F02xsGgnysfXJrZ24N5rO6CDx8+fPjwfbsnDwGXe+6N9i1ktJErOSjwn9fx4cOHDx++ie+BhvFDRfl8o962vbci/g/Q+PDhw4cP34EvL3bnYeK+s24DTR0+phnWi8SHDx8+fPimKJAMlJcM8siyLSwB2o4O4MOHDx8+fBtfG0ouRfwt0LSFhuTOp0r8+PDhw4cP38bXbrbzwnoeRNorj005dx2q8OHDhw8fvjNfXkBPQsbWes8LAflatjLED/PBhw8fPnz4Sr42KGxN6DZePMW63X9pOeDDhw8fPnwJ370E3za8t2b81hh4Nrh8bYkJHz58+PDhmwrfbbGgjRdf5+tz4/9QsseHDx8+fPg+wLddl5HbmNXGkbYB8EDHHh8+fPjw4SuDy7bNfl80zxd2aZxv4/wQX/Dhw4cPH76Jry18t5Gl3bpfHszlEFsddPDhw4cPH759jxwVwd+/+X5ntFH/wHVv8OPDhw8fPnxv+f4FtZq6+ihRb5IAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

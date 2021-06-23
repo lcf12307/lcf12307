@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【常见问题】wine下的应用无法输入中文，解决办法 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="php,服务器">
+    <meta name="description" content="因为工作环境是linux，免不了用wine装微信等工具，但是支持不了中文，因此进行一下调研">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【常见问题】wine下的应用无法输入中文，解决办法">
+<meta property="og:url" content="http://lcf12307.github.io/2019/07/21/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/wine%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="因为工作环境是linux，免不了用wine装微信等工具，但是支持不了中文，因此进行一下调研">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-07-21T06:51:25.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.006Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="php">
+<meta property="article:tag" content="服务器">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【常见问题】wine下的应用无法输入中文，解决办法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【常见问题】wine下的应用无法输入中文，解决办法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-21T06:51:25.000Z" itemprop="datePublished" class="page-time">
+  2019-07-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-常见问题/wine应用无法输入中文"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【常见问题】wine下的应用无法输入中文，解决办法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-21 14:51:25" datetime="2019-07-21T06:51:25.000Z"  itemprop="datePublished">2019-07-21 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>因为工作环境是linux，免不了用wine装微信等工具，但是支持不了中文，因此进行一下调研</p>
+</blockquote>
+<a id="more"></a>
+
+<p>我用的搜狗输入法，属于fcitx框架。桌面是gnome3。</p>
+<p>解决方法：</p>
+<p>1、尝试设置环境变量</p>
+<p>export GTK_IM_MODULE=fcitx<br>export QT_IM_MODULE=fcitx<br>export XMODIFIERS=”@im=fcitx”<br>设置完后，尝试在当前终端下，用wine启动程序试试，如果可以就是环境变量的问题</p>
+<p>2、尝试以下命令</p>
+<p>gsettings set org.gnome.settings-daemon.plugins.keyboard active false<br>3、以上都不好使的情况下，放大招（偶然发现，我就是这么搞定的）</p>
+<p> 用wine打开程序后，发现不能正确切换到输入法，此时请重启fcitx服务，重启后，意外发现wine打开的程序中可以使用输入法了。而且执行一次后，后续用wine启动其他应用，都可以正常输入，好神奇。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2019/07/21/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/wine%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87/&title=《【常见问题】wine下的应用无法输入中文，解决办法》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2019/07/21/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/wine%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87/&title=《【常见问题】wine下的应用无法输入中文，解决办法》 — fannnnnn&source=
+因为工作环境是linux，免不了用wine装微信等工具，但是支持不了中文，因此进行一下调研
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2019/07/21/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/wine%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【常见问题】wine下的应用无法输入中文，解决办法》 — fannnnnn&url=http://lcf12307.github.io/2019/07/21/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/wine%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2019/07/21/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/wine%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/11/05/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E7%BC%93%E5%AD%98/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【第一课】缓存</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/24/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/bash%E5%BF%AB%E6%8D%B7%E9%94%AE/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">bash快捷键</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2019/07/21/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/wine%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87/&title=《【常见问题】wine下的应用无法输入中文，解决办法》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2019/07/21/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/wine%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87/&title=《【常见问题】wine下的应用无法输入中文，解决办法》 — fannnnnn&source=
+因为工作环境是linux，免不了用wine装微信等工具，但是支持不了中文，因此进行一下调研
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2019/07/21/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/wine%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【常见问题】wine下的应用无法输入中文，解决办法》 — fannnnnn&url=http://lcf12307.github.io/2019/07/21/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/wine%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2019/07/21/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/wine%E5%BA%94%E7%94%A8%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEjklEQVR42u3a24obOxAF0Pz/T8+BPB1I3OxdJYPlrH4ynralXh5Q3X79iq+f31f7+v/Xn/f8eeer9//86+yeV3s4dmHChAkTpo9k+nm8nglm35DsJPmR8tWfvy36LCZMmDBhupwp/7r8+N8czM8/RsL3zNp+ChMmTJgw/QtMLeXzoTs7pJPgYAaNCRMmTJgwtVe+3VmJOSn4zhJyTJgwYcL0fUz5o+YtyTYF3Rdn8zL0G2vhmDBhwoTpw5jeN7jz+a8/Yr4JEyZMmDC9jWmWym5Synz4Jgk1Ni3S4qkxYcKECdO1TElSOhvl2YzatKFJm8rOGpyYMGHChOleplmi2y65DzWS1Tffk/+7YMKECROmu5hmh2KSoOYPOfv+NhneNFwxYcKECdPtTEky2T5kHkxsHvXAwE0ChwkTJkyYrmWaBQHJ4b3JxZODfJ/W1riYMGHChOkqprxomwzQPC9/agCoHfpp0/t6ZAcTJkyYMF3C1Kays2Lr7J1ZejwbP/rLnZgwYcKE6Vqm/NbZ6Gebcp8d05m1VF9qYMKECROmy5nagu+pBuRs0+8bVx2WejFhwoQJ00cyzVqY+aHbDv3sU+W2FRo9IyZMmDBh+gqmWRCQpMptAHGqmNu2PF/uBBMmTJgwXcs0LHfGW2nLx/mxfWrEpy0KY8KECROmG5lW45uLNuRPfOWF3X3z9eWKmDBhwoTpQqbk8dpjNQkI8sO4HSdqQ5NodUyYMGHCdC1TnoLOxn32xdk8iW2Dm7YcjAkTJkyYbmSalTvbrWwKvrME+HBrExMmTJgwfRHT2eXzIOBsMTdJ3YtyNiZMmDBh+iKmPCBYLRw8fIvYNiyLtTBhwoQJ07VMszLoc/k1P8hPrdX+kMMVMWHChAnThUx54TU/jE8lwLOUO0+VixUxYcKECdO1TO3Cs2HQNp1uR3zaJmi7T0yYMGHC9E1MyQHZbnrWktyMELVF5+fVMWHChAnTdzC1R2+bvuYpZYs1a3wOU19MmDBhwnQV02bh/S8zCwKSIONUORgTJkyYMN3ONGtbtmXT52Q4z8tPtVdz6Jf/U5gwYcKE6SqmUwXQFqVNgGcP2Q701BVxTJgwYcL08UxtWXZ2eLetzXat/Y8dxU2YMGHChOlaptkxPxvlSV7PEu92FKn4LCZMmDBhupCpTWvPtgn3jdIkmJiFKXUWjgkTJkyYPp4p31B+6OaPsS8Qz1Lo5B1MmDBhwnQ7U77RU4XgffG3DSnaIvVfUl9MmDBhwnQ5U3u45svPSrrvSLyHIQsmTJgwYbqWKW9ebl5vjuR9cJDspy15Y8KECROmW5h+yms/XvN8Z8J3tuBbTzZhwoQJE6armPJr1obcBxltUt22MGc/FSZMmDBhuovp1JDN/nW7bt7CzEMKTJgwYcL0rUztGE2S9Cbv5IFIu5NZKbn+MyZMmDBh+iKm2VhMngbnrLPwZTZ4hAkTJkyY/k2mvBE4o8mHb2bo9YgPJkyYMGG6nKktob7jAN40I9sDvm6gYsKECROma5k2gzv5l+ZjPW3w0YYR+9IzJkyYMGG6hOk/0KAHFyEkzu4AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

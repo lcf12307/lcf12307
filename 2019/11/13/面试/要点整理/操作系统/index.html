@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【第一课】操作系统 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="linux">
+    <meta name="description" content="本篇文章主要就操作系统的常见面试题进行了讨论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【第一课】操作系统">
+<meta property="og:url" content="http://lcf12307.github.io/2019/11/13/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="本篇文章主要就操作系统的常见面试题进行了讨论">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-11-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.013Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【第一课】操作系统</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【第一课】操作系统</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-12T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-11-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程同步"><span class="post-toc-number">1.</span> <span class="post-toc-text">进程同步</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#死锁是指多个进程在运行过程中，因为争夺资源而造成的一种僵局，如果没有外力推进，处于僵局中的进程就无法继续执行。"><span class="post-toc-number">2.</span> <span class="post-toc-text">死锁是指多个进程在运行过程中，因为争夺资源而造成的一种僵局，如果没有外力推进，处于僵局中的进程就无法继续执行。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进程调度算法"><span class="post-toc-number">3.</span> <span class="post-toc-text">进程调度算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分段分页"><span class="post-toc-number">4.</span> <span class="post-toc-text">分段分页</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#页面置换算法"><span class="post-toc-number">5.</span> <span class="post-toc-text">页面置换算法</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-面试/要点整理/操作系统"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【第一课】操作系统</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-11-13 00:00:00" datetime="2019-11-12T16:00:00.000Z"  itemprop="datePublished">2019-11-13 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>本篇文章主要就操作系统的常见面试题进行了讨论</p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h3><p>同步机制需要遵循的原则：</p>
+<ol>
+<li><p>空闲让进：当没有进程处于临界区的时候，应该许可其他进程进入临界区的申请</p>
+</li>
+<li><p>忙则等待：当前如果有进程处于临界区，如果有其他进程申请进入，则必须等待，保证对临界区的互斥访问</p>
+</li>
+<li><p>有限等待：对要求访问临界资源的进程，需要在有限时间内进入临界区，防止出现死等</p>
+</li>
+<li><p>让权等待：当进程无法进入临界区的时候，需要释放处理机，边陷入忙等</p>
+</li>
+</ol>
+<h3 id="死锁是指多个进程在运行过程中，因为争夺资源而造成的一种僵局，如果没有外力推进，处于僵局中的进程就无法继续执行。"><a href="#死锁是指多个进程在运行过程中，因为争夺资源而造成的一种僵局，如果没有外力推进，处于僵局中的进程就无法继续执行。" class="headerlink" title="死锁是指多个进程在运行过程中，因为争夺资源而造成的一种僵局，如果没有外力推进，处于僵局中的进程就无法继续执行。"></a>死锁是指多个进程在运行过程中，因为争夺资源而造成的一种僵局，如果没有外力推进，处于僵局中的进程就无法继续执行。</h3><p>死锁原因：</p>
+<ol>
+<li>竞争资源：请求同一有限资源的进程数多于可用资源数</li>
+<li>进程推进顺序非法：进程执行中，请求和释放资源顺序不合理，如资源等待链</li>
+</ol>
+<p>死锁产生的必要条件：</p>
+<ol>
+<li>互斥条件:进程对所分配的资源进行排他性的使用</li>
+<li>请求和保持条件：进程被阻塞的时候并不释放锁申请到的资源</li>
+<li>不可剥夺条件：进程对于已经申请到的资源在使用完成之前不可以被剥夺</li>
+<li>环路等待条件：发生死锁的时候存在的一个 进程-资源 环形等待链</li>
+</ol>
+<p>死锁处理：</p>
+<ol>
+<li><p>预防死锁：破坏产生死锁的4个必要条件中的一个或者多个；实现起来比较简单，但是如果限制过于严格会降低系统资源利用率以及吞吐量</p>
+</li>
+<li><p>避免死锁：在资源的动态分配中，防止系统进入不安全状态(可能产生死锁的状态)-如银行家算法</p>
+</li>
+<li><p>检测死锁：允许系统运行过程中产生死锁，在死锁发生之后，采用一定的算法进行检测，并确定与死锁相关的资源和进程，采取相关方法清除检测到的死锁。实现难度大</p>
+</li>
+<li><p>解除死锁：与死锁检测配合，将系统从死锁中解脱出来（撤销进程或者剥夺资源）。对检测到的和死锁相关的进程以及资源，通过撤销或者挂起的方式，释放一些资源并将其分配给处于阻塞状态的进程，使其转变为就绪态。实现难度大</p>
+</li>
+</ol>
+<h3 id="进程调度算法"><a href="#进程调度算法" class="headerlink" title="进程调度算法"></a>进程调度算法</h3><p>先来先服务调度算法FCFS：既可以作为作业调度算法也可以作为进程调度算法；按作业或者进程到达的先后顺序依次调度；因此对于长作业比较有利；</p>
+<p>短作业优先调度算法SJF：作业调度算法，算法从就绪队列中选择估计时间最短的作业进行处理，直到得出结果或者无法继续执行；缺点：不利于长作业；未考虑作业的重要性；运行时间是预估的，并不靠谱 ；</p>
+<p>高相应比算法HRN：响应比=(等待时间+要求服务时间)/要求服务时间；</p>
+<p>时间片轮转调度RR：按到达的先后对进程放入队列中，然后给队首进程分配CPU时间片，时间片用完之后计时器发出中断，暂停当前进程并将其放到队列尾部，循环 ;</p>
+<p>多级反馈队列调度算法：目前公认较好的调度算法；设置多个就绪队列并为每个队列设置不同的优先级，第一个队列优先级最高，其余依次递减。优先级越高的队列分配的时间片越短，进程到达之后按FCFS放入第一个队列，如果调度执行后没有完成，那么放到第二个队列尾部等待调度，如果第二次调度仍然没有完成，放入第三队列尾部…。只有当前一个队列为空的时候才会去调度下一个队列的进程。</p>
+<h3 id="分段分页"><a href="#分段分页" class="headerlink" title="分段分页"></a>分段分页</h3><p>页是信息的物理单位，是出于系统内存利用率的角度提出的离散分配机制；段是信息的逻辑单位，每个段含有一组意义完整的信息，是出于用户角度提出的内存管理机制</p>
+<p>页的大小是固定的，由系统决定；段的大小是不确定的，由用户决定</p>
+<p>分页是为了提高内存利用率，而分段是为了满足程序员在编写代码的时候的一些逻辑需求(比如数据共享，数据保护，动态链接等)。</p>
+<p>为了减少两次访问内存导致的效率影响，分页管理中引入了快表机制，包含快表机制的内存管理中，当要访问内存数据的时候，首先将页号在快表中查询，如果查找到说明要访问的页表项在快表中，那么直接从快表中读取相应的物理块号；如果没有找到，那么访问内存中的页表，从页表中得到物理地址，同时将页表中的该映射表项添加到快表中(可能存在快表换出算法)。</p>
+<h3 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h3><p>最佳置换算法：只具有理论意义的算法，用来评价其他页面置换算法。置换策略是将当前页面中在未来最长时间内不会被访问的页置换出去。</p>
+<p>先进先出置换算法：简单粗暴的一种置换算法，没有考虑页面访问频率信息。每次淘汰最早调入的页面。</p>
+<p>最近最久未使用算法LRU：算法赋予每个页面一个访问字段，用来记录上次页面被访问到现在所经历的时间t，每次置换的时候把t值最大的页面置换出去(实现方面可以采用寄存器或者栈的方式实现)。</p>
+<p>时钟算法clock(也被称为是最近未使用算法NRU)：页面设置一个访问位，并将页面链接为一个环形队列，页面被访问的时候访问位设置为1。页面置换的时候，如果当前指针所指页面访问为为0，那么置换，否则将其置为0，循环直到遇到一个访问为位0的页面。</p>
+<p>改进型Clock算法：在Clock算法的基础上添加一个修改位，替换时根究访问位和修改位综合判断。优先替换访问位和修改位都是0的页面，其次是访问位为0修改位为1的页面。</p>
+<p>最少使用算法LFU：设置寄存器记录页面被访问次数，每次置换的时候置换当前访问次数最少的。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2019/11/13/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/&title=《【第一课】操作系统》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2019/11/13/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/&title=《【第一课】操作系统》 — fannnnnn&source=
+本篇文章主要就操作系统的常见面试题进行了讨论
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2019/11/13/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【第一课】操作系统》 — fannnnnn&url=http://lcf12307.github.io/2019/11/13/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2019/11/13/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/11/14/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【第一课】设计模式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/11/13/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E9%A2%98/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【第一课】系统设计题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2019/11/13/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/&title=《【第一课】操作系统》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2019/11/13/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/&title=《【第一课】操作系统》 — fannnnnn&source=
+本篇文章主要就操作系统的常见面试题进行了讨论
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2019/11/13/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【第一课】操作系统》 — fannnnnn&url=http://lcf12307.github.io/2019/11/13/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2019/11/13/%E9%9D%A2%E8%AF%95/%E8%A6%81%E7%82%B9%E6%95%B4%E7%90%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEj0lEQVR42u3aS27bQBAFQN3/0s7WgCH5vW4Z4VDFVSBT4kwxQE9/Ho/4+vp2Pcrr+7d+/s7P3/x6eb3+5dkT33ZhwoQJE6ZLMiXLev1J8t2Er/1rTpO8ttevBBMmTJgwnc7UbmO26ORgkbyk1+ufHSN+McGECRMmTB/MlC86T03zq02zMWHChAkTpjZwtsG7RX+NsrkHEyZMmDB9DlP+c/sUtL1z9jub38eECRMmTHdimg3f3OPffzLfhAkTJkyYLsO0KaduDhNJYG5LybPRnGjXmDBhwoTpWKY8QG4QZ1ttk+pZgzMfHsKECRMmTCcytaG6bUzOyqntPRvKaKwHEyZMmDDdiOm9R4TkoJBz//Vqnx5BMGHChAnT4UxJUNyE1eSV5CF/NtzTfv7Il4IJEyZMmC7MtDkWREljnMrmq0qKv+2dUbkZEyZMmDAdyLQppyZF1faIkBRt20PG/rCCCRMmTJjOZcq/nIfb1/fMyr7vPbIU6W6yAUyYMGHCdGGmPEi3pdVkS7PAPFtV+1/hadcXEyZMmDDdgqn9vI2k+3bmrDQ8TNcxYcKECdMtmPLS7WYsJt9MnkK3g0fJ7p4eCDBhwoQJ07FMbTl1to1k6bPxmiFB8hRMmDBhwnQ406aMO0uMZ+3JPCXOS71Rao0JEyZMmA5nasN/jrsZ3MlD+76w+8vRBBMmTJgwHc6Ubzg/FmxC8mZGtOWI0mlMmDBhwnQ4U552Ji3MtsXYPmuz5tm+MGHChAnTPZhmHLMgvaffBP68tYkJEyZMmE5nyku9SdE2T0FnRd4ZTT2m084QYcKECROmyzPl4y8zsqRxmP+1bbLmz6pbm5gwYcKE6RCmNigmJdr8nkd51c3Id+0LEyZMmDAdyNQmpe8q8ubl1/eO9QzL0JgwYcKE6XCmWQraEsw2lpSe2wJx+x8FEyZMmDCdy7RJCPOybxKGZ1j5J3mSPITDhAkTJkyXZMpD6X708zViO4iTHzXag0hdV8aECRMmTBdmyku3yV9nRd59Kp4fEdpvFeM7mDBhwoTpEKYcpW1A7sdPkyPFrLxbHCwwYcKECdOBTLPSahu8k8VtIGaHjzzxxoQJEyZMd2Katf02cO0AUL3JeJAoqg1gwoQJE6ajmDbJYZ76bqaH/lejtGhwYsKECROmSzJtmoVtobYNw+1Ro31JxQvAhAkTJkw3Ymrbk/tg3Baa80Jw8tzoTkyYMGHCdDjTLL3Maf7iENCC5sNDURUcEyZMmDAdyNSG9lkZd/Ya8qQ9f2KRrmPChAkTpmOZ9mXf2eaLBQUo7XP3d2LChAkTplOY9mMubcLZJp+z15a8nqJBiwkTJkyYjmXKr7ZZmBdz86NGnujmye2szI0JEyZMmM5imo3s7Ad62iA9a4u2HE/3ggkTJkyYDmeatRXz+xOstvzavoD2KZgwYcKE6TOZ8uRz1qpsDyVtWj5r5WLChAkTpk9marfXNh3fOzyUr//NBwJMmDBhwvRfmfYhdjPQk/9OvpLN0WHVzsSECRMmTBdj2pRZ25Jum+jOQv5sJbPUHRMmTJgwXZjpH+SagtNu62fdAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

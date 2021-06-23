@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【面试复盘】作业帮面试 | fannnnnn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="复盘">
+    <meta name="description" content="小结1作业帮的面试相对会问很多业务相关的东西， 并且会有很多mysql的代码提问    一面在数据库主库和从库不一致的时候，怎么保证数据正确 读写都在主库 在写入sql的时候，同时更新缓存，过期时间可以根据自己的经验设置 数据库中间件 （成本较高）读取走读库， 写走写库， 判断如果这个key最近修改过， 也走写库  怎么保证数据库和redis数据一致性 延时双删 超时时间内还是会有问题 异步更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【面试复盘】作业帮面试">
+<meta property="og:url" content="http://lcf12307.github.io/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E4%BD%9C%E4%B8%9A%E5%B8%AE%E9%9D%A2%E8%AF%95/index.html">
+<meta property="og:site_name" content="fannnnnn">
+<meta property="og:description" content="小结1作业帮的面试相对会问很多业务相关的东西， 并且会有很多mysql的代码提问    一面在数据库主库和从库不一致的时候，怎么保证数据正确 读写都在主库 在写入sql的时候，同时更新缓存，过期时间可以根据自己的经验设置 数据库中间件 （成本较高）读取走读库， 写走写库， 判断如果这个key最近修改过， 也走写库  怎么保证数据库和redis数据一致性 延时双删 超时时间内还是会有问题 异步更新">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:55:01.009Z">
+<meta property="article:author" content="chavey Liu">
+<meta property="article:tag" content="复盘">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="fannnnnn" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">chavey Liu</h5>
+          <a href="mailto:lcf12307@sina.com" title="lcf12307@sina.com" class="mail">lcf12307@sina.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/lcf12307" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【面试复盘】作业帮面试</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【面试复盘】作业帮面试</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-02-24T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2020-02-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小结"><span class="post-toc-number">1.</span> <span class="post-toc-text">小结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一面"><span class="post-toc-number">2.</span> <span class="post-toc-text">一面</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在数据库主库和从库不一致的时候，怎么保证数据正确"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">在数据库主库和从库不一致的时候，怎么保证数据正确</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#怎么保证数据库和redis数据一致性"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">怎么保证数据库和redis数据一致性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#rabbitMQ比redis作为消息队列的优点"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">rabbitMQ比redis作为消息队列的优点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#mysql的锁的类型"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">mysql的锁的类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事务隔离的级别"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">事务隔离的级别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下面代码关键字的执行顺序"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">下面代码关键字的执行顺序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#怎么保证增减积分的时候不会多扣"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">怎么保证增减积分的时候不会多扣</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#git-cherry-pick"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">git cherry-pick</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反向代理"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">反向代理</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二面"><span class="post-toc-number">3.</span> <span class="post-toc-text">二面</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#rabbitMQ是一种怎么样的形式，-推还是订阅"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">rabbitMQ是一种怎么样的形式， 推还是订阅</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#联合索引的执行顺序"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">联合索引的执行顺序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么要使用联合索引"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">为什么要使用联合索引</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#like能否用索引-呢-in呢"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">like能否用索引 !&#x3D;呢 in呢</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分段有序的数组，-查找指定数"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">分段有序的数组， 查找指定数</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-面试/复盘/2.25作业帮面试"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【面试复盘】作业帮面试</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-02-25 00:00:00" datetime="2020-02-24T16:00:00.000Z"  itemprop="datePublished">2020-02-25 </time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">作业帮的面试相对会问很多业务相关的东西， 并且会有很多mysql的代码提问</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><h3 id="在数据库主库和从库不一致的时候，怎么保证数据正确"><a href="#在数据库主库和从库不一致的时候，怎么保证数据正确" class="headerlink" title="在数据库主库和从库不一致的时候，怎么保证数据正确"></a>在数据库主库和从库不一致的时候，怎么保证数据正确</h3><ul>
+<li>读写都在主库</li>
+<li>在写入sql的时候，同时更新缓存，过期时间可以根据自己的经验设置</li>
+<li>数据库中间件 （成本较高）读取走读库， 写走写库， 判断如果这个key最近修改过， 也走写库</li>
+</ul>
+<h3 id="怎么保证数据库和redis数据一致性"><a href="#怎么保证数据库和redis数据一致性" class="headerlink" title="怎么保证数据库和redis数据一致性"></a>怎么保证数据库和redis数据一致性</h3><ul>
+<li>延时双删 超时时间内还是会有问题</li>
+<li>异步更新 binlog增量订阅 + 消息队列 + 更新redis</li>
+</ul>
+<h3 id="rabbitMQ比redis作为消息队列的优点"><a href="#rabbitMQ比redis作为消息队列的优点" class="headerlink" title="rabbitMQ比redis作为消息队列的优点"></a>rabbitMQ比redis作为消息队列的优点</h3><h3 id="mysql的锁的类型"><a href="#mysql的锁的类型" class="headerlink" title="mysql的锁的类型"></a>mysql的锁的类型</h3><h3 id="事务隔离的级别"><a href="#事务隔离的级别" class="headerlink" title="事务隔离的级别"></a>事务隔离的级别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">数据库提供的四种隔离级别：</span><br><span class="line">01：Read uncommitted(读未提交)：最低级别，任何情况都会发生。</span><br><span class="line">02：Read Committed(读已提交)：可避免脏读的发生。</span><br><span class="line">03：Repeatable read(可重复读)：可避免脏读、不可重复读的发生。</span><br><span class="line">04：Serializable(串行化)：避免脏读、不可重复读，幻读的发生。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="下面代码关键字的执行顺序"><a href="#下面代码关键字的执行顺序" class="headerlink" title="下面代码关键字的执行顺序"></a>下面代码关键字的执行顺序</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">tables</span> <span class="keyword">where</span> <span class="literal">true</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span> <span class="keyword">limit</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="怎么保证增减积分的时候不会多扣"><a href="#怎么保证增减积分的时候不会多扣" class="headerlink" title="怎么保证增减积分的时候不会多扣"></a>怎么保证增减积分的时候不会多扣</h3><ul>
+<li>消息队列</li>
+<li>设锁（悲观锁）</li>
+<li>where </li>
+</ul>
+<h3 id="git-cherry-pick"><a href="#git-cherry-pick" class="headerlink" title="git cherry-pick"></a>git cherry-pick</h3><h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2><h3 id="rabbitMQ是一种怎么样的形式，-推还是订阅"><a href="#rabbitMQ是一种怎么样的形式，-推还是订阅" class="headerlink" title="rabbitMQ是一种怎么样的形式， 推还是订阅"></a>rabbitMQ是一种怎么样的形式， 推还是订阅</h3><h3 id="联合索引的执行顺序"><a href="#联合索引的执行顺序" class="headerlink" title="联合索引的执行顺序"></a>联合索引的执行顺序</h3><p>最左匹配原则</p>
+<h3 id="为什么要使用联合索引"><a href="#为什么要使用联合索引" class="headerlink" title="为什么要使用联合索引"></a>为什么要使用联合索引</h3><ul>
+<li>减少开销 建一个联合索引等于建很多索引</li>
+<li></li>
+</ul>
+<h3 id="like能否用索引-呢-in呢"><a href="#like能否用索引-呢-in呢" class="headerlink" title="like能否用索引 !=呢 in呢"></a>like能否用索引 !=呢 in呢</h3><ul>
+<li><p>like的前模糊和全模糊不会走索引 即 %j j j 或%j j j%</p>
+</li>
+<li><p>使用&lt;&gt; 或者 != 也不走索引</p>
+</li>
+<li><p>in走索引</p>
+</li>
+</ul>
+<h3 id="分段有序的数组，-查找指定数"><a href="#分段有序的数组，-查找指定数" class="headerlink" title="分段有序的数组， 查找指定数"></a>分段有序的数组， 查找指定数</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 二分法</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">findX</span><span class="params">(x <span class="keyword">int</span>, a []<span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">  l, r := <span class="number">0</span>, <span class="built_in">len</span>(a)<span class="number">-1</span></span><br><span class="line">  <span class="keyword">for</span> l &lt; r &#123;</span><br><span class="line">    mid = l + (r-l)/<span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> a[mid] == x &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> a[mid<span class="number">-1</span>] &gt; a[l] &#123;</span><br><span class="line">      <span class="keyword">if</span> a[mid - <span class="number">1</span>] &gt; x &amp;&amp; x &gt; a[l] &#123;</span><br><span class="line">      	r= mid <span class="number">-1</span> </span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        l = mid + <span class="number">1</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> a[mid+<span class="number">1</span>] &lt; x &amp;&amp; x &lt; a[r] &#123;</span><br><span class="line">        l = mid + <span class="number">1</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        r = mid - <span class="number">1</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        行到水穷处，坐看云起时
+        
+    </div>
+    
+    <footer>
+        <a href="http://lcf12307.github.io">
+            <img src="/img/avatar.jpg" alt="chavey Liu">
+            chavey Liu
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%8D%E7%9B%98/" rel="tag">复盘</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E4%BD%9C%E4%B8%9A%E5%B8%AE%E9%9D%A2%E8%AF%95/&title=《【面试复盘】作业帮面试》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E4%BD%9C%E4%B8%9A%E5%B8%AE%E9%9D%A2%E8%AF%95/&title=《【面试复盘】作业帮面试》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E4%BD%9C%E4%B8%9A%E5%B8%AE%E9%9D%A2%E8%AF%95/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【面试复盘】作业帮面试》 — fannnnnn&url=http://lcf12307.github.io/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E4%BD%9C%E4%B8%9A%E5%B8%AE%E9%9D%A2%E8%AF%95/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E4%BD%9C%E4%B8%9A%E5%B8%AE%E9%9D%A2%E8%AF%95/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/02/27/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.27%E7%9F%A5%E4%B9%8E%E9%9D%A2%E8%AF%95/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【面试复盘】映客面试</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E6%9D%A5%E4%B9%9F%E9%9D%A2%E8%AF%95/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【面试复盘】来也面试</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>chavey Liu &copy; 2020 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://lcf12307.github.io/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E4%BD%9C%E4%B8%9A%E5%B8%AE%E9%9D%A2%E8%AF%95/&title=《【面试复盘】作业帮面试》 — fannnnnn&pic=http://lcf12307.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://lcf12307.github.io/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E4%BD%9C%E4%B8%9A%E5%B8%AE%E9%9D%A2%E8%AF%95/&title=《【面试复盘】作业帮面试》 — fannnnnn&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://lcf12307.github.io/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E4%BD%9C%E4%B8%9A%E5%B8%AE%E9%9D%A2%E8%AF%95/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【面试复盘】作业帮面试》 — fannnnnn&url=http://lcf12307.github.io/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E4%BD%9C%E4%B8%9A%E5%B8%AE%E9%9D%A2%E8%AF%95/&via=http://lcf12307.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://lcf12307.github.io/2020/02/25/%E9%9D%A2%E8%AF%95/%E5%A4%8D%E7%9B%98/2.25%E4%BD%9C%E4%B8%9A%E5%B8%AE%E9%9D%A2%E8%AF%95/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEcklEQVR42u3aS47bMBAFwLn/pR0gqwCBjfe65cSUiytjLFlkaQCyPz8/8Xj8Hn9+fjZ+ytHe+/f1z+aWXH/xwIQJEyZMH8mULPvvn07+0nLk17ye+ev5DF85JkyYMGE6nKn9uXb3nC0yP3Y8+/b1X5K1Y8KECROm72HaBMwzmpbsqjAYEyZMmDB9J1M+ufzXNindZA778BgTJkyYMN2DabZVJ1vvPlROnpsfBd6eC8eECRMmTB/GNGvcucfnt/c3YcKECROm/8r0KMc7NvJ9+TMneIwGJkyYMGE6lylpbcnTvjOUWUG0LZe2QXI9FUyYMGHC9JFM7U/MguQ2tbovYc5KoU9fCSZMmDBhOpwpv20WXq6mWKZok+A5R8SECRMmTKczzYLbfHKzVpt8qfn82zItJkyYMGG6B9PMMk/s5kFpu4DZTNp7V/9ymDBhwoTpA5jyNpri58qAtuVuDyVXJXwxYcKECdO5TJuGmFmCuG0MuqpVaEaPCRMmTJjOZcpLerP0bpL8TRYwC7D3B5SiAwgTJkyYMH0kUxIEbpK2m616dgjIufMSLCZMmDBhOpcpv/mqRplZW89VZMNSLiZMmDBhugXTppVnn5bNDw3tC76gaIoJEyZMmA5nSoLV9nNbdLxqC78K9ydHwYQJEyZMH8w0u3mfzM3Tr3nDzWM0hrVfTJgwYcJ0ONO+BadtPI1aZ4I9+qrtHxMmTJgw3YMpmUpSyJw1leZPacPmvBwbBdiYMGHChOlYprYYmW/G+VLzhG/yxM0xok71YsKECROmQ5ja29p2mWQZeTJ31rhTbPmYMGHChOl2TO2B4FqCfSjbcqzCZkyYMGHCdCDTrIi4D1+vTfJuEruYMGHChOmuTLNWm5yvDY/3oPnhpjjWYMKECROmY5mKU8MiSZpj5dckLUTtfJKDCCZMmDBhOospuWiT9t0cGtr5tPRFwhoTJkyYMN2aafPtZorJt7MGo/aJmDBhwoTpXKZZQvaqBcwWmaRiN4eVp2vEhAkTJkwHMkUb4ctJJCHopvSYv4Acrk5bY8KECROmWzDNkrCzCuqmgWYfTrcFV0yYMGHCdDrTfnJt68+smWYTHq9Cd0yYMGHCdCOmPDRtA8g2zfq+dHAdomPChAkTphsx5YvJOZLg9hGMokI7SkY/XRcmTJgwYboF06ZFpoVoX1KbSr42JY0JEyZMmO7NlBwF2rRpTj9DvzjhiwkTJkyYbsGUb65JeDwrcG62/1ngnbwMTJgwYcJ0LlP7+M2k/w10nvDNE9mYMGHChOlcpkc58iBzFrjO0rhtsbMN8jFhwoQJ07lMm3PEfqvOP7eB7iy4TfgwYcKECdOJTLNDwKbQOGsb2s8zD+8xYcKECdP9mJI2nVlydnM2eUdY2yaIMWHChAnT9zBtyof58towtQ2YV0VNTJgwYcL0BUztASJJ/m628/yVtIcJTJgwYcJ0J6bNhv2O48K+cWcT2GPChAkTpjsxzTbdNhxtG3qSAmpO1r7+4cCECRMmTJ/F9AuJK4LTLYrQoAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '等你回来！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
